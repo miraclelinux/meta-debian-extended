@@ -1,0 +1,41 @@
+This README file contains information on the contents of the debian-extended layer.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  URI: <first dependency>
+  branch: <branch name>
+
+  URI: <second dependency>
+  branch: <branch name>
+
+  .
+  .
+  .
+
+Patches
+=======
+
+Please submit any patches against the debian-extended layer to the xxxx mailing list (xxxx@zzzz.org)
+and cc: the maintainer:
+
+Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+
+Table of Contents
+=================
+
+  I. Adding the debian-extended layer to your build
+ II. Misc
+
+
+I. Adding the meta-debian-extend layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer debian-extended'
+
+II. Misc
+========
+
+--- replace with specific information about the debian-extended layer ---
