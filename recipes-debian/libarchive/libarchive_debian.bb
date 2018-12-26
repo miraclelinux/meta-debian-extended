@@ -8,7 +8,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=ed99aca006bc346974bb745a35336425"
 inherit debian-package
 require recipes-debian/sources/libarchive.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/libarchive/libarchive"
-DEBIAN_QUILT_PATCHES = ""
 
 DEPENDS = "e2fsprogs-native"
 
