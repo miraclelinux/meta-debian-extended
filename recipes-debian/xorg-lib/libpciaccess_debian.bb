@@ -10,6 +10,7 @@ SRC_URI = ""
 inherit debian-package
 require recipes-debian/sources/libpciaccess.inc
 DEBIAN_PATCH_TYPE = "nopatch"
+FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/xorg-lib/libpciaccess"
 
 SRC_URI += "\
             file://0004-Don-t-include-sys-io.h-on-arm.patch \
