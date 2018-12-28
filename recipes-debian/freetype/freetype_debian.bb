@@ -7,13 +7,24 @@ HOMEPAGE = "http://www.freetype.org/"
 BUGTRACKER = "https://savannah.nongnu.org/bugs/?group=freetype"
 SECTION = "libs"
 
-
 inherit debian-package
 # Note: need to add subdir= option to orig-ft2demos.tar.gz and orig-ft2docs.tar.gz.
 # name=freetype_2.9.1.orig-ft2demos.tar.gz;subdir=ft2demos
 # name=freetype_2.9.1.orig-ft2docs.tar.gz;subdir=ft2docs
 require recipes-debian/sources/freetype.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/freetype/freetype"
+
+# debug
+DEBIAN_SRC_URI = " \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1-3.dsc;name=freetype_2.9.1-3.dsc \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz;name=freetype_2.9.1.orig-ft2demos.tar.gz;subdir=ft2demos \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz.asc;name=freetype_2.9.1.orig-ft2demos.tar.gz.asc \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz;name=freetype_2.9.1.orig-ft2docs.tar.gz;subdir=ft2docs \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz.asc;name=freetype_2.9.1.orig-ft2docs.tar.gz.asc \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig.tar.gz;name=freetype_2.9.1.orig.tar.gz \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig.tar.gz.asc;name=freetype_2.9.1.orig.tar.gz.asc \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1-3.debian.tar.xz;name=freetype_2.9.1-3.debian.tar.xz \
+"
 
 LICENSE = "FreeType | GPLv2+"
 LIC_FILES_CHKSUM = "file://docs/LICENSE.TXT;md5=4af6221506f202774ef74f64932878a1 \
