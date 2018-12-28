@@ -23,7 +23,7 @@ SRC_URI += "file://run-ptest \
 #            file://0001-Drop-introspection-macros-from-acinclude.m4.patch 
 #            file://0001-Enforce-recreation-of-docs-pango.types-it-is-build-c.patch 
 
-DEPENDS = "glib-2.0 glib-2.0-native fontconfig freetype virtual/libiconv cairo harfbuzz"
+DEPENDS = "glib-2.0 glib-2.0-native fontconfig freetype virtual/libiconv cairo harfbuzz fribidi"
 
 PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)}"
 PACKAGECONFIG[x11] = "--with-xft,--without-xft,virtual/libx11 libxft"
