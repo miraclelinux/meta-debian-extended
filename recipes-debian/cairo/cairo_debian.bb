@@ -80,6 +80,8 @@ to replay rendering."
 
 DESCRIPTION_cairo-perf-utils = "The Cairo library performance utilities"
 
+INSANE_SKIP_${PN}-dev += "dev-elf"
+
 FILES_${PN} = "${libdir}/libcairo.so.*"
 FILES_${PN}-gobject = "${libdir}/libcairo-gobject.so.*"
 FILES_${PN}-script-interpreter = "${libdir}/libcairo-script-interpreter.so.*"
