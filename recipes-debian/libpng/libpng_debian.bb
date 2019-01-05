@@ -2,9 +2,9 @@ SUMMARY = "PNG image format decoding library"
 HOMEPAGE = "http://www.libpng.org/"
 SECTION = "libs"
 LICENSE = "Libpng"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2db717a05a20e36f2fa673265bd31568\
-                    file://png.h;endline=144;md5=3ac9fd250a8786ae581e34254bf79429\
-                    "
+LIC_FILES_CHKSUM = "file://LICENSE;md5=12b4ec50384c800bc568f519671b120c \
+                    file://png.h;endline=144;md5=15ae15f53376306868259924a9db4e05 \
+"
 DEPENDS = "zlib"
 
 inherit debian-package
