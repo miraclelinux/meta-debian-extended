@@ -17,7 +17,6 @@ SRC_URI += " \
            file://0002-Fix-elf_cvt_gunhash-if-dest-and-src-are-same.patch \
            file://0003-fixheadercheck.patch \
            file://0004-Disable-the-test-to-convert-euc-jp.patch \
-           file://0005-fix-a-stack-usage-warning.patch \
            file://0006-Fix-build-on-aarch64-musl.patch \
            file://0001-libasm-may-link-with-libbz2-if-found.patch \
            file://0001-libelf-elf_end.c-check-data_list.data.d.d_buf-before.patch \
@@ -38,6 +37,7 @@ SRC_URI += " \
 # file://CVE-2018-16062.patch 
 # file://0001-libdw-Check-end-of-attributes-list-consistently.patch 
 # file://0002-libelf-Return-error-if-elf_compress_gnu-is-used-on-S.patch 
+# file://0005-fix-a-stack-usage-warning.patch
 
 SRC_URI_append_libc-musl = " file://0008-build-Provide-alternatives-for-glibc-assumptions-hel.patch"
 
