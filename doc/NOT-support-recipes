@@ -1,0 +1,25 @@
+The following recipes are for OE only, or not provided by Debian.
+So we need to use OE/Poky recipe.
+
+---------
+alsa-state
+core-image-x11
+cross-localedef
+depmodwrappear
+dwarfsrcfiles
+eudev
+kern-tools
+mini-x-session
+opkg-utils
+packagegroup-base
+packagegroup-core-boot
+packagegroup-core-device-devel
+packagegroup-core-x11
+packagegroup-core-x11-base
+packagegroup-core-x11-xserver
+ptest-runner
+qemuwrapper-cross
+run-postinsts
+texinfo-dummy
+xserver-nodm-init
+xserver-xf86-config
