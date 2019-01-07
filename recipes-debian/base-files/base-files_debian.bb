@@ -40,6 +40,7 @@ do_install() {
 	ln -s GPL-3 ${D}${datadir}/common-licenses/GPL
 	ln -s README ${D}${docdir}/FAQ
 	install -p -m 644 ${S}/etc/* ${D}${sysconfdir}
+	install -p -m 755 ${S}/motd/* ${D}${sysconfdir}/update-motd.d
 
 	sed -e "s&#OSNAME#&${OSNAME}&g" ${S}/share/motd \
 		> ${D}${datadir}/${DPN}/motd
@@ -67,11 +68,10 @@ do_install() {
 
 	ln -sf debian ${D}${sysconfdir}/dpkg/origins/default
 
-	#cp -p ${D}${datadir}/${DPN}/nsswitch.conf ${D}${sysconfdir}
-	#cp -p ${D}${datadir}/${DPN}/dot.profile   ${D}${ROOT_HOME}/.profile
-	#cp -p ${D}${datadir}/${DPN}/dot.bashrc    ${D}${ROOT_HOME}/.bashrc
-	#cp -p ${D}${datadir}/${DPN}/profile       ${D}${sysconfdir}
-	#cp -p ${D}${datadir}/${DPN}/motd          ${D}${sysconfdir}
+	cp -p ${D}${datadir}/${DPN}/dot.profile   ${D}${ROOT_HOME}/.profile
+	cp -p ${D}${datadir}/${DPN}/dot.bashrc    ${D}${ROOT_HOME}/.bashrc
+	cp -p ${D}${datadir}/${DPN}/profile       ${D}${sysconfdir}
+	cp -p ${D}${datadir}/${DPN}/motd          ${D}${sysconfdir}
 
 	install -d ${D}/mnt
 	install -d ${D}/srv
@@ -112,8 +112,9 @@ do_install() {
 	echo > ${D}${localstatedir}/lib/dpkg/status
 	chmod 644 ${D}${localstatedir}/lib/dpkg/status
 
-	cp -p ${D}${datadir}/${DPN}/info.dir ${D}${infodir}/dir
-	chmod 644 ${D}${infodir}/dir
+	#QA Issue: The /usr/share/info/dir file is not meant to be shipped in a particular package. [infodir]
+	#cp -p ${D}${datadir}/${DPN}/info.dir ${D}${infodir}/dir
+	#chmod 644 ${D}${infodir}/dir
 }
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
