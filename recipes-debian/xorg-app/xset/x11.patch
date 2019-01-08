@@ -1,0 +1,13 @@
+diff --git a/xset/configure.ac b/xset/configure.ac
+index 6026194..a59dbf5 100644
+--- a/xset/configure.ac
++++ b/xseti/configure.ac
+@@ -41,7 +41,7 @@ XORG_DEFAULT_OPTIONS
+ AC_CHECK_FUNCS([usleep])
+ 
+ # Checks for pkg-config packages
+-PKG_CHECK_MODULES(XSET, [xproto >= 7.0.17 xmuu])
++PKG_CHECK_MODULES(XSET, [xproto >= 7.0.17 xmuu x11])
+ 
+ # This is used below to allow <X11/Xlib.h> to be found
+ PKG_CHECK_MODULES(SET_X11, x11)
