@@ -18,6 +18,7 @@ SRC_URI = ""
 inherit debian-package
 require recipes-debian/sources/util-linux.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-core/util-linux/util-linux"
+DEBIAN_QUILT_PATCHES = ""
 
 # To support older hosts, we need to patch and/or revert
 # some upstream changes.  Only do this for native packages.
