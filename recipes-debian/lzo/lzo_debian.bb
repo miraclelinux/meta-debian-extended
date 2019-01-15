@@ -9,10 +9,11 @@ inherit debian-package
 BPN = "lzo2"
 require recipes-debian/sources/${BPN}.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/lzo-${PV}"
+FILESEXTRAPATHS_prepend := "${THISDIR}/lzo:"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/lzo/lzo"
 SRC_URI += " \
-	   file://0001-Use-memcpy-instead-of-reinventing-it.patch \
+	   file://0001-Use-memcpy-instead-of-reinventing-it_debian.patch \
 	   file://0001-Add-pkgconfigdir-to-solve-the-undefine-error.patch \
 	   file://run-ptest \
 	   "
