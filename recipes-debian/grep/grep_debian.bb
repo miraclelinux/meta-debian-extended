@@ -3,15 +3,11 @@ HOMEPAGE = "http://savannah.gnu.org/projects/grep/"
 BUGTRACKER = "http://savannah.gnu.org/bugs/?group=grep"
 SECTION = "console/utils"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://COPYING;md5=8006d9c814277c1bfc4ca22af94b59ee"
+LIC_FILES_CHKSUM = "file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit debian-package
 require recipes-debian/sources/grep.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/grep/grep"
-
-SRC_URI += " \
-           file://0001-Unset-need_charset_alias-when-building-for-musl.patch \
-          "
 
 inherit autotools gettext texinfo pkgconfig
 
