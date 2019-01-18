@@ -22,7 +22,7 @@ PACKAGECONFIG ??= "${@bb.utils.contains("DISTRO_FEATURES", "api-documentation", 
 PACKAGECONFIG[working-scripts] = "--with-highlight=source-highlight,--with-highlight=no,libxslt-native xmlto-native source-highlight-native python3-six"
 PACKAGECONFIG[tests] = "--enable-tests,--disable-tests,glib-2.0"
 
-SRC_URI += "file://0001-Do-not-hardocode-paths-to-perl-python-in-scripts.patch \
+SRC_URI += "file://0001-Do-not-hardocode-paths-to-perl-python-in-scripts_debian.patch \
            file://0001-Do-not-error-out-if-xsltproc-is-not-found.patch \
            file://conditionaltests.patch \
            file://no-clobber_debian.patch \
