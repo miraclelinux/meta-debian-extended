@@ -11,12 +11,13 @@ require recipes-debian/sources/nspr.inc
 DEBIAN_QUILT_PATCHES = ""
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/nspr/nspr"
+FILESEXTRAPATHS_prepend := "${THISDIR}/nspr:"
 
 SRC_URI += "\
            file://remove-rpath-from-tests.patch \
            file://fix-build-on-x86_64.patch \
            file://remove-srcdir-from-configure-in.patch \
-           file://0002-Add-nios2-support.patch \
+           file://0003-Add-nios2-support_debian.patch \
            file://0001-md-Fix-build-with-musl.patch \
            file://0004-Add-ARC-support.patch \
            file://nspr.pc.in \
