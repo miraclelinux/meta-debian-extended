@@ -16,8 +16,6 @@ SRC_URI += " \
            file://fix-run-coproc-run-heredoc-run-execscript-run-test-f.patch \
            file://run-ptest \
            file://fix-run-builtins.patch \
-           file://0001-help-fix-printf-format-security-warning.patch \
-           file://pathexp-dep.patch \
            "
 
 DEBUG_OPTIMIZATION_append_armv4 = " ${@bb.utils.contains('TUNE_CCARGS', '-mthumb', '-fomit-frame-pointer', '', d)}"
