@@ -5,6 +5,8 @@ LIC_FILES_CHKSUM = "file://debian/copyright;md5=f01a5203d50512fc4830b4332b696a9f
 
 inherit debian-package
 require recipes-debian/sources/debianutils.inc
+DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}"
+DEBIAN_QUILT_PATCHES = ""
 
 # the package is taken from snapshots.debian.org; that source is static and goes stale
 # so we check the latest upstream from a directory that does get updated
