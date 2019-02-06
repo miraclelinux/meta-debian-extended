@@ -5,13 +5,12 @@ This derived from Debian's CA Certificates."
 HOMEPAGE = "http://packages.debian.org/sid/ca-certificates"
 SECTION = "misc"
 LICENSE = "GPL-2.0+ & MPL-2.0"
-LIC_FILES_CHKSUM = "file://debian/copyright;md5=e7358b9541ccf3029e9705ed8de57968"
+LIC_FILES_CHKSUM = "file://debian/copyright;md5=aeb420429b1659507e0a5a1b123e8308"
 
 inherit debian-package
 require recipes-debian/sources/ca-certificates.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/ca-certificates/ca-certificates"
-DEBIAN_UNPACK_DIR = "${WORKDIR}/ca-certificates"
-DEBIAN_QUILT_PATCHES = ""
+DEBIAN_PATCH_TYPE = "nopatch"
 
 # This is needed to ensure we can run the postinst at image creation time
 DEPENDS = ""
