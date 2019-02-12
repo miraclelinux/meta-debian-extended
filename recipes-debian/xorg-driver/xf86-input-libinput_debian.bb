@@ -8,7 +8,7 @@ SRC_URI = ""
 inherit debian-package
 require recipes-debian/sources/xserver-xorg-input-libinput.inc
 BPN = "xserver-xorg-input-libinput"
-DEBIAN_UNPACK_DIR = "${WORKDIR}/xf86-input-libinput-0.28.1"
+DEBIAN_UNPACK_DIR = "${WORKDIR}/xf86-input-libinput-${@d.getVar('PV', True)}"
 DEBIAN_PATCH_TYPE = "nopatch"
 
 DEPENDS += "libinput"
