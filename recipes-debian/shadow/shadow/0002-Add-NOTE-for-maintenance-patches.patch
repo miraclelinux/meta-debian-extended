@@ -1,0 +1,24 @@
+From 63296d9818c4dc7d6168d9fc41bf4c2324e4975b Mon Sep 17 00:00:00 2001
+From: Nobuhiro Iwamatsu <nobuhiro.iwamatsu@miraclelinux.com>
+Date: Wed, 13 Feb 2019 13:32:59 +0900
+Subject: [PATCH 2/2] Add NOTE for maintenance patches
+
+Signed-off-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu@miraclelinux.com>
+---
+ NOTE | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 NOTE
+
+diff --git a/NOTE b/NOTE
+new file mode 100644
+index 0000000..aebcbbf
+--- /dev/null
++++ b/NOTE
+@@ -0,0 +1,4 @@
++ignore: shadow-4.1.3-dots-in-usernames.patch
++already applied 0001-useradd-copy-extended-attributes-of-home.patch
++apply: shadow-update-pam-conf.patch
++ignore: shadow-relaxed-usernames.patch
+-- 
+2.20.1
+
