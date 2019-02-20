@@ -16,22 +16,21 @@ SRC_URI += " \
 	file://06-unzip60-alt-iconv-utf8_CVE-2015-1315.patch \
 	file://fix-security-format.patch \
 	file://symlink.patch \
-	file://0001-unzip-fix-CVE-2018-1000035.patch \
 "
 
 # file://09-cve-2014-8139-crc-overflow.patch 
 # file://10-cve-2014-8140-test-compr-eb.patch 
 # file://11-cve-2014-8141-getzip64data.patch 
 
-
-#	file://cve-2014-9636.patch 
+# file://cve-2014-9636.patch
 # same as debian/14-cve-2015-7696.patch
 # file://CVE-2015-7697.patch 
 # file://CVE-2015-7696.patch 
 # file://18-cve-2014-9913-unzip-buffer-overflow.patch 
 # file://19-cve-2016-9844-zipinfo-buffer-overflow.patch 
-UPSTREAM_VERSION_UNKNOWN = "1"
+# file://0001-unzip-fix-CVE-2018-1000035.patch
 
+UPSTREAM_VERSION_UNKNOWN = "1"
 
 # exclude version 5.5.2 which triggers a false positive
 UPSTREAM_CHECK_REGEX = "unzip(?P<pver>(?!552).+)\.tgz"
