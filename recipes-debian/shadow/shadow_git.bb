@@ -59,6 +59,7 @@ SRC_URI_append_class-native = " \
 
 SRC_URI_append_class-nativesdk = " \
            file://0001-Disable-use-of-syslog-for-sysroot_debian.patch \
+           file://0001-Update-man-man_nopam.patch \
            "
 #apply: 0001-Disable-use-of-syslog-for-sysroot.patch 
 #       ->0001-Disable-use-of-syslog-for-sysroot_debian.patch
