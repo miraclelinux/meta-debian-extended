@@ -9,13 +9,14 @@ require recipes-debian/sources/unzip.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/unzip60"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/unzip/unzip"
+FILESEXTRAPATHS_prepend := "${THISDIR}/unzip':"
 
 SRC_URI += " \
 	file://avoid-strip.patch \
 	file://define-ldflags.patch \
 	file://06-unzip60-alt-iconv-utf8_CVE-2015-1315.patch \
 	file://fix-security-format.patch \
-	file://symlink.patch \
+        file://0001-Unzip-doesn-t-handle-large-zip-files-well-and-crashe.patch \
 "
 
 # file://09-cve-2014-8139-crc-overflow.patch 
@@ -29,6 +30,9 @@ SRC_URI += " \
 # file://18-cve-2014-9913-unzip-buffer-overflow.patch 
 # file://19-cve-2016-9844-zipinfo-buffer-overflow.patch 
 # file://0001-unzip-fix-CVE-2018-1000035.patch
+
+# NOTE: 
+# 0001-Unzip-doesn-t-handle-large-zip-files-well-and-crashe.patch is same as file://symlink.patch.
 
 UPSTREAM_VERSION_UNKNOWN = "1"
 
