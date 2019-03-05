@@ -18,8 +18,6 @@ DEPENDS = "attr"
 SRC_URI += " \
            file://configure.ac;subdir=${BP} \
            file://run-ptest \
-           file://acl-fix-the-order-of-expected-output-of-getfacl.patch \
-           file://test-fix-insufficient-quoting-of.patch \
            file://test-fixups-on-SELinux-machines-for-root-testcases.patch \
            file://test-fix-directory-permissions.patch \
            file://Makefile-libacl-should-depend-on-include.patch \
