@@ -7,10 +7,8 @@ require recipes-debian/sources/diffutils.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/diffutils/diffutils-3.6"
 
 SRC_URI += " \
-           file://0001-Unset-need_charset_alias-when-building-for-musl.patch \
            file://run-ptest \
 "
-SRC_URI_append_libc-glibc = " file://0001-explicitly-disable-replacing-getopt.patch"
 
 EXTRA_OECONF += "ac_cv_path_PR_PROGRAM=${bindir}/pr --without-libsigsegv-prefix"
 
