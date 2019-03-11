@@ -13,7 +13,7 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-core/netbase/netbase"
 DEBIAN_PATCH_TYPE = "nopatch"
 
 SRC_URI += " \
-           file://netbase-add-rpcbind-as-an-alias-to-sunrpc.patch \
+           file://netbase-add-rpcbind-as-an-alias-to-sunrpc_debian.patch \
            file://hosts"
 
 SRC_URI[md5sum] = "117cb70c55ef3c1c002f127812b114c1"
