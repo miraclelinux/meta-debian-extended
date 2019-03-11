@@ -7,7 +7,7 @@ DEPENDS += "zlib-native"
 
 inherit native
 
-SRC_URI += "file://Change-to-calling-bswap_-instead-of-htobe-and-be-toh.patch \
+SRC_URI += "file://Change-to-calling-bswap_-instead-of-htobe-and-be-toh_debian.patch \
            "
 
 do_install_append (){
