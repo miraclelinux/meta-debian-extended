@@ -24,7 +24,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/shadow':"
 # patch maintenance: https://github.com/iwamatsu/shadow-debian-oe
 SRC_URI += " \
            ${@bb.utils.contains('PACKAGECONFIG', 'pam', '${PAM_SRC_URI}', '', d)} \
-           file://0001-useradd-copy-extended-attributes-of-home.patch \
+           file://0001-useradd-copy-extended-attributes-of-home_debian.patch \
            file://0001-update-manpages.patch \
            "
 
