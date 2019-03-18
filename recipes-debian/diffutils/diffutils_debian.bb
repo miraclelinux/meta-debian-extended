@@ -4,11 +4,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 require ${COREBASE}/meta/recipes-extended/diffutils/diffutils.inc
 inherit debian-package
 require recipes-debian/sources/diffutils.inc
-FILESPATH_append = ":${COREBASE}/meta/recipes-extended/diffutils/diffutils-3.6"
+FILESPATH_append = ":${COREBASE}/meta/recipes-extended/diffutils/diffutils"
 
-SRC_URI += " \
-           file://run-ptest \
-"
+SRC_URI += "file://run-ptest"
 
 EXTRA_OECONF += "ac_cv_path_PR_PROGRAM=${bindir}/pr --without-libsigsegv-prefix"
 
