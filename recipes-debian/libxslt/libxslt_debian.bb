@@ -10,15 +10,11 @@ DEPENDS = "libxml2"
 
 inherit debian-package
 require recipes-debian/sources/libxslt.inc
-FILESPATH_append = ":${COREBASE}/meta/recipes-support/libxslt/libxslt"
+FILESEXTRAPATHS_prepend := "${THISDIR}/libxslt:"
 
-SRC_URI += " \
-           file://fix-rvts-handling.patch \
-           "
+SRC_URI += " file://fix-rvts-handling.patch"
 
 UPSTREAM_CHECK_REGEX = "libxslt-(?P<pver>\d+(\.\d+)+)\.tar"
-
-#S = "${WORKDIR}/libxslt-${PV}"
 
 BINCONFIG = "${bindir}/xslt-config"
 
