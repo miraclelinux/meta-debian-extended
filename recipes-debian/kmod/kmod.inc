@@ -17,13 +17,11 @@ inherit debian-package
 require recipes-debian/sources/kmod.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-kernel/kmod/kmod"
 
-
 inherit autotools gtk-doc pkgconfig manpages
 
 SRC_URI += "\
            file://depmod-search.conf \
            file://avoid_parallel_tests.patch \
-           file://fix-O_CLOEXEC.patch \
           "
 
 EXTRA_AUTORECONF += "--install --symlink"
