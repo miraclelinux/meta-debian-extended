@@ -11,8 +11,7 @@ LIC_FILES_CHKSUM = "file://COPYING.LESSERv3;md5=6a6a8e020838b23406c81b19c1d46df6
 inherit debian-package
 require recipes-debian/sources/nettle.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/nettle-3.4.1"
-FILESPATH_append = ":${COREBASE}/meta/recipes-support/nettle/nettle-3.4"
-
+FILESPATH_append = ":${COREBASE}/meta/recipes-support/nettle/nettle-3.4.1"
 
 DEPENDS += "gmp"
 
@@ -25,9 +24,6 @@ SRC_URI += " \
 SRC_URI_append_class-target = "\
             file://dlopen-test.patch \
             "
-
-SRC_URI[md5sum] = "dc0f13028264992f58e67b4e8915f53d"
-SRC_URI[sha256sum] = "ae7a42df026550b85daca8389b6a60ba6313b0567f374392e54918588a411e94"
 
 UPSTREAM_CHECK_REGEX = "nettle-(?P<pver>\d+(\.\d+)+)\.tar"
 
