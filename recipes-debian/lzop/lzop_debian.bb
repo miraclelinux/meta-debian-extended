@@ -17,10 +17,7 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-support/lzop/lzop"
 
 SRC_URI += "\
            file://acinclude.m4 \
-           file://x32_abi_miniacc_h.patch \
-           file://lzop-1.03-gcc6.patch \
           "
-# file://0001-use-static-inlines-as-the-external-inline-definition.patch
 
 inherit autotools
 
