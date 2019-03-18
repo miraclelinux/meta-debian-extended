@@ -15,7 +15,6 @@ BPN = "pcre3"
 DEBIAN_UNPACK_DIR = "${WORKDIR}/pcre-${PV}"
 
 SRC_URI += " \
-           file://pcre-cross.patch \
            file://run-ptest \
            file://Makefile \
 "
@@ -35,26 +34,13 @@ PACKAGECONFIG[pcre16] = "--enable-pcre16,--disable-pcre16"
 PACKAGECONFIG[pcre32] = "--enable-pcre32,--disable-pcre32"
 PACKAGECONFIG[pcretest-readline] = "--enable-pcretest-libreadline,--disable-pcretest-libreadline,readline,"
 PACKAGECONFIG[unicode-properties] = "--enable-unicode-properties,--disable-unicode-properties"
+PACKAGECONFIG[jit] = "--enable-jit=auto,--disable-jit"
 
 BINCONFIG = "${bindir}/pcre-config"
 
 inherit autotools binconfig-disabled ptest
 
-EXTRA_OECONF = "\
-    --enable-newline-is-lf \
-    --enable-rebuild-chartables \
-    --enable-utf \
-    --with-link-size=2 \
-    --with-match-limit=10000000 \
-"
-
-# Set LINK_SIZE in BUILD_CFLAGS given that the autotools bbclass use it to
-# set CFLAGS_FOR_BUILD, required for the libpcre build.
-BUILD_CFLAGS =+ "-DLINK_SIZE=2 -I${B}"
-CFLAGS += "-D_REENTRANT"
-CXXFLAGS_append_powerpc = " -lstdc++"
-
-export CCLD_FOR_BUILD ="${BUILD_CCLD}"
+EXTRA_OECONF = "--enable-utf"
 
 PACKAGES =+ "libpcrecpp libpcreposix pcregrep pcregrep-doc pcretest pcretest-doc"
 
