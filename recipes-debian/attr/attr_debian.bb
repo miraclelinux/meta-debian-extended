@@ -1,12 +1,25 @@
-require attr.inc
+SUMMARY = "Utilities for manipulating filesystem extended attributes"
+HOMEPAGE = "http://savannah.nongnu.org/projects/attr/"
+SECTION = "libs"
 
-# configure.ac was missing from the release tarball. This should be fixed in
-# future releases of attr, remove this when updating the recipe.
-SRC_URI += "file://attr-Missing-configure.ac.patch \
-            file://dont-use-decl-macros.patch \
-            file://Remove-the-section-2-man-pages.patch \
-            file://Remove-the-attr.5-man-page-moved-to-man-pages.patch \
-            file://0001-Use-stdint-types-consistently.patch \
-           "
+DEPENDS = "virtual/libintl"
+
+LICENSE = "LGPLv2.1+ & GPLv2+"
+LICENSE_${PN} = "GPLv2+"
+LICENSE_lib${BPN} = "LGPLv2.1+"
+LIC_FILES_CHKSUM = "file://doc/COPYING;md5=2d0aa14b3fce4694e4f615e30186335f \
+                    file://tools/attr.c;endline=17;md5=be0403261f0847e5f43ed5b08d19593c \
+                    file://libattr/libattr.c;endline=17;md5=7970f77049f8fa1199fff62a7ab724fb"
+
+inherit debian-package
+require recipes-debian/sources/attr.inc
+
+inherit autotools gettext update-alternatives
 
 BBCLASSEXTEND = "native nativesdk"
+
+ALTERNATIVE_PRIORITY = "100"
+ALTERNATIVE_${PN} = "setfattr"
+ALTERNATIVE_TARGET[setfattr] = "${bindir}/setfattr"
+
+PACKAGES =+ "lib${BPN}"
