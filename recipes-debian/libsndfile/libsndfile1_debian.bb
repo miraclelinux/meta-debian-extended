@@ -8,19 +8,20 @@ LICENSE = "LGPLv2.1"
 inherit debian-package
 require recipes-debian/sources/libsndfile.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/libsndfile-${PV}"
-FILESPATH_append = ":${COREBASE}/meta/recipes-multimedia/libsndfile/libsndfile1"
+FILESEXTRAPATHS_prepend := "${THISDIR}/libsndfile:"
 
-SRC_URI += " \
-           file://CVE-2017-14245-14246.patch \
-           file://CVE-2017-14634.patch \
-           file://CVE-2018-13139.patch \
-          "
+SRC_URI += "file://CVE-2018-19432.patch"
 
 # alrady applied by Debian
 # file://CVE-2017-6892.patch
+# file://CVE-2017-8361-8365.patch
 # file://CVE-2017-8362.patch
 # file://CVE-2017-8363.patch
-# file://CVE-2017-8361-8365.patch
+# file://CVE-2017-14634.patch
+# file://CVE-2018-13139.patch
+# file://0001-a-ulaw-fix-multiple-buffer-overflows-432.patch
+# file://CVE-2017-12562.patch
+# file://CVE-2018-19758.patch
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=e77fe93202736b47c07035910f47974a"
 
