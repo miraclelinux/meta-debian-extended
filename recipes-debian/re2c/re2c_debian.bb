@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "file://README;beginline=146;md5=881056c9add17f8019ccd8c382ba
 
 inherit debian-package
 require recipes-debian/sources/re2c.inc
-DEBIAN_QUILT_PATCHES = ""
 
 BBCLASSEXTEND = "native"
 
