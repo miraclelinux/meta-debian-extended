@@ -17,8 +17,11 @@ DEPENDS = "libogg"
 
 SRC_URI += " \
            file://0001-configure-Check-for-clang.patch \
-           file://CVE-2018-10392.patch \
-           file://CVE-2017-14160.patch \
           "
+
+# Remove CVE-2018-10392.patch
+#   same as debian/patches/0004-Sanity-check-number-of-channels-in-setup.patch
+# Remove CVE-2017-14160.patch
+#   same as debian/patches/0003-CVE-2017-14160-fix-bounds-check-on-very-low-sample-r.patch
 
 inherit autotools pkgconfig
