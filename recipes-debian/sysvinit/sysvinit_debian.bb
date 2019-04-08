@@ -18,6 +18,7 @@ SRC_URI += "file://install.patch \
            file://crypt-lib.patch \
            file://pidof-add-m-option.patch \
            file://realpath.patch \
+           file://0001-include-sys-sysmacros.h-for-major-minor-defines-in-g.patch \
            file://rcS-default \
            file://rc \
            file://rcS \
