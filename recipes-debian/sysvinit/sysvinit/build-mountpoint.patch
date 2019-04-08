@@ -1,0 +1,13 @@
+diff --git a/src/Makefile b/src/Makefile
+index 075169e..88a80f6 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -19,7 +19,7 @@ MANDB	:= s@^\('\\\\\"\)[^\*-]*-\*- coding: [^[:blank:]]\+ -\*-@\1@
+ # Leave empty if the mountpoint(1) command from util-linux 2.20
+ # and above should be used, otherwise set it to yes.
+ #
+-MNTPOINT=
++MNTPOINT=yes
+ 
+ # For some known distributions we do not build all programs, otherwise we do.
+ BIN	=
