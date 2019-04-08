@@ -17,6 +17,7 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-core/sysvinit/sysvinit:"
 SRC_URI += "file://install.patch \
            file://crypt-lib.patch \
            file://pidof-add-m-option.patch \
+           file://realpath.patch \
            file://rcS-default \
            file://rc \
            file://rcS \
