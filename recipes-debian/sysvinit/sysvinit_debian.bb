@@ -1,3 +1,11 @@
+SUMMARY = "System-V like init"
+DESCRIPTION = "This package is required to boot in most configurations.  It provides the /sbin/init program.  This is the first process started on boot, and the last process terminated before the system halts."
+HOMEPAGE = "http://savannah.nongnu.org/projects/sysvinit/"
+SECTION = "base"
+LICENSE = "GPLv2+"
+LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=393d657c17880c7708d7fd7f09b21b85 \
+                    file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
+
 PR = "r0"
 
 RDEPENDS_${PN} = "${PN}-inittab"
@@ -6,7 +14,8 @@ inherit update-alternatives distro_features_check debian-package
 require recipes-debian/sources/sysvinit.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-core/sysvinit/sysvinit:"
-SRC_URI += "file://rcS-default \
+SRC_URI += "file://install.patch \
+           file://rcS-default \
            file://rc \
            file://rcS \
            file://bootlogd.init \
@@ -43,10 +52,6 @@ FILES_sysvinit-sulogin = "${base_sbindir}/sulogin.sysvinit"
 RDEPENDS_${PN} += "sysvinit-pidof initd-functions"
 
 
-LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=393d657c17880c7708d7fd7f09b21b85 \
-                    file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
-
 export LCRYPT = "-lcrypt"
 
 EXTRA_OEMAKE += "'base_bindir=${base_bindir}' \
@@ -70,15 +75,15 @@ do_install () {
        install -m 0644    ${WORKDIR}/rcS-default       ${D}${sysconfdir}/default/rcS
        install -m 0755    ${WORKDIR}/rc                ${D}${sysconfdir}/init.d
        install -m 0755    ${WORKDIR}/rcS               ${D}${sysconfdir}/init.d
-#       install -m 0755    ${WORKDIR}/bootlogd.init     ${D}${sysconfdir}/init.d/bootlogd
-#       ln -sf bootlogd ${D}${sysconfdir}/init.d/stop-bootlogd
+       install -m 0755    ${WORKDIR}/bootlogd.init     ${D}${sysconfdir}/init.d/bootlogd
+       ln -sf bootlogd ${D}${sysconfdir}/init.d/stop-bootlogd
 
-#       update-rc.d -r ${D} bootlogd start 07 S .
-#       update-rc.d -r ${D} stop-bootlogd start 99 2 3 4 5 .
+       update-rc.d -r ${D} bootlogd start 07 S .
+       update-rc.d -r ${D} stop-bootlogd start 99 2 3 4 5 .
 
-        install -d ${D}${sysconfdir}/default/volatiles
-#       install -m 0644 ${WORKDIR}/01_bootlogd ${D}${sysconfdir}/default/volatiles
+       install -d ${D}${sysconfdir}/default/volatiles
+       install -m 0644 ${WORKDIR}/01_bootlogd ${D}${sysconfdir}/default/volatiles
 
-        chown root:shutdown ${D}${base_sbindir}/halt ${D}${base_sbindir}/shutdown
-        chmod o-x,u+s ${D}${base_sbindir}/halt ${D}${base_sbindir}/shutdown
+       chown root:shutdown ${D}${base_sbindir}/halt ${D}${base_sbindir}/shutdown
+       chmod o-x,u+s ${D}${base_sbindir}/halt ${D}${base_sbindir}/shutdown
 }
