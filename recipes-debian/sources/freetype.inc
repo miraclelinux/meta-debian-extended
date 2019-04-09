@@ -5,9 +5,9 @@ PV = "2.9.1"
 
 DEBIAN_SRC_URI = " \
     ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1-3.dsc;name=freetype_2.9.1-3.dsc \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz;name=freetype_2.9.1.orig-ft2demos.tar.gz;subdir=ft2demos \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz;name=freetype_2.9.1.orig-ft2demos.tar.gz \
     ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz.asc;name=freetype_2.9.1.orig-ft2demos.tar.gz.asc \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz;name=freetype_2.9.1.orig-ft2docs.tar.gz;subdir=ft2docs \
+    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz;name=freetype_2.9.1.orig-ft2docs.tar.gz \
     ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz.asc;name=freetype_2.9.1.orig-ft2docs.tar.gz.asc \
     ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig.tar.gz;name=freetype_2.9.1.orig.tar.gz \
     ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig.tar.gz.asc;name=freetype_2.9.1.orig.tar.gz.asc \
