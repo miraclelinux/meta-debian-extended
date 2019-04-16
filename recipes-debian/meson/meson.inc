@@ -4,6 +4,8 @@ SUMMARY = "A high performance build system"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
+FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/meson/meson"
+
 inherit debian-package
 require recipes-debian/sources/meson.inc
 
@@ -14,6 +16,10 @@ SRC_URI += " \
            file://0003-native_bindir.patch \
            file://0001-python-module-do-not-manipulate-the-environment-when.patch \
            file://disable-rpath-handling.patch \
+           file://0001-modules-windows-split-WINDRES-env-variable.patch \
+           file://0002-environment.py-detect-windows-also-if-the-system-str.patch \
+           file://cross-prop-default.patch \
+           file://many-cross.patch \
            file://cross-libdir.patch \
            "
 
