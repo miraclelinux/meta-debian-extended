@@ -28,6 +28,9 @@ SRC_URI += " \
            file://0001-update-manpages.patch \
            "
 
+# Enable FAIL_DELAY in login.defs
+SRC_URI += "file://revert-463_login_delay_obeys_to_PAM.patch"
+
 # ignore: shadow-4.1.3-dots-in-usernames.patch
 # debian original/adhoc: file://0001-update-manpages.patch
 
