@@ -1,0 +1,1 @@
+DUMMYPROVIDES =+ " busybox-syslog"
