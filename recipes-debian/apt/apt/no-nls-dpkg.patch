@@ -1,0 +1,20 @@
+original patch:
+poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
+file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/apt/apt/no-nls-dpkg.patch?id=753e2a0ede4449917c75353b57f13bbafe70fac8
+
+rebased to 1.8 patch
+pull request: https://github.com/masami256/apt/pull/1
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 60f329078..1e27cfbee 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,7 +11,7 @@ include_directories(${PROJECT_BINARY_DIR}/include)
+ enable_testing()
+ 
+ option(WITH_DOC "Build documentation." ON)
+-option(USE_NLS "Localisation support." ON)
++option(USE_NLS "Localisation support." OFF)
+ 
+ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
+ 

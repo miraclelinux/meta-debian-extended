@@ -1,0 +1,19 @@
+original patch:
+poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
+file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/apt/apt/0001-Include-array.h-for-std-array.patch?id=753e2a0ede4449917c75353b57f13bbafe70fac8
+
+rebased to 1.8 patch
+pull request: https://github.com/masami256/apt/pull/4
+
+diff --git a/apt-pkg/contrib/strutl.cc b/apt-pkg/contrib/strutl.cc
+index 50344d1fe..ecce470aa 100644
+--- a/apt-pkg/contrib/strutl.cc
++++ b/apt-pkg/contrib/strutl.cc
+@@ -20,6 +20,7 @@
+ #include <apt-pkg/fileutl.h>
+ #include <apt-pkg/strutl.h>
+ 
++#include <array>
+ #include <algorithm>
+ #include <array>
+ #include <iomanip>

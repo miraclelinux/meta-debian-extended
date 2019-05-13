@@ -1,0 +1,28 @@
+original patch:
+poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
+file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/apt/apt/disable-test.patch?id=753e2a0ede4449917c75353b57f13bbafe70fac8
+
+rebased to 1.8 patch
+pull request: https://github.com/masami256/apt/pull/5
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d8853f556..625e7ec6a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,8 +8,6 @@ cmake_minimum_required(VERSION 3.4.0)
+ include_directories(${PROJECT_BINARY_DIR}/include)
+ 
+ 
+-enable_testing()
+-
+ option(WITH_DOC "Build documentation." OFF)
+ option(USE_NLS "Localisation support." OFF)
+ 
+@@ -230,7 +228,6 @@ add_subdirectory(completions)
+ add_subdirectory(dselect)
+ add_subdirectory(ftparchive)
+ add_subdirectory(methods)
+-add_subdirectory(test)
+ 
+ if (USE_NLS)
+ add_subdirectory(po)
