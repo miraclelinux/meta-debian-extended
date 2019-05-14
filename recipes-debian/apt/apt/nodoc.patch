@@ -1,0 +1,28 @@
+original patch:
+poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
+file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/apt/apt/nodoc.patch?id=753e2a0ede4449917c75353b57f13bbafe70fac8
+
+rebased to 1.8 patch
+pull request: https://github.com/masami256/apt/pull/2
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1e27cfbee..d8853f556 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,7 +10,7 @@ include_directories(${PROJECT_BINARY_DIR}/include)
+ 
+ enable_testing()
+ 
+-option(WITH_DOC "Build documentation." ON)
++option(WITH_DOC "Build documentation." OFF)
+ option(USE_NLS "Localisation support." OFF)
+ 
+ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
+@@ -227,7 +227,6 @@ add_subdirectory(apt-private)
+ add_subdirectory(apt-inst)
+ add_subdirectory(cmdline)
+ add_subdirectory(completions)
+-add_subdirectory(doc)
+ add_subdirectory(dselect)
+ add_subdirectory(ftparchive)
+ add_subdirectory(methods)
