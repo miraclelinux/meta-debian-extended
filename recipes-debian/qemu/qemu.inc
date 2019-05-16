@@ -7,7 +7,7 @@ LICENSE = "GPLv2 & LGPLv2.1"
 
 inherit debian-package
 require recipes-debian/sources/qemu.inc
-DEBIAN_UNPACK_DIR = "${WORKDIR}/${PN}-${PV}.0"
+DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}-${PV}.0"
 
 RDEPENDS_${PN}-ptest = "bash make"
 
