@@ -1,3 +1,6 @@
+# From poky/meta/recipes-devtools/qemu/qemu.inc
+# Branch: warrior
+# rev: 49c2351f3a50f4aab12a56ae587b71080e6f42b2
 SUMMARY = "Fast open source processor emulator"
 HOMEPAGE = "http://qemu.org"
 LICENSE = "GPLv2 & LGPLv2.1"

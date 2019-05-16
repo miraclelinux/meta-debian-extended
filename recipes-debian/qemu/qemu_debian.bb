@@ -1,3 +1,7 @@
+# From poky/meta/recipes-devtools/qemu/qemu_3.1.0.bb
+# Branch: warrior
+# rev: 48522906a261f9a552f13b146aa7f3691be37002
+
 BBCLASSEXTEND = "nativesdk"
 
 require qemu.inc

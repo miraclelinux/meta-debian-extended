@@ -1,3 +1,6 @@
+# From poky/meta/recipes-devtools/qemu/qemu-target.inc
+# Branch: warrior
+# rev: 48522906a261f9a552f13b146aa7f3691be37002
 # possible arch values are:
 #    aarch64 arm armeb alpha cris i386 x86_64 m68k microblaze
 #    mips mipsel mips64 mips64el ppc ppc64 ppc64abi32 ppcemb
