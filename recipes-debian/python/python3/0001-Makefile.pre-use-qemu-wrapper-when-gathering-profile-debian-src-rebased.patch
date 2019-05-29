@@ -1,0 +1,31 @@
+From: meta/recipes-devtools/python/python3/0001-Makefile.pre-use-qemu-wrapper-when-gathering-profile.patch
+Rev: fa7735ff93e644889571dfe1e073ece81fbc0be4
+
+This patch is rebased to debian source.
+Also, debian's profiled-build.diff add case - esac lines that upstream doesn't have it.
+This patch also removes these lines to make run test as poky does.
+
+diff --git a/Makefile.pre.in b/Makefile.pre.in
+index c5fc565..3db0c6a 100644
+--- a/Makefile.pre.in
++++ b/Makefile.pre.in
+@@ -501,18 +501,7 @@ build_all_generate_profile:
+ 	$(MAKE) @DEF_MAKE_RULE@ CFLAGS_NODIST="$(CFLAGS) $(PGO_PROF_GEN_FLAG)" LDFLAGS="$(LDFLAGS) $(PGO_PROF_GEN_FLAG)" LIBS="$(LIBS)"
+ 
+ run_profile_task:
+-	@ # FIXME: can't run for a cross build
+-	$(LLVM_PROF_FILE) $(RUNSHARED) ./$(BUILDPYTHON) $(PROFILE_TASK) || true
+-	task="$(PROFILE_TASK)"; \
+-	case "$$task" in \
+-	*-s\ *) \
+-	  $(LLVM_PROF_FILE) $(RUNSHARED) ./$(BUILDPYTHON) $$task; \
+-	  while [ -f $(abs_builddir)/build/pynexttest ]; do \
+-	    $(LLVM_PROF_FILE) $(RUNSHARED) ./$(BUILDPYTHON) $$task; \
+-	  done;; \
+-	*) \
+-	  $(LLVM_PROF_FILE) $(RUNSHARED) ./$(BUILDPYTHON) $$task; \
+-	esac
++	./pgo-wrapper ./python -m test.regrtest --pgo test_grammar test_opcodes test_dict test_builtin test_exceptions test_types test_support || true
+ 
+ build_all_merge_profile:
+ 	$(LLVM_PROF_MERGER)
