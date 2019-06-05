@@ -1,0 +1,25 @@
+From a51ebd38ae47e858a1de1c33fef120721e81e3b9 Mon Sep 17 00:00:00 2001
+From: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+Date: Mon, 3 Jun 2019 13:51:51 +0900
+Subject: [PATCH] Rebase Do-not-build-tests
+
+3.28 doesn't have if condition. So just comment out test line.
+
+Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index fab0768..9cc827c 100644
+--- a/meson.build
++++ b/meson.build
+@@ -174,4 +174,4 @@ configure_file(input : 'PKG-INFO.in',
+ 
+ subdir('gi')
+ subdir('pygtkcompat')
+-subdir('tests')
++#subdir('tests')
+-- 
+2.20.1
+
