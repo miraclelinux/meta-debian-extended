@@ -117,5 +117,5 @@ do_install() {
     install -m 0644 ${B}/out/src/fw/q35-acpi-dsdt.aml ${D}/${prefix}/share/seabios/
 }
 
-
+FILES_${PN}_append_class-nativesdk = " ${SDKPATHNATIVE}"
 BBCLASSEXTEND = "native nativesdk"
