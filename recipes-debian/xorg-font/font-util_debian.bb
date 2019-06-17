@@ -1,3 +1,9 @@
+#
+# base recipe: meta/recipes-graphics/xorg-font/font-util_1.3.1.bb
+# base branch: warrior
+# base commit: f2d73d6cbb0c1dec049e93124c6bbcdb52f8e757
+#
+
 SUMMARY = "X.Org font package creation/installation utilities"
 
 require ${COREBASE}/meta/recipes-graphics/xorg-font/xorg-font-common.inc
@@ -20,7 +26,7 @@ LIC_FILES_CHKSUM = "file://font-util/COPYING;md5=5df208ec65eb84ce5bb8d82d8f3b967
 DEPENDS = "encodings util-macros"
 DEPENDS_class-native = "util-macros-native"
 RDEPENDS_${PN} = "mkfontdir mkfontscale encodings"
-RDEPENDS_${PN}_class-native = "mkfontdir-native mkfontscale-native"
+RDEPENDS_${PN}_class-native = ""
 
 BBCLASSEXTEND = "native"
 
