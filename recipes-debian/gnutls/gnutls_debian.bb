@@ -1,3 +1,9 @@
+#
+# base recipe: meta/recipes-support/gnutls/gnutls_3.6.7.bb
+# base branch: warrior
+# base commit: d00d95924bca1c008682ee92a3f9bfc9d9cf53b1
+#
+
 SUMMARY = "GNU Transport Layer Security Library"
 HOMEPAGE = "http://www.gnu.org/software/gnutls/"
 BUGTRACKER = "https://savannah.gnu.org/support/?group=gnutls"
@@ -13,7 +19,7 @@ LICENSE_${PN}-bin = "GPLv3+"
 LICENSE_${PN}-openssl = "GPLv3+"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=71391c8e0c1cfe68077e7fce3b586283 \
-                    file://doc/COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+                    file://doc/COPYING;md5=c678957b0c8e964aa6c70fd77641a71e \
                     file://doc/COPYING.LESSER;md5=a6f89e2100d9b6cdffcea4f398e37343"
 
 DEPENDS = "nettle gmp virtual/libiconv libunistring"
@@ -25,7 +31,7 @@ SRC_URI += " \
            file://arm_eabi.patch \
 "
 
-inherit autotools texinfo binconfig pkgconfig gettext lib_package gtk-doc
+inherit autotools texinfo pkgconfig gettext lib_package gtk-doc
 
 PACKAGECONFIG ??= "libidn"
 

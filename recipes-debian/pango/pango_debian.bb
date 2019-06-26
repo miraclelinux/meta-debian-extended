@@ -1,3 +1,9 @@
+#
+# base recipe: meta/recipes-graphics/pango/pango_1.42.4.bb
+# base branch: warrior
+# base commit: b6553880223c19b2049e77569c3a9840bdd90727
+#
+
 SUMMARY = "Framework for layout and rendering of internationalized text"
 DESCRIPTION = "Pango is a library for laying out and rendering of text, \
 with an emphasis on internationalization. Pango can be used anywhere \
@@ -11,6 +17,8 @@ LICENSE = "LGPLv2.0+"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=3bf50002aefd002f49e7bb854063f7e7"
 
+GNOMEBASEBUILDCLASS = "meson"
+
 inherit gnomebase gtk-doc ptest-gnome upstream-version-is-even gobject-introspection
 
 SRC_URI = ""
@@ -19,28 +27,21 @@ require recipes-debian/sources/pango1.0.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/pango/pango/"
 
 SRC_URI += "file://run-ptest \
-"
-#            file://0001-Drop-introspection-macros-from-acinclude.m4.patch 
-#            file://0001-Enforce-recreation-of-docs-pango.types-it-is-build-c.patch 
+            file://insensitive-diff.patch"
 
 DEPENDS = "glib-2.0 glib-2.0-native fontconfig freetype virtual/libiconv cairo harfbuzz fribidi"
 
 PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)}"
-PACKAGECONFIG[x11] = "--with-xft,--without-xft,virtual/libx11 libxft"
+PACKAGECONFIG[x11] = ",,virtual/libx11 libxft"
 
-EXTRA_OECONF = " \
-	        --disable-debug \
-	        "
+GTKDOC_ENABLE_FLAG = "-Denable_docs=true"
+GTKDOC_DISABLE_FLAG = "-Denable_docs=false"
+EXTRA_OEMESON_append_class-target = " ${@bb.utils.contains('GTKDOC_ENABLED', 'True', '${GTKDOC_ENABLE_FLAG}', \
+                                                                                     '${GTKDOC_DISABLE_FLAG}', d)} "
+GIR_MESON_OPTION = 'gir'
 
 LEAD_SONAME = "libpango-1.0*"
 LIBV = "1.8.0"
-
-# This binary needs to be compiled for the host architecture.  This isn't pretty!
-do_compile_prepend_class-target () {
-	if ${@bb.utils.contains('DISTRO_FEATURES', 'ptest', 'true', 'false', d)}; then
-		make CC="${BUILD_CC}" CFLAGS="" LDFLAGS="${BUILD_LDFLAGS}" AM_CPPFLAGS="$(pkg-config-native --cflags glib-2.0)" gen_all_unicode_LDADD="$(pkg-config-native --libs glib-2.0)" -C ${B}/tests gen-all-unicode
-	fi
-}
 
 FILES_${PN} = "${bindir}/* ${libdir}/libpango*${SOLIBS}"
 FILES_${PN}-dev += "${libdir}/pango/${LIBV}/modules/*.la"
@@ -50,4 +51,11 @@ RDEPENDS_${PN}-ptest += "liberation-fonts cantarell-fonts"
 RPROVIDES_${PN} += "pango-modules pango-module-indic-lang \
                     pango-module-basic-fc pango-module-arabic-lang"
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
+
+do_install_append () {
+	if [ "${PTEST_ENABLED}" != "1" ]; then
+		rm -rf ${D}${libexecdir}/installed-tests ${D}${datadir}/installed-tests
+                rmdir --ignore-fail-on-non-empty ${D}${libexecdir} ${D}${datadir}
+	fi
+}
