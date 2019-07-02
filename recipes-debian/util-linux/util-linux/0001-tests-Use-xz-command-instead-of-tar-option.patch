@@ -1,0 +1,46 @@
+From 2fa1a9dce3a56422a1139ef478b0177705ab6318 Mon Sep 17 00:00:00 2001
+From: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+Date: Tue, 2 Jul 2019 12:52:34 +0900
+Subject: [PATCH] tests: Use xz command instead of tar option
+
+To support non-GNU tar command, use xz command instead use tar's xz
+option.
+
+Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+---
+ tests/ts/lsblk/lsblk       | 2 +-
+ tests/ts/lsblk/mk-input.sh | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ mode change 100644 => 100755 tests/ts/lsblk/mk-input.sh
+
+diff --git a/tests/ts/lsblk/lsblk b/tests/ts/lsblk/lsblk
+index d51438b..b7ddea1 100755
+--- a/tests/ts/lsblk/lsblk
++++ b/tests/ts/lsblk/lsblk
+@@ -31,7 +31,7 @@ for dump in $(ls $TS_SELF/dumps/*.tar.xz | sort); do
+ 	dumpdir="$TS_OUTDIR/dumps"
+ 
+ 	mkdir -p $dumpdir
+-	tar -C $dumpdir --xz -xf $dump
++	xz -dc $dump | tar -C $dumpdir -xf -
+ 
+ 	#
+ 	# Read *.cols from the tarball, but the expected output is not used
+diff --git a/tests/ts/lsblk/mk-input.sh b/tests/ts/lsblk/mk-input.sh
+old mode 100644
+new mode 100755
+index 8cd467e..3bd48d5
+--- a/tests/ts/lsblk/mk-input.sh
++++ b/tests/ts/lsblk/mk-input.sh
+@@ -101,7 +101,7 @@ mk_output discard DISC-ALN,DISC-GRAN,DISC-MAX,DISC-ZERO
+ mk_output zone ZONED
+ 
+ 
+-tar --xz -cvf ${TS_TARBALL} $TS_DUMP
++tar -cvfO - $TS_DUMP | xz -z -c - > ${TS_TARBALL}
+ rm -rf $TS_DUMP
+ 
+ echo -e "\nPlease, send ${TS_TARBALL} to util-linux upstream. Thanks!\n"
+-- 
+2.20.1
+
