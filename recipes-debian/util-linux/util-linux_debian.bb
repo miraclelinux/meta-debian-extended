@@ -28,4 +28,5 @@ SRC_URI += "file://configure-sbindir.patch \
             file://display_testname_for_subtest.patch \
             file://avoid_parallel_tests.patch \
             file://check-for-_HAVE_STRUCT_TERMIOS_C_OSPEED.patch \
+            file://0001-tests-check-kernel-btrfs-support.patch \
 "
