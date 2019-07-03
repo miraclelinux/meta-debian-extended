@@ -30,4 +30,5 @@ SRC_URI += "file://configure-sbindir.patch \
             file://check-for-_HAVE_STRUCT_TERMIOS_C_OSPEED.patch \
             file://0001-tests-Use-xz-command-instead-of-tar-option.patch \
             file://0001-tests-check-kernel-btrfs-support.patch \
+            file://0001-tests-fix-test-failed-on-busybox-environment.patch \
 "
