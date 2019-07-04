@@ -9,6 +9,8 @@ BPN = "bluez"
 inherit debian-package
 require recipes-debian/sources/${BPN}.inc
 
+DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}-${PV}"
+
 FILESPATH_append = ":${COREBASE}/meta/recipes-connectivity/bluez5/bluez5"
 SRC_URI += "\
     file://out-of-tree.patch \
