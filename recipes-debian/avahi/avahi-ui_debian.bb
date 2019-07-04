@@ -9,6 +9,8 @@ BPN = "avahi"
 inherit debian-package
 require recipes-debian/sources/${BPN}.inc
 
+DEBIAN_UNPACK_DIR = "${WORKDIR}/avahi-${PV}"
+
 inherit distro_features_check
 ANY_OF_DISTRO_FEATURES = "${GTK3DISTROFEATURES}"
 
