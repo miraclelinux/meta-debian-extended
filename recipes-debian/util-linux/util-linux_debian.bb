@@ -32,3 +32,6 @@ SRC_URI += "file://configure-sbindir.patch \
             file://0001-tests-fix-test-failed-on-busybox-environment.patch \
             file://0001-tests-check-kernel-raid-support.patch \
 "
+
+RDEPENDS_${PN}-ptest += "tar"
+
