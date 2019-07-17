@@ -1,0 +1,5 @@
+#!/bin/sh
+
+make top_builddir=. srcdir=. \
+     -o ./Makefile.in -o ./config.status \
+     -k runtest-TESTS
