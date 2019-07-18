@@ -1,0 +1,5 @@
+--- a/checkmk/checkmk.in
++++ b/checkmk/checkmk.in
+@@ -1,1 +1,1 @@
+-#! /usr/bin/mawk -f
++#! @AWK_PATH@ -f
