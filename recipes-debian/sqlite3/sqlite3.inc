@@ -9,7 +9,7 @@ LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://autoconf/tea/license.terms;md5=5e0405ae78edb434653628790bb02b17"
 
 PE = "3"
-DEPENDS = "tcl-native"
+DEPENDS = "tcl tcl-native"
 
 inherit debian-package
 require recipes-debian/sources/sqlite3.inc
@@ -20,7 +20,6 @@ inherit autotools pkgconfig
 
 # enable those which are enabled by default in configure
 PACKAGECONFIG ?= "fts4 fts5 json1 rtree"
-#PACKAGECONFIG_class-native ?= "fts4 fts5 json1 rtree dyn_ext"
 
 PACKAGECONFIG[editline] = "--enable-editline,--disable-editline,libedit"
 PACKAGECONFIG[readline] = "--enable-readline,--disable-readline,readline ncurses"
@@ -53,7 +52,8 @@ EXTRA_OECONF = " \
     --enable-shared \
     --enable-threadsafe \
     --enable-load-extension \
-    TCLLIBDIR=${prefix}/lib/tcltk/sqlite3 \
+    --with-tcl=${STAGING_DIR_TARGET}/usr/lib \
+    --disable-tcl \
 "
 
 CFLAGS_append = " -fPIC -O2 -fno-strict-aliasing"
