@@ -68,6 +68,11 @@ do_configure_append() {
   mv ${B}/${TARGET_PREFIX}libtool ${B}/libtool
 }
 
+do_install_append() {
+  install -d ${D}/${mandir}/man1
+  install -m 0644 ${S}/sqlite3.1 ${D}/${mandir}/man1
+}
+
 PACKAGES = "lib${BPN} lib${BPN}-dev lib${BPN}-doc ${PN}-dbg lib${BPN}-staticdev ${PN}"
 
 FILES_${PN} = "${bindir}/*"
