@@ -17,6 +17,9 @@ SECTION = "libs"
 inherit debian-package
 require recipes-debian/sources/libgpg-error.inc
 
+FILESPATH_append = ":${COREBASE}/meta/recipes-support/libgpg-error/libgpg-error:"
+SRC_URI += "file://pkgconfig.patch"
+
 BINCONFIG = "${bindir}/gpg-error-config"
 
 inherit autotools binconfig-disabled pkgconfig gettext multilib_header multilib_script
