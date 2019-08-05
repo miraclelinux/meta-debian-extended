@@ -1,0 +1,29 @@
+From 0245ba33971f85b52ef348c35f2335cbe62de319 Mon Sep 17 00:00:00 2001
+From: Alfredo Alvarez Fernandez <alfredoalvarezernandez@gmail.com>
+Date: Tue, 21 Feb 2017 11:41:43 +0100
+Subject: [PATCH] Makefile.in: Fix missing dependency
+
+Fix a missing dependency that can result in:
+
+../libpcap-1.8.1/grammar.y:78:10: fatal error: scanner.h: No such file or directory
+
+Upstream-Status: Backport
+Signed-off-by: Ross Burton <ross.burton@intel.com>
+
+---
+ Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index 909f6bc..207f95f 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -495,7 +495,7 @@ grammar.h: grammar.c
+ 		$(MAKE) $(MAKEFLAGS) grammar.c; \
+ 	fi
+ 
+-grammar.o: grammar.c
++grammar.o: grammar.c scanner.h
+ 	$(CC) $(FULL_CFLAGS) -c grammar.c
+ 
+ gencode.o: $(srcdir)/gencode.c grammar.h scanner.h

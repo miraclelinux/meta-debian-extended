@@ -1,0 +1,48 @@
+From 27d2965c94aa94b8093d711cceb690376671515a Mon Sep 17 00:00:00 2001
+From: Yu Watanabe <watanabe.yu+github@gmail.com>
+Date: Tue, 6 Aug 2019 15:02:00 +0900
+Subject: [PATCH] workaround for build failure
+
+---
+ gencode.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/gencode.c b/gencode.c
+index f07c0be..a1f0a65 100644
+--- a/gencode.c
++++ b/gencode.c
+@@ -75,6 +75,34 @@
+ #include "arcnet.h"
+ 
+ #include "grammar.h"
++
++#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
++union YYSTYPE
++{
++#line 271 "../libpcap-1.8.1/grammar.y" /* yacc.c:1921  */
++
++        int i;
++        bpf_u_int32 h;
++        u_char *e;
++        char *s;
++        struct stmt *stmt;
++        struct arth *a;
++        struct {
++                struct qual q;
++                int atmfieldtype;
++                int mtp3fieldtype;
++                struct block *b;
++        } blk;
++        struct block *rblk;
++
++#line 316 "grammar.h" /* yacc.c:1921  */
++};
++
++typedef union YYSTYPE YYSTYPE;
++# define YYSTYPE_IS_TRIVIAL 1
++# define YYSTYPE_IS_DECLARED 1
++#endif
++
+ #include "scanner.h"
+ 
+ #if defined(linux) && defined(PF_PACKET) && defined(SO_ATTACH_FILTER)
