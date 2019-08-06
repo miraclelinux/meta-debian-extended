@@ -1,0 +1,14 @@
+diff --git a/configure.ac~ b/configure.ac
+index 3487f7d..8d808cd 100644
+--- a/configure.ac~
++++ b/configure.ac
+@@ -38,8 +38,7 @@ AC_ARG_ENABLE([tests],
+                  [disable building tests]))
+ 
+ AS_IF([test "x$enable_tests" != "xno"],
+-      [PKG_CHECK_MODULES([CHECK], [check >= 0.10],
+-                         [have_check=yes], [have_check=no])],
++      [have_check=no],
+       [have_check=no])
+ 
+ AS_IF([test "x$have_check" = "xyes"],
