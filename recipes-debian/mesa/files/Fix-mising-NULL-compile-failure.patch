@@ -1,0 +1,30 @@
+From 8e713e4781982c700bfc7b09279146189d525a86 Mon Sep 17 00:00:00 2001
+From: Alistair Francis <alistair@alistair23.me>
+Date: Sat, 26 Jan 2019 21:19:33 -0800
+Subject: [PATCH] elg: Fix mising NULL compile failure
+
+On GCC8 egl fails to compile with this error:
+  error: 'NULL' undeclared (first use in this function)
+
+As NULL is declared in stddef.h add it as an include to fix the build
+failure.
+
+Signed-off-by: Alistair Francis <alistair@alistair23.me>
+---
+ src/egl/main/egldevice.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/egl/main/egldevice.h b/src/egl/main/egldevice.h
+index ddcdcd17f5a..b9ca245a696 100644
+--- a/src/egl/main/egldevice.h
++++ b/src/egl/main/egldevice.h
+@@ -31,6 +31,7 @@
+
+
+ #include <stdbool.h>
++#include <stddef.h>
+ #include "egltypedefs.h"
+
+
+--
+2.21.0

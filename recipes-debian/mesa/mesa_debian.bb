@@ -15,6 +15,7 @@ SRC_URI += "\
     file://0002-winsys-svga-drm-Include-sys-types.h.patch \
     file://0003-Properly-get-LLVM-version-when-using-LLVM-Git-releas.patch \
     file://0004-use-PKG_CHECK_VAR-for-defining-WAYLAND_PROTOCOLS_DAT.patch \
+    file://Fix-mising-NULL-compile-failure.patch \
 "
 
 EXTRA_OECONF = "--enable-shared-glapi \
