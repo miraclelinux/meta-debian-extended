@@ -9,21 +9,19 @@ SECTION = "libs"
 LICENSE = "LGPLv2.1+"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2d5025d4aa3495befef8f17206a5b0a1"
 
-DEPENDS = "avahi"
+DEPENDS = "avahi libcheck"
 PR = "r7"
 PV = "0.14.1"
 
-inherit autotools debian-package
+inherit autotools pkgconfig debian-package
 require recipes-debian/sources/nss-mdns.inc
 
 DEBIAN_PATCH_TYPE = 'quilt'
 DEBIAN_UNPACK_DIR = "${WORKDIR}/nss-mdns-${PV}"
 
-SRC_URI += "file://do-not-check-check.diff"
-
 localstatedir = "/"
 
-EXTRA_OECONF = "--libdir=${base_libdir} --disable-tests"
+EXTRA_OECONF = "--libdir=${base_libdir}"
 
 # suppress warning, but don't bother with autonamer
 LEAD_SONAME = "libnss_mdns.so"
