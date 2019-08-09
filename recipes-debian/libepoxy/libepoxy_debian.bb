@@ -26,8 +26,9 @@ PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)} egl"
 
 EXTRA_OEMESON += "-Dtests=false"
 
-PACKAGECONFIG_class-native = "egl"
-PACKAGECONFIG_class-nativesdk = "egl"
+PACKAGECONFIG_class-native ??= "${@bb.utils.filter('DISTRO_FEATURES_NATIVE', 'x11', d)} egl"
+
+PACKAGECONFIG_class-native ??= "${@bb.utils.filter('DISTRO_FEATURES_NATIVESDK', 'x11', d)} egl"
 
 BBCLASSEXTEND = "native nativesdk"
 
