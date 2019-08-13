@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-devtools/cmake/cmake-native_3.14.1.bb
+# base branch : warrior
+# base commit : 5da6073d47dcdc335d5c225a8945f5f85609580e
+
 require ${COREBASE}/meta/recipes-devtools/cmake/cmake.inc
 
 SRC_URI = ""
