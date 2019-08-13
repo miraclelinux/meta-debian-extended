@@ -19,7 +19,7 @@ SRC_URI += " \
 
 inherit native
 
-DEPENDS += "bzip2-replacement-native expat-native xz-native zlib-native curl-native"
+DEPENDS += "bzip2-replacement-native expat-native xz-native zlib-native curl-native ncurses-native"
 
 SRC_URI += "file://OEToolchainConfig.cmake \
             file://environment.d-cmake.sh \
@@ -27,13 +27,13 @@ SRC_URI += "file://OEToolchainConfig.cmake \
             file://0005-Disable-use-of-ext2fs-ext2_fs.h-by-cmake-s-internal-.patch \
             "
 
+
 B = "${WORKDIR}/build"
 do_configure[cleandirs] = "${B}"
 
-# Disable ccmake since we don't depend on ncurses
 CMAKE_EXTRACONF = "\
     -DCMAKE_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} \
-    -DBUILD_CursesDialog=0 \
+    -DBUILD_CursesDialog=1 \
     -DCMAKE_USE_SYSTEM_LIBRARIES=1 \
     -DCMAKE_USE_SYSTEM_LIBRARY_JSONCPP=0 \
     -DCMAKE_USE_SYSTEM_LIBRARY_LIBARCHIVE=0 \
@@ -44,7 +44,10 @@ CMAKE_EXTRACONF = "\
 "
 
 do_configure () {
-	${S}/configure --verbose --prefix=${prefix} -- ${CMAKE_EXTRACONF}
+	${S}/configure --verbose --prefix=${prefix} \
+		${@oe.utils.parallel_make_argument(d, '--parallel=%d')} \
+		${@bb.utils.contains('CCACHE', 'ccache ', '--enable-ccache', '', d)} \
+		-- ${CMAKE_EXTRACONF}
 }
 
 do_compile() {
