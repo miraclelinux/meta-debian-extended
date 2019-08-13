@@ -8,7 +8,7 @@ DEBIAN_QUILT_PATCHES = ""
 FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/cmake/cmake"
 
 SRC_URI += " \
-           file://0001-cmake-Prevent-the-detection-of-Qt5_debian.patch \
+           file://0002-cmake-Prevent-the-detection-of-Qt5_debian.patch \
            file://0003-cmake-support-OpenEmbedded-Qt4-tool-binary-names.patch \
            file://0004-Fail-silently-if-system-Qt-installation-is-broken.patch \
 "

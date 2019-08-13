@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://Copyright.txt;md5=f61f5f859bc5ddba2b050eb10335e013 \
 "
 
 SRC_URI += " \
-           file://0001-cmake-Prevent-the-detection-of-Qt5_debian.patch \
+           file://0002-cmake-Prevent-the-detection-of-Qt5_debian.patch \
            file://0003-cmake-support-OpenEmbedded-Qt4-tool-binary-names.patch \
            file://0004-Fail-silently-if-system-Qt-installation-is-broken.patch \
 "
