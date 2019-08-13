@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/autoconf-archive/autoconf-archive_2018.03.13.bb
+# base branch: warrior
+# base commit: 7a4684c381772b9605111a96f4baf9e8974b1bd7
+
 SUMMARY = "a collection of freely re-usable Autoconf macros"
 HOMEPAGE = "http://www.gnu.org/software/autoconf-archive/"
 SECTION = "devel"

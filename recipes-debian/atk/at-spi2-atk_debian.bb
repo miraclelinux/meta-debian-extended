@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-support/atk/at-spi2-atk_2.30.0.bb
 # base branch: warrior
-# base commit: 997b526d8b732112edae252eb615b124c5a95760
+# base commit: 7e6ad795543a780989f709999a19ca2e86422b67
 
 SUMMARY = "AT-SPI 2 Toolkit Bridge"
 HOMEPAGE = "https://wiki.linuxfoundation.org/accessibility/d-bus"

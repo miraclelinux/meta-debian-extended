@@ -1,6 +1,6 @@
-# base recipe:
+# base recipe: meta/recipes-support/atk/at-spi2-core_2.30.0.bb
 # base branch: warrior
-# base commit:
+# base commit: 7e6ad795543a780989f709999a19ca2e86422b67
 
 SUMMARY = "Assistive Technology Service Provider Interface (dbus core)"
 HOMEPAGE = "https://wiki.linuxfoundation.org/accessibility/d-bus"

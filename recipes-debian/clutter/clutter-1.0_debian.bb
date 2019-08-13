@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-graphics/clutter/clutter-1.0_1.26.2.bb
 # base branch: warrior
-# base commit: d0314e9943af6ca26781db66b417398a4bedc805
+# base commit: 56b56aef129c1753f1a5bfd6e5b8451bfd0f242d
 
 require ${COREBASE}/meta/recipes-graphics/clutter/clutter-1.0.inc
 

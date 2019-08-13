@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-multimedia/alsa/alsa-lib_1.1.8.bb
+# base branch: warrior
+# base commit: 51254af4b052464fa0cfb94d8b3d02025ca063dc
+
 SUMMARY = "ALSA sound library"
 HOMEPAGE = "http://www.alsa-project.org"
 BUGTRACKER = "http://alsa-project.org/main/index.php/Bug_Tracking"

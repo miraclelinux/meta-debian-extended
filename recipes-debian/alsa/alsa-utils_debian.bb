@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-multimedia/alsa/alsa-utils_1.1.8.bb
 # base branch: warrior
 # base commit: 640b062451eec0d0ee4f972a4749c580c41f9b1f
-#
 
 SUMMARY = "ALSA sound utilities"
 HOMEPAGE = "http://www.alsa-project.org"

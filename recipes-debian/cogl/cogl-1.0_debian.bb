@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-graphics/cogl/cogl-1.0_1.22.2.bb
 # base branch: warrior
-# base commit: 1f129c1598b130d9700b0b74f903f296bed72024
+# base commit: bf45a3e222bda60685bf3b04c31401fce37cdd13
 
 require ${COREBASE}/meta/recipes-graphics/cogl/cogl-1.0.inc
 

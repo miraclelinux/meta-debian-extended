@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/bash-completion/bash-completion_2.8.bb
+# base branch: warrior
+# base commit: 8cbbadd4444e02614085156bdb334ec2666efde9
+
 SUMMARY = "Programmable Completion for Bash 4"
 HOMEPAGE = "http://bash-completion.alioth.debian.org/"
 BUGTRACKER = "https://alioth.debian.org/projects/bash-completion/"

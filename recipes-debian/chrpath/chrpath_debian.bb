@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-devtools/chrpath/chrpath_0.16.bb
+# base branch : warrior
+# base commit : 40e0f186b9f9135df969a911cc2b84555a8d784b
+
 SUMMARY = "Tool to edit rpath in ELF binaries"
 DESCRIPTION = "chrpath allows you to change the rpath (where the \
 application looks for libraries) in an application. It does not \

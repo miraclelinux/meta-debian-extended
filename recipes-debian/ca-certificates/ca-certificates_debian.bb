@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-support/ca-certificates/ca-certificates_20190110.bb
+# base branch : warrior
+# base commit : 15f2cefac48f0e1d8f0e921b858df2355da5bbcd
+
 SUMMARY = "Common CA certificates"
 DESCRIPTION = "This package includes PEM files of CA certificates to allow \
 SSL-based applications to check for the authenticity of SSL connections. \
@@ -16,7 +20,7 @@ DEBIAN_PATCH_TYPE = "nopatch"
 DEPENDS = ""
 DEPENDS_class-native = "openssl-native"
 DEPENDS_class-nativesdk = "openssl-native"
-# Need c_rehash from openssl and run-parts from debianutils
+# Need rehash from openssl and run-parts from debianutils
 PACKAGE_WRITE_DEPS += "openssl-native debianutils-native"
 
 SRC_URI += " \

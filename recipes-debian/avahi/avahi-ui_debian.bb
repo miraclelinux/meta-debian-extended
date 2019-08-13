@@ -1,6 +1,6 @@
 # base recipe : meta/recipes-connectivity/avahi/avahi-ui_0.7.bb
 # base branch : warrior
-# base commit : 2b152d36581053b2fa9e81b2cd1664b885c951f0
+# base commit : be07743960fb4a0ddf1c79c1c63d5787b1fda08e
 
 require ${COREBASE}/meta/recipes-connectivity/avahi/avahi.inc
 
@@ -52,6 +52,6 @@ do_install_append () {
 	rm ${D}${mandir}/man1/a*
 	rm ${D}${mandir}/man5 -rf
 	rm ${D}${mandir}/man8 -rf
-	rm ${D}${libdir}/girepository-1.0/ -rf
-	rm ${D}${datadir}/gir-1.0/ -rf
+        rm ${D}${libdir}/girepository-1.0/ -rf
+        rm ${D}${datadir}/gir-1.0/ -rf
 }

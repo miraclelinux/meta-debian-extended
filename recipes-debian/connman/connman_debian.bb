@@ -1,6 +1,6 @@
 # base recipe : meta/recipes-connectivity/connman/connman_1.36.bb
 # base branch : warrior
-# base commit : dc804276ef79bee3818deb1a6586ba65cc7b4a3a
+# base commit : 8c0a1cfb958bdc1d8451873e21ae527e3322f1d9
 
 require ${COREBASE}/meta/recipes-connectivity/connman/connman.inc
 inherit debian-package
