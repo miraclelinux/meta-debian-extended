@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/harfbuzz/harfbuzz_2.3.1.bb
+# base branch: warrior
+# base commit: 69438e515657e27c1afe6f852ed035de578441ef
+
 SUMMARY = "Text shaping library"
 DESCRIPTION = "HarfBuzz is an OpenType text shaping engine."
 HOMEPAGE = "http://www.freedesktop.org/wiki/Software/HarfBuzz"
@@ -27,12 +31,6 @@ EXTRA_OECONF = " \
     --without-graphite2 \
 "
 
-do_configure_prepend() {
-    # This is ancient and can get used instead of the patched one we ship,
-    # so delete it. In 1.8.9 this should be removed upstream.
-    rm -f ${S}/m4/pkg.m4
-}
-
 PACKAGES =+ "${PN}-icu ${PN}-icu-dev"
 
 LEAD_SONAME = "libharfbuzz.so"
@@ -43,4 +41,4 @@ FILES_${PN}-icu-dev = "${libdir}/libharfbuzz-icu.la \
                        ${libdir}/pkgconfig/harfbuzz-icu.pc \
 "
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
