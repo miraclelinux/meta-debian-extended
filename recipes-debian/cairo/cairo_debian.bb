@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-graphics/cairo/cairo_1.16.0.bb
+# base branch : warrior
+# base commit : 0e3a1b57fc4a1eba48f52064b4230075e711ec13
+
 SUMMARY = "The Cairo 2D vector graphics library"
 DESCRIPTION = "Cairo is a multi-platform library providing anti-aliased \
 vector-based rendering for multiple target backends. Paths consist \
@@ -28,9 +32,9 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/cairo/cairo"
 
 SRC_URI += " \
            file://cairo-get_bitmap_surface-bsc1036789-CVE-2017-7475.diff \ 
+           file://CVE-2019-6461.patch \
+           file://CVE-2019-6462.patch \
           "
-
-# file://0001-cairo-Fix-CVE-2017-9814.patch
 
 inherit autotools pkgconfig upstream-version-is-even gtk-doc multilib_script
 

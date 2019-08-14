@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-devtools/cmake/cmake-native_3.14.1.bb
+# base branch : warrior
+# base commit : 5da6073d47dcdc335d5c225a8945f5f85609580e
+
 require ${COREBASE}/meta/recipes-devtools/cmake/cmake.inc
 
 SRC_URI = ""
@@ -12,14 +16,14 @@ LIC_FILES_CHKSUM = "file://Copyright.txt;md5=f61f5f859bc5ddba2b050eb10335e013 \
 "
 
 SRC_URI += " \
-           file://0001-cmake-Prevent-the-detection-of-Qt5_debian.patch \
+           file://0002-cmake-Prevent-the-detection-of-Qt5_debian.patch \
            file://0003-cmake-support-OpenEmbedded-Qt4-tool-binary-names.patch \
            file://0004-Fail-silently-if-system-Qt-installation-is-broken.patch \
 "
 
 inherit native
 
-DEPENDS += "bzip2-replacement-native expat-native xz-native zlib-native curl-native"
+DEPENDS += "bzip2-replacement-native expat-native xz-native zlib-native curl-native ncurses-native"
 
 SRC_URI += "file://OEToolchainConfig.cmake \
             file://environment.d-cmake.sh \
@@ -27,13 +31,13 @@ SRC_URI += "file://OEToolchainConfig.cmake \
             file://0005-Disable-use-of-ext2fs-ext2_fs.h-by-cmake-s-internal-.patch \
             "
 
+
 B = "${WORKDIR}/build"
 do_configure[cleandirs] = "${B}"
 
-# Disable ccmake since we don't depend on ncurses
 CMAKE_EXTRACONF = "\
     -DCMAKE_LIBRARY_PATH=${STAGING_LIBDIR_NATIVE} \
-    -DBUILD_CursesDialog=0 \
+    -DBUILD_CursesDialog=1 \
     -DCMAKE_USE_SYSTEM_LIBRARIES=1 \
     -DCMAKE_USE_SYSTEM_LIBRARY_JSONCPP=0 \
     -DCMAKE_USE_SYSTEM_LIBRARY_LIBARCHIVE=0 \
@@ -44,7 +48,10 @@ CMAKE_EXTRACONF = "\
 "
 
 do_configure () {
-	${S}/configure --verbose --prefix=${prefix} -- ${CMAKE_EXTRACONF}
+	${S}/configure --verbose --prefix=${prefix} \
+		${@oe.utils.parallel_make_argument(d, '--parallel=%d')} \
+		${@bb.utils.contains('CCACHE', 'ccache ', '--enable-ccache', '', d)} \
+		-- ${CMAKE_EXTRACONF}
 }
 
 do_compile() {

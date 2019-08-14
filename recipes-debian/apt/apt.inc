@@ -1,7 +1,7 @@
-#
-# poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
-# file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/apt/apt.inc?id=753e2a0ede4449917c75353b57f13bbafe70fac8
-#
+# base recipe: meta/recipes-devtools/apt/apt.inc
+# base branch: warrior
+# base commit: aab11d8d283fe2d1619eca20eee83bc5a3e230bd
+
 SUMMARY = "Advanced front-end for dpkg"
 LICENSE = "GPLv2.0+"
 SECTION = "base"
@@ -22,7 +22,7 @@ SRC_URI += "file://no-nls-dpkg.patch \
 
 inherit gettext useradd
 
-# apt's cmake requires perl 
+# apt's cmake requires perl
 inherit perlnative cmake
 
 OECMAKE_CXX_FLAGS += " -fvisibility-inlines-hidden -Wall -Wextra -Wcast-align -Wlogical-op -Wredundant-decls -Wmissing-declarations -Wunsafe-loop-optimizations -Wctor-dtor-privacy -Wdisabled-optimization -Winit-self -Wmissing-include-dirs -Wnoexcept -Wsign-promo -Wundef -Wdouble-promotion -std=gnu++11"

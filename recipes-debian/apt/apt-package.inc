@@ -1,7 +1,7 @@
-#
-# poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
-# file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-devtools/apt/apt-package.inc?id=753e2a0ede4449917c75353b57f13bbafe70fac8
-#
+# base recipe: meta/recipes-devtools/apt/apt-package.inc
+# base branch: warrior
+# base commit: aab11d8d283fe2d1619eca20eee83bc5a3e230bd
+
 apt-manpages="doc/apt-cache.8 \
 	      doc/apt-cdrom.8 \
 	      doc/apt-config.8 \

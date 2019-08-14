@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-devtools/btrfs-tools/btrfs-tools_4.20.1.bb
+# base branch : warrior
+# base commit : 243655b6c22ced795d79c888fd0f01608300dfaa
+
 SUMMARY = "Checksumming Copy on Write Filesystem utilities"
 DESCRIPTION = "Btrfs is a new copy on write filesystem for Linux aimed at \
 implementing advanced features while focusing on fault tolerance, repair and \
@@ -18,6 +22,7 @@ DEPENDS = "util-linux attr e2fsprogs lzo acl python3-setuptools-native"
 DEPENDS_append_class-target = " udev"
 RDEPENDS_${PN} = "libgcc"
 
+FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/btrfs-tools/btrfs-tools"
 SRC_URI += "\
            file://python3-use-deb-layout_revert.patch \
            file://0001-Makefile-build-mktables-using-native-gcc.patch \

@@ -1,6 +1,6 @@
 # base recipe : meta/recipes-connectivity/avahi/avahi_0.7.bb
 # base branch : warrior
-# base commit : 1ddec43ce1cbab1984cb6925be34a05b4ccee9e0
+# base commit : be07743960fb4a0ddf1c79c1c63d5787b1fda08e
 
 require ${COREBASE}/meta/recipes-connectivity/avahi/avahi.inc
 

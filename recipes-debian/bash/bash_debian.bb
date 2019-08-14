@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/bash/bash_4.4.18.bb
+# base branch: warrior
+# base commit: f2dfe9d089c80980ec63bf5d42bb02945fd567a4
+
 require ${COREBASE}/meta/recipes-extended/bash/bash.inc
 
 inherit debian-package

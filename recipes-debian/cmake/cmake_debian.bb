@@ -1,3 +1,7 @@
+# base recipe : meta/recipes-devtools/cmake/cmake_3.14.1.bb
+# base branch : warrior
+# base commit : 5da6073d47dcdc335d5c225a8945f5f85609580e
+
 require ${COREBASE}/meta/recipes-devtools/cmake/cmake.inc
 
 SRC_URI = ""
@@ -7,8 +11,12 @@ require recipes-debian/sources/cmake.inc
 DEBIAN_QUILT_PATCHES = ""
 FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/cmake/cmake"
 
+LIC_FILES_CHKSUM = "file://Copyright.txt;md5=f61f5f859bc5ddba2b050eb10335e013 \
+                    file://Source/cmake.h;md5=4494dee184212fc89c469c3acd555a14;beginline=1;endline=3 \
+"
+
 SRC_URI += " \
-           file://0001-cmake-Prevent-the-detection-of-Qt5_debian.patch \
+           file://0002-cmake-Prevent-the-detection-of-Qt5_debian.patch \
            file://0003-cmake-support-OpenEmbedded-Qt4-tool-binary-names.patch \
            file://0004-Fail-silently-if-system-Qt-installation-is-broken.patch \
 "

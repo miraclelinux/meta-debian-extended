@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-connectivity/connman/connman-gnome_0.7.bb
 # base branch: warrior
-# base commit: fdbf32bb766c7e7587782f40df79a1ecbd0fed40
+# base commit: 389cfd24be7bad870a85181c14807b7d04711cfc
 
 SUMMARY = "GTK+ frontend for the ConnMan network connection manager"
 HOMEPAGE = "http://connman.net/"
