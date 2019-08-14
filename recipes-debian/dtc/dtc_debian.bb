@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-kernel/dtc/dtc_1.4.7.bb
+# base branch: warrior
+# base commit: 39c941e1926f3abe00b74088c92307fde6e7598a
+
 require ${COREBASE}/meta/recipes-kernel/dtc/dtc.inc
 
 LIC_FILES_CHKSUM = "file://GPL;md5=94d55d512a9ba36caa9b7df079bae19f \
