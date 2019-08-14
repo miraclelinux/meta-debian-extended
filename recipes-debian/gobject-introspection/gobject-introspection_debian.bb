@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-gnome/gobject-introspection/gobject-introspection_1.58.3.bb
+# base branch: warrior
+# base commit: acd03552ac46ff8123b1243dad1b0aa437f0a6ce
+
 SUMMARY = "Middleware layer between GObject-using C libraries and language bindings"
 HOMEPAGE = "https://wiki.gnome.org/action/show/Projects/GObjectIntrospection"
 BUGTRACKER = "https://bugzilla.gnome.org/"
@@ -22,11 +26,13 @@ SRC_URI += " \
            file://0001-giscanner-ignore-error-return-codes-from-ldd-wrapper.patch \
            file://0001-configure.ac-make-GIR_DIR-configurable.patch \
            file://0002-g-ir-tools-respect-gir_dir_prefix.patch \
+           file://0010-meson-add-option-gir-dir-prefix.patch \
+           file://0001-Port-cross-compilation-support-to-meson.patch \
            "
 
 SRC_URI_append_class-native = " file://0001-Relocate-the-repository-directory-for-native-builds.patch"
 
-inherit autotools pkgconfig gtk-doc python3native qemu gobject-introspection-data upstream-version-is-even multilib_script
+inherit meson pkgconfig gtk-doc python3native qemu gobject-introspection-data upstream-version-is-even multilib_script
 
 MULTILIB_SCRIPTS = "${PN}:${bindir}/g-ir-annotation-tool ${PN}:${bindir}/g-ir-scanner"
 
@@ -44,17 +50,17 @@ export STAGING_DIR_HOST
 export B
 
 PACKAGECONFIG ?= ""
-PACKAGECONFIG[doctool] = "--enable-doctool,--disable-doctool,python3-mako,"
+PACKAGECONFIG[doctool] = "-Ddoctool=true,-Ddoctool=false,python3-mako,"
 
 # Configure target build to use native tools of itself and to use a qemu wrapper
 # and optionally to generate introspection data
-EXTRA_OECONF_class-target = " \
-    --disable-static \
-    --enable-host-gi \
-    --enable-gi-cross-wrapper=${B}/g-ir-scanner-qemuwrapper \
-    --enable-gi-ldd-wrapper=${B}/g-ir-scanner-lddwrapper \
-    ${@bb.utils.contains('GI_DATA_ENABLED', 'True', '--enable-introspection-data', '--disable-introspection-data', d)} \
-    ${@'--with-gir-dir-prefix=${libdir}' if d.getVar('MULTILIBS') else ''} \
+EXTRA_OEMESON_class-target = " \
+    -Denable-host-gi=true \
+    -Denable-gi-cross-wrapper=${B}/g-ir-scanner-qemuwrapper \
+    -Denable-gi-ldd-wrapper=${B}/g-ir-scanner-lddwrapper \
+    -Dpkgconfig-sysroot-path=${PKG_CONFIG_SYSROOT_DIR} \
+    ${@bb.utils.contains('GI_DATA_ENABLED', 'True', '-Denable-introspection-data=true', '-Denable-introspection-data=false', d)} \
+    ${@'-Dgir-dir-prefix=${libdir}' if d.getVar('MULTILIBS') else ''} \
 "
 
 # Need to ensure ld.so.conf exists so prelink-native works
@@ -74,7 +80,7 @@ do_configure_prepend_class-native() {
 do_configure_prepend_class-target() {
         # Write out a qemu wrapper that will be given to gi-scanner so that it
         # can run target helper binaries through that.
-        qemu_binary="${@qemu_wrapper_cmdline(d, '$STAGING_DIR_HOST', ['\$GIR_EXTRA_LIBS_PATH','.libs','$STAGING_DIR_HOST/${libdir}','$STAGING_DIR_HOST/${base_libdir}'])}"
+        qemu_binary="${@qemu_wrapper_cmdline(d, '$STAGING_DIR_HOST', ['\\$GIR_EXTRA_LIBS_PATH','.libs','$STAGING_DIR_HOST/${libdir}','$STAGING_DIR_HOST/${base_libdir}'])}"
         cat > ${B}/g-ir-scanner-qemuwrapper << EOF
 #!/bin/sh
 # Use a modules directory which doesn't exist so we don't load random things
