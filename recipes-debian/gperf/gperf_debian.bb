@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/gperf/
+# base branch: warrior
+# base commit: 741394e472bc8af8901c97574400d2a39644ab3a
+
 DESCRIPTION = "GNU gperf is a perfect hash function generator"
 HOMEPAGE = "http://www.gnu.org/software/gperf"
 SUMMARY  = "Generate a perfect hash function from a set of keywords"
