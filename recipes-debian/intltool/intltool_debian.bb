@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/intltool/intltool_0.51.0.bb
+# base branch: warrior
+# base commit: ed9924f814be50b56670fa43ca137eb3c7e19c2d
+
 SUMMARY = "Utility scripts for internationalizing XML"
 SECTION = "devel"
 LICENSE = "GPLv2"
