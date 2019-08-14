@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-multimedia/flac/flac_1.3.2.bb
+# base branch: warrior
+# base commit: f94f7450fbccb366952f5e91525008beb021f304
+
 SUMMARY = "Free Lossless Audio Codec"
 DESCRIPTION = "FLAC stands for Free Lossless Audio Codec, a lossless audio compression format."
 HOMEPAGE = "https://xiph.org/flac/"
@@ -18,7 +22,7 @@ require recipes-debian/sources/flac.inc
 
 DEPENDS = "libogg"
 
-CVE_PRODUCT = "libflac"
+CVE_PRODUCT = "libflac flac"
 
 inherit autotools gettext
 
