@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/fribidi/fribidi_1.0.5.bb
+# base branch: warrior
+# base commit: 4569d6163d254d74118985f651bbf908b1e16ffd
+
 SUMMARY = "Free Implementation of the Unicode Bidirectional Algorithm"
 SECTION = "libs"
 LICENSE = "LGPLv2.1+"
