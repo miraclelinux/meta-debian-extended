@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/diffutils/diffutils_3.7.bb
+# base branch: warrior
+# base commit: b734917ebcf0dc1ba5ffae30881559c1acb4f172
+
 LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
