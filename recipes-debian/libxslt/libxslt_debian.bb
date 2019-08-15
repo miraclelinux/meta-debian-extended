@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libxslt/libxslt_1.1.33.bb
+# base branch: warrior
+# base commit: 3dc1065b8dccaf3c7a9cde51d9909966dc0ba70d
+
 SUMMARY = "GNOME XSLT library"
 HOMEPAGE = "http://xmlsoft.org/XSLT/"
 BUGTRACKER = "https://bugzilla.gnome.org/"
@@ -10,9 +14,12 @@ DEPENDS = "libxml2"
 
 inherit debian-package
 require recipes-debian/sources/libxslt.inc
-FILESEXTRAPATHS_prepend := "${THISDIR}/libxslt:"
+FILESPATH_append = ":${COREBASE}/meta/recipes-support/libxslt/files"
 
-SRC_URI += " file://fix-rvts-handling.patch"
+SRC_URI += " \
+           file://0001-Fix-security-framework-bypass.patch \
+           file://fix-rvts-handling.patch \
+"
 
 UPSTREAM_CHECK_REGEX = "libxslt-(?P<pver>\d+(\.\d+)+)\.tar"
 
