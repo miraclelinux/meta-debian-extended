@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-connectivity/libnss-mdns/libnss-mdns_0.10.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: f6a00e069589fc53411d8f504805f5fc541531a1
 
 SUMMARY = "Name Service Switch module for Multicast DNS (zeroconf) name resolution"
 HOMEPAGE = "http://0pointer.de/lennart/projects/nss-mdns/"

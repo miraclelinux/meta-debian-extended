@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libcroco/libcroco_0.6.12.bb
+# base branch: warrior
+# base commit: 0775bf214756d4757196bbb4c80feb3d4347fd64
+
 SUMMARY = "Cascading Style Sheet (CSS) parsing and manipulation toolkit"
 HOMEPAGE = "http://www.gnome.org/"
 BUGTRACKER = "https://bugzilla.gnome.org/"

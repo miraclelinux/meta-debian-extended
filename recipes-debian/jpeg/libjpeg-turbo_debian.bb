@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/jpeg/libjpeg-turbo_1.5.2.bb
+# base branch: warrior
+# base commit: 3b8ca07a0ca82a8f4c48f6cda90569b1a8c7cd2e
+
 SUMMARY = "Hardware accelerated JPEG compression/decompression library"
 DESCRIPTION = "libjpeg-turbo is a derivative of libjpeg that uses SIMD instructions (MMX, SSE2, NEON) to accelerate baseline JPEG compression and decompression"
 HOMEPAGE = "http://libjpeg-turbo.org/"
@@ -14,10 +18,6 @@ LIC_FILES_CHKSUM = "file://cdjpeg.h;endline=13;md5=05bab7c7ad899d85bfba60da1a127
 "
 DEPENDS_append_x86-64_class-target = " nasm-native"
 DEPENDS_append_x86_class-target    = " nasm-native"
-
-#SRC_URI += " \
-#           file://0001-libjpeg-turbo-fix-package_qa-error.patch \
-#           file://0001-libjpeg-turbo-fix-wrongly-defined-define-HAVE_STDLIB.patch"
 
 UPSTREAM_CHECK_URI = "http://sourceforge.net/projects/libjpeg-turbo/files/"
 UPSTREAM_CHECK_REGEX = "/libjpeg-turbo/files/(?P<pver>(\d+[\.\-_]*)+)/"

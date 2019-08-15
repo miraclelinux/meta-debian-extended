@@ -44,14 +44,15 @@ do_configure_prepend () {
 
 BBCLASSEXTEND = "native"
 
-SRC_URI += "file://libpcap-pkgconfig-support.patch \
-           file://0001-Fix-compiler_state_t.ai-usage-when-INET6-is-not-defi.patch \
-           file://0002-Add-missing-compiler_state_t-parameter.patch \
-           file://fix-grammar-deps.patch \
-           file://0010-workaround-for-build-failure.patch \
-           file://fix-lds-path.diff \
-           file://add-fPIC.diff \
-           "
+SRC_URI += " \
+    file://libpcap-pkgconfig-support.patch \
+    file://0001-Fix-compiler_state_t.ai-usage-when-INET6-is-not-defi.patch \
+    file://0002-Add-missing-compiler_state_t-parameter.patch \
+    file://fix-grammar-deps.patch \
+    file://0010-workaround-for-build-failure.patch \
+    file://fix-lds-path.diff \
+    file://add-fPIC.diff \
+"
 
 #
 # make install doesn't cover the shared lib

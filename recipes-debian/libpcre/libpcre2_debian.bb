@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libpcre/libpcre2_10.32.bb
+# base branch: warrior
+# base commit: 43bddc6aab9af803c85203068206d4b3aebba197
+
 DESCRIPTION = "There are two major versions of the PCRE library. The \
 newest version is PCRE2, which is a re-working of the original PCRE \
 library to provide an entirely new API. The original, very widely \

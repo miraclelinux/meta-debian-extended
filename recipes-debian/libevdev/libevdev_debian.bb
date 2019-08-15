@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libevdev/libevdev_1.6.0.bb
+# base branch: warrior
+# base commit: 96eba176452624b69b1b1dd91b117a458aeb2c92
+
 SUMMARY = "Wrapper library for evdev devices"
 HOMEPAGE = "http://www.freedesktop.org/wiki/Software/libevdev/"
 SECTION = "libs"

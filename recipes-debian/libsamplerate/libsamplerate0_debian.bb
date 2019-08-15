@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-multimedia/libsamplerate/libsamplerate0_0.1.9.bb
+# base branch: warrior
+# base commit: 0160ec630e6dd5323847b62ecbb258754d7e6e75
+
 SUMMARY = "Audio Sample Rate Conversion library"
 HOMEPAGE = "http://www.mega-nerd.com/SRC/"
 SECTION = "libs"

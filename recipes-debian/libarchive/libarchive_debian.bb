@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/libarchive/libarchive_3.3.3.bb
+# base branch: warrior
+# base commit: 14193f5860c738b191cb074ff4eb0bf8fbc9329b
+
 SUMMARY = "Support for reading various archive formats"
 DESCRIPTION = "C library and command-line tools for reading and writing tar, cpio, zip, ISO, and other archive formats"
 HOMEPAGE = "http://www.libarchive.org/"

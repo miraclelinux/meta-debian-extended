@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/lzop/lzop_1.04.bb
+# base branch: warrior
+# base commit: a25637e7e6be1d4e40db8085b654a5beeed7fbc1
+
 SUMMARY = "Real-time file compressor"
 DESCRIPTION = "lzop is a compression utility which is designed to be a companion to gzip. \n\
 It is based on the LZO data compression library and its main advantages over \n\

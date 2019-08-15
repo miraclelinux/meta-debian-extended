@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libxslt/libxslt_1.1.33.bb
+# base branch: warrior
+# base commit: 3dc1065b8dccaf3c7a9cde51d9909966dc0ba70d
+
 SUMMARY = "GNOME XSLT library"
 HOMEPAGE = "http://xmlsoft.org/XSLT/"
 BUGTRACKER = "https://bugzilla.gnome.org/"
@@ -10,9 +14,14 @@ DEPENDS = "libxml2"
 
 inherit debian-package
 require recipes-debian/sources/libxslt.inc
-FILESEXTRAPATHS_prepend := "${THISDIR}/libxslt:"
+FILESPATH_append = ":${COREBASE}/meta/recipes-support/libxslt/files"
 
-SRC_URI += " file://fix-rvts-handling.patch"
+SRC_URI += " \
+           file://0001-Fix-security-framework-bypass.patch \
+           file://0007-Fix-uninitialized-read-of-xsl-number-token.patch \
+           file://0008-Fix-uninitialized-read-with-UTF-8-grouping-chars.patch \
+           file://fix-rvts-handling.patch \
+"
 
 UPSTREAM_CHECK_REGEX = "libxslt-(?P<pver>\d+(\.\d+)+)\.tar"
 
@@ -29,7 +38,7 @@ do_configure_prepend () {
 	touch ${S}/doc/xsltproc.1
 }
 
-EXTRA_OECONF = "--without-python --without-debug --without-mem-debug --without-crypto"
+EXTRA_OECONF = "--without-python --without-debug --without-mem-debug --without-crypto --with-html-subdir=${BPN}"
 # older versions of this recipe had ${PN}-utils
 RPROVIDES_${PN}-bin += "${PN}-utils"
 RCONFLICTS_${PN}-bin += "${PN}-utils"
@@ -37,7 +46,7 @@ RREPLACES_${PN}-bin += "${PN}-utils"
 
 
 do_install_append_class-native () {
-    create_wrapper ${D}/${bindir}/xsltproc XML_CATALOG_FILES=${sysconfdir}/xml/catalog.xml
+    create_wrapper ${D}/${bindir}/xsltproc XML_CATALOG_FILES=${sysconfdir}/xml/catalog
 }
 
 FILES_${PN} += "${libdir}/libxslt-plugins"

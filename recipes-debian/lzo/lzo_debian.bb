@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/lzo/lzo_2.10.bb
+# base branch: warrior
+# base commit: e49b5dfb4ee4fa3b8d903d2dc19aa44a01a93565
+
 SUMMARY = "Lossless data compression library"
 HOMEPAGE = "http://www.oberhumer.com/opensource/lzo/"
 SECTION = "libs"
@@ -13,10 +17,10 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/lzo:"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/lzo/lzo"
 SRC_URI += " \
-	   file://0001-Use-memcpy-instead-of-reinventing-it_debian.patch \
+           file://0001-Use-memcpy-instead-of-reinventing-it_debian.patch \
 	   file://0001-Add-pkgconfigdir-to-solve-the-undefine-error.patch \
-	   file://run-ptest \
-	   "
+           file://run-ptest \
+           "
 
 inherit autotools ptest
 
@@ -30,5 +34,6 @@ do_install_ptest() {
 		do cp ${B}/`dirname $i`/.libs/`basename $i` $t; \
 	done
 }
+
 
 BBCLASSEXTEND = "native nativesdk"

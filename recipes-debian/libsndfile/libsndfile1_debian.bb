@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-multimedia/libsndfile/libsndfile1_1.0.28.bb
+# base branch: warrior
+# base commit: 49d6cd5000e2ff77b48b930fbceaa5938095e96d
+
 SUMMARY = "Audio format Conversion library"
 HOMEPAGE = "http://www.mega-nerd.com/libsndfile"
 AUTHOR = "Erik de Castro Lopo"

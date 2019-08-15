@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-support/libksba/libksba_1.3.5.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: 438685084d2e26745796a32faee2b07cb44d0993
 
 SUMMARY = "Easy API to create and parse X.509 and CMS related objects"
 HOMEPAGE = "http://www.gnupg.org/related_software/libksba/"

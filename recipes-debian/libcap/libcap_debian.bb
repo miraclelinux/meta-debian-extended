@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libcap/libcap_2.26.bb
+# base branch: warrior
+# base commit: 68a087f6460dead367095e4b61a6bb8855d83f03
+
 SUMMARY = "Library for getting/setting POSIX.1e capabilities"
 HOMEPAGE = "http://sites.google.com/site/fullycapable/"
 
