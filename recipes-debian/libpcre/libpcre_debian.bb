@@ -27,7 +27,7 @@ CVE_PRODUCT = "pcre"
 PROVIDES += "pcre"
 DEPENDS += "bzip2 zlib"
 
-PACKAGECONFIG ??= "pcre8 unicode-properties"
+PACKAGECONFIG ??= "pcre8 unicode-properties jit"
 
 PACKAGECONFIG[pcre8] = "--enable-pcre8,--disable-pcre8"
 PACKAGECONFIG[pcre16] = "--enable-pcre16,--disable-pcre16"
