@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/grep/grep_3.3.bb
+# base branch: warrior
+# base commit: cd24a399668414fb018622a8dd7a783418d7095d
+
 SUMMARY = "GNU grep utility"
 HOMEPAGE = "http://savannah.gnu.org/projects/grep/"
 BUGTRACKER = "http://savannah.gnu.org/bugs/?group=grep"

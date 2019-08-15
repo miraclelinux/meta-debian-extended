@@ -1,8 +1,6 @@
-#
-# base recipe: meta/recipes-support/gnome-desktop-testing/gnome-desktop-testing_2018.1.bb 
-# base branch: master
-# base commit: ad4bdc680a2eb28b1bc6dfd937058c89006d2908
-#
+# base recipe: meta/recipes-support/gnome-desktop-testing/gnome-desktop-testing_2018.1.bb
+# base branch: warrior
+# base commit: bd57916ae56669f563c7aa816ac520dc37cfc78d
 
 SUMMARY = "Test runner for GNOME-style installed tests"
 HOMEPAGE = "https://wiki.gnome.org/GnomeGoals/InstalledTests"

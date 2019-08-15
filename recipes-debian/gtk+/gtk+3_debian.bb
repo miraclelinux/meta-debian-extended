@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-gnome/gtk+/gtk+3_3.24.5.bb
 # base branch: warrior
-# base commit: 86be661fd6ae90abc5108c7cba56bdcefa812eab
+# base commit: c055a0efe89691be3468b3fc269b879926b83103
 
 require ${COREBASE}/meta/recipes-gnome/gtk+/gtk+3.inc
 
@@ -12,11 +12,11 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/gtk+-${PV}"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-gnome/gtk+/gtk+3"
 SRC_URI += "\
-    file://0001-Hardcoded-libtool.patch \
-    file://0002-Do-not-try-to-initialize-GL-without-libGL.patch \
-    file://0003-Add-disable-opengl-configure-option.patch \
-    file://link_fribidi.patch \
-"
+           file://0001-Hardcoded-libtool.patch \
+           file://0002-Do-not-try-to-initialize-GL-without-libGL.patch \
+           file://0003-Add-disable-opengl-configure-option.patch \
+           file://link_fribidi.patch \
+          "
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=5f30f0716dfdd0d91eb439ebec522ec2 \
                     file://gtk/gtk.h;endline=25;md5=1d8dc0fccdbfa26287a271dce88af737 \

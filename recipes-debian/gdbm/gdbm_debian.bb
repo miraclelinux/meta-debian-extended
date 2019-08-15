@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/gdbm/gdbm_1.18.1.bb
+# base branch: warrior
+# base commit: a15b8cb1fe359510c1a9ae2a88381e87549f92eb
+
 SUMMARY = "Key/value database library with extensible hashing"
 HOMEPAGE = "http://www.gnu.org/software/gdbm/"
 SECTION = "libs"
@@ -31,7 +35,7 @@ do_install_append () {
     ln -sf ../gdbm.h ${D}/${includedir}/gdbm/gdbm.h
 }
 
-RDEPENDS_${PN}-ptest += "diffutils"
+RDEPENDS_${PN}-ptest += "diffutils ${PN}-bin"
 
 do_compile_ptest() {
     oe_runmake -C tests buildtests

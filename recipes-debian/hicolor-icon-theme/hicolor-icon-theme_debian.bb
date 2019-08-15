@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-gnome/hicolor-icon-theme/hicolor-icon-theme_0.17.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: 997b526d8b732112edae252eb615b124c5a95760
 
 SUMMARY = "Default icon theme that all icon themes automatically inherit from"
 HOMEPAGE = "http://icon-theme.freedesktop.org/wiki/HicolorTheme"

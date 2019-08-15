@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-gnome/gtk-doc/gtk-doc_1.29.bb
+# base branch: warrior
+# base commit: 0c4e26f49c548bae8bbaac01545d0c4df368e495
+
 SUMMARY = "Documentation generator for glib-based software"
 DESCRIPTION = "Gtk-doc is a set of scripts that extract specially formatted comments \
                from glib-based software and produce a set of html documentation files from them"

@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-support/gnutls/gnutls_3.6.7.bb
 # base branch: warrior
-# base commit: d00d95924bca1c008682ee92a3f9bfc9d9cf53b1
-#
+# base commit: 09dea32f477a3e8855bd35af1c042004a823de8f
 
 SUMMARY = "GNU Transport Layer Security Library"
 HOMEPAGE = "http://www.gnu.org/software/gnutls/"
@@ -51,6 +49,7 @@ EXTRA_OECONF = " \
     --enable-local-libopts \
     --enable-openssl-compatibility \
     --with-libpthread-prefix=${STAGING_DIR_HOST}${prefix} \
+    --with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt \
 "
 
 LDFLAGS_append_libc-musl = " -largp"
