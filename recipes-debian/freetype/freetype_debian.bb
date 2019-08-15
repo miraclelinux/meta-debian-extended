@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/freetype/freetype_2.9.1.bb
+# base branch: warrior
+# base commit: a3928b3463ba86f7821f77565c8b2557ac7abbd1
+
 SUMMARY = "Freetype font rendering library"
 DESCRIPTION = "FreeType is a software font engine that is designed to be small, efficient, \
 highly customizable, and portable while capable of producing high-quality output (glyph \

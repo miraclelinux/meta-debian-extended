@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/fontconfig/fontconfig_2.12.6.bb
+# base branch: warrior
+# base commit: 15d8fd881af4db4791c41ad94f8beff8a45effcb
+
 SUMMARY = "Generic font configuration library"
 DESCRIPTION = "Fontconfig is a font configuration and customization library, which \
 does not depend on the X Window System. It is designed to locate \
@@ -20,11 +24,13 @@ SECTION = "libs"
 
 inherit debian-package
 require recipes-debian/sources/fontconfig.inc
+FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/fontconfig/fontconfig"
 
 DEPENDS = "expat freetype zlib gperf-native util-linux gettext-native"
 
-# file://revert-static-pkgconfig.patch 
-# file://0001-src-fcxml.c-avoid-double-free-of-filename.patch 
+SRC_URI += " \
+           file://0001-src-fccache.c-Fix-define-for-HAVE_POSIX_FADVISE.patch \
+           "
 
 UPSTREAM_CHECK_REGEX = "fontconfig-(?P<pver>\d+\.\d+\.(?!9\d+)\d+)"
 
@@ -41,6 +47,12 @@ do_install_append_class-target() {
 
 do_install_append() {
     rm -rf ${D}${datadir}/gettext/
+}
+
+do_install_append_class-nativesdk() {
+    # duplicate fc-cache for postinstall script
+    mkdir -p ${D}${libexecdir}
+    ln ${D}${bindir}/fc-cache ${D}${libexecdir}/${MLPREFIX}fc-cache
 }
 
 PACKAGES =+ "fontconfig-utils"
@@ -63,4 +75,4 @@ FONTCONFIG_FONT_DIRS ?= "no"
 
 EXTRA_OECONF = " --disable-docs --with-default-fonts=${datadir}/fonts --with-cache-dir=${FONTCONFIG_CACHE_DIR} --with-add-fonts=${FONTCONFIG_FONT_DIRS}"
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"

@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-core/dbus/dbus-test_1.12.12.bb
+# base branch: warrior
+# base commit: 2fd4bf41a39f34075cfd42d46de1b0eea2ecc5eb
+
 SUMMARY = "D-Bus test package (for D-bus functionality testing only)"
 HOMEPAGE = "http://dbus.freedesktop.org"
 SECTION = "base"
@@ -12,7 +16,6 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/dbus-${PV}"
 
 DEPENDS = "dbus glib-2.0"
 
-RDEPENDS_${PN} += "make"
 RDEPENDS_${PN}-dev = ""
 
 SRC_URI += " \
@@ -77,6 +80,7 @@ do_install_ptest() {
         sed -i -e 's;@PTEST_PATH@;${PTEST_PATH};g'  ${D}${PTEST_PATH}/run-ptest
 }
 
-RDEPENDS_${PN}-ptest += "bash"
+RDEPENDS_${PN}-ptest += "bash make dbus"
+RDEPENDS_${PN}-ptest_remove = "${PN}"
 
 PRIVATE_LIBS_${PN}-ptest = "libdbus-1.so.3"

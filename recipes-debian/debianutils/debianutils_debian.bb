@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/debianutils/debianutils_4.8.6.1.bb
+# base branch: warrior
+# base commit: f16eee49469295eed7fbdafa738c60fe63c57e40
+
 SUMMARY = "Miscellaneous utilities specific to Debian"
 SECTION = "base"
 LICENSE = "GPLv2 & SMAIL_GPL"

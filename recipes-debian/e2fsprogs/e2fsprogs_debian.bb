@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/e2fsprogs
+# base branch: warrior
+# base commit: e2fsprogs_1.44.5.bb
+
 require ${COREBASE}/meta/recipes-devtools/e2fsprogs/e2fsprogs.inc
 
 inherit debian-package
@@ -11,13 +15,14 @@ SRC_URI += "file://remove.ldconfig.call.patch \
             file://Revert-mke2fs-enable-the-metadata_csum-and-64bit-fea.patch \
             file://mkdir_p.patch \
             file://0001-misc-create_inode.c-set-dir-s-mode-correctly.patch \
+            file://0001-create_inode-fix-copying-large-files.patch \
             "
 
 SRC_URI_append_class-native = " file://e2fsprogs-fix-missing-check-for-permission-denied.patch \
                                 file://quiet-debugfs.patch \
 "
 
-SRCREV = "85e53f42f98d5334914de01e972e9ed44bccd0a5"
+SRCREV = "9a03c07e00f09a772245281d84a284c67e905148"
 UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+\.\d+(\.\d+)*)$"
 
 EXTRA_OECONF += "--libdir=${base_libdir} --sbindir=${base_sbindir} \

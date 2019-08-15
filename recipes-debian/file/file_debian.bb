@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/file/file_5.36.bb
+# base branch: warrior
+# base commit: 53c22e5a791244f3e5d830c981b5eafa33f6551f
+
 SUMMARY = "File classification tool"
 DESCRIPTION = "File attempts to classify files depending \
 on their contents and prints a description if a match is found."

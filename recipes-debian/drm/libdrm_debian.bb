@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/drm/libdrm_2.4.97.bb
+# base branch: warrior
+# base commit: f4a270a519a14652b7c13a151068b4ef255710e7
+
 SUMMARY = "Userspace interface to the kernel DRM services"
 DESCRIPTION = "The runtime library for accessing the kernel DRM services.  DRM \
 stands for \"Direct Rendering Manager\", which is the kernel portion of the \
