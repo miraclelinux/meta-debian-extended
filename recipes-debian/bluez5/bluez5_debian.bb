@@ -1,6 +1,6 @@
 # base recipe : meta/recipes-connectivity/bluez5/bluez5_5.50.bb
 # base branch : warrior
-# base commit : 496a4f924d23df6beb9382b4e3bcdcf5c12a9cdf
+# base commit : 1ddec43ce1cbab1984cb6925be34a05b4ccee9e0
 
 require ${COREBASE}/meta/recipes-connectivity/bluez5/bluez5.inc
 
@@ -14,7 +14,6 @@ SRC_URI += "\
     file://out-of-tree.patch \
     file://init \
     file://run-ptest \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '', 'file://0001-Allow-using-obexd-without-systemd-in-the-user-sessio.patch', d)} \
     file://0001-tests-add-a-target-for-building-tests-without-runnin.patch \
     file://0001-test-gatt-Fix-hung-issue.patch \
     file://0001-Makefile.am-Fix-a-race-issue-for-tools.patch \
