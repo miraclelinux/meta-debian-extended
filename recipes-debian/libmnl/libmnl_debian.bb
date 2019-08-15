@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-extended/libmnl/libmnl_1.0.4.bb
 # base branch: warrior
 # base commit: 84f4010a836ac657a80921b5c39ae9e6a763f3e1
-#
 
 SUMMARY = "Minimalistic user-space Netlink utility library"
 DESCRIPTION = "Minimalistic user-space library oriented to Netlink developers, providing \

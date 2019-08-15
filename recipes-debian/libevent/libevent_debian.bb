@@ -15,9 +15,9 @@ require recipes-debian/sources/${BPN}.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/${BPN}/${BPN}"
 SRC_URI += "\
-	file://Makefile-missing-test-dir.patch \
-	file://0001-test-fix-32bit-linux-regress.patch \
-	file://run-ptest \
+    file://Makefile-missing-test-dir.patch \
+    file://0001-test-fix-32bit-linux-regress.patch \
+    file://run-ptest \
 "
 
 UPSTREAM_CHECK_URI = "http://libevent.org/"
@@ -37,7 +37,7 @@ DEPENDS = "zlib"
 BBCLASSEXTEND = "native nativesdk"
 
 do_install_append() {
-	oe_multilib_header event2/event-config.h
+        oe_multilib_header event2/event-config.h
 }
 
 do_install_ptest() {

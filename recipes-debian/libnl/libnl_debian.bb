@@ -19,9 +19,9 @@ require recipes-debian/sources/${BPN}.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/libnl-${PV}"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/libnl/libnl"
-SRC_URI += "\
-    file://fix-pc-file.patch \
-    file://0001-PATCH-fix-libnl-3.4.0-musl-compile-problem.patch \
+SRC_URI += " \
+           file://fix-pc-file.patch \
+           file://0001-PATCH-fix-libnl-3.4.0-musl-compile-problem.patch \
 "
 
 UPSTREAM_CHECK_URI = "https://github.com/thom311/${BPN}/releases"

@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-core/libxcrypt/libxcrypt_4.1.1.bb
+# base branch: warrior
+# base commit: 3c790c9bd1c096aa47f92283f7a4a5180d51ea68
+
 SUMMARY = "Extended cryptographic library (from glibc)"
 DESCRIPTION = "Forked code from glibc libary to extract only crypto part."
 HOMEPAGE = "https://github.com/besser82/libxcrypt"

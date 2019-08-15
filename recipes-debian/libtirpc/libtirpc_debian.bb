@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/libtirpc/libtirpc_1.0.3.bb
+# base branch: warrior
+# base commit: eca87bf2b427e98179d09d131306b9ca4047bd4f
+
 SUMMARY = "Transport-Independent RPC library"
 DESCRIPTION = "Libtirpc is a port of Suns Transport-Independent RPC library to Linux"
 SECTION = "libs/network"

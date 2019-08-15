@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-multimedia/libvorbis/libvorbis_1.3.6.bb
+# base branch: warrior
+# base commit: 7204e57262c5dffe3e2c9a2e59c3f2e9e4e35514
+
 SUMMARY = "Ogg Vorbis Audio Codec"
 DESCRIPTION = "Ogg Vorbis is a high-quality lossy audio codec \
 that is free of intellectual property restrictions. libvorbis \

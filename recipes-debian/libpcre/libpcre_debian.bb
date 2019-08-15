@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libpcre/libpcre_8.43.bb
+# base branch: warrior
+# base commit: cdd4ba6c3e13d47100f93b443120117549f31a88
+
 DESCRIPTION = "The PCRE library is a set of functions that implement regular \
 expression pattern matching using the same syntax and semantics as Perl 5. PCRE \
 has its own native API, as well as a set of wrapper functions that correspond \

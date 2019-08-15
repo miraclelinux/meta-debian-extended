@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libffi/libffi_3.2.1.bb
+# base branch: warrior
+# base commit: aa0c57f6a521c0cb562c818316020ebe61fd797e
+
 SUMMARY = "A portable foreign function interface library"
 HOMEPAGE = "http://sourceware.org/libffi/"
 DESCRIPTION = "The `libffi' library provides a portable, high level programming interface to various calling \

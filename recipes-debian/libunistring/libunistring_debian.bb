@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/libunistring/libunistring_0.9.10.bb
+# base branch: warrior
+# base commit: bfd866d47f5e8ccf5ef37e0c5e63d3017cd69552
+
 SUMMARY = "Library for manipulating C and Unicode strings"
 
 DESCRIPTION = "Text files are nowadays usually encoded in Unicode, and may\

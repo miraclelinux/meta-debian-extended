@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-multimedia/libogg/libogg_1.3.3.bb
+# base branch: warrior
+# base commit: e3a691c834f022882951a5fd5d2e5e28d7dfbc03
+
 SUMMARY = "Ogg bitstream and framing libary"
 DESCRIPTION = "libogg is the bitstream and framing library \
 for the Ogg project. It provides functions which are \

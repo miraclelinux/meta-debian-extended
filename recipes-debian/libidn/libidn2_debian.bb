@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/libidn/libidn2_2.0.5.bb
+# base branch: warrior
+# base commit: e87b501659eecc22f48b3e3ca8cde6b4de9f663a
+
 SUMMARY = "Internationalized Domain Name support library"
 DESCRIPTION = "Implementation of the Stringprep, Punycode and IDNA specifications defined by the IETF Internationalized Domain Names (IDN) working group."
 HOMEPAGE = "http://www.gnu.org/software/libidn/"
