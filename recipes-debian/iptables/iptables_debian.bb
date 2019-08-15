@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-extended/iptables/iptables_1.6.2.bb
 # base branch: warrior
 # base commit: cd4b8a8553f9d551af27941910cf4d3405ecb7b0
-#
 
 SUMMARY = "Tools for managing kernel packet filtering capabilities"
 DESCRIPTION = "iptables is the userspace command line program used to configure and control network packet \
@@ -17,7 +15,8 @@ inherit debian-package
 require recipes-debian/sources/iptables.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/iptables/iptables:"
-SRC_URI += "file://0001-configure-Add-option-to-enable-disable-libnfnetlink.patch \
+SRC_URI += " \
+           file://0001-configure-Add-option-to-enable-disable-libnfnetlink.patch \
            file://0002-configure.ac-only-check-conntrack-when-libnfnetlink-enabled.patch \
 "
 

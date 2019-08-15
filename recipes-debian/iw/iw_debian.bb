@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-connectivity/iw/iw_5.0.1.bb
 # base branch: master
-# base commit: 98143681efc76582f5a0b25212c6630824c71f65
+# base commit: 9dfbb877c7801afa126bb50f6556401a2d4782d1
 
 SUMMARY = "nl80211 based CLI configuration utility for wireless devices"
 DESCRIPTION = "iw is a new nl80211 based CLI configuration utility for \

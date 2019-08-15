@@ -1,10 +1,8 @@
-#
 # base recipe: meta/recipes-connectivity/iproute2/iproute2_4.19.0.bb
 # base branch: warrior
-# base commit: e9af47b7adda5297565ef0546b23728f4cedcdfa
-#
+# base commit: 2c7c08232e6757e9b723dc1c8440bae4408c7123
 
-require iproute2.inc
+require ${COREBASE}/meta/recipes-connectivity/iproute2/iproute2.inc
 
 inherit debian-package
 require recipes-debian/sources/iproute2.inc

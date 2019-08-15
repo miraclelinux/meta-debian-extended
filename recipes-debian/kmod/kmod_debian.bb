@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-kernel/kmod/kmod_git.bb
+# base branch: warrior
+# base commit: 28cc7b4362c703d35916b22bb705bd9517e7c505
+
 # Copyright (C) 2012 Khem Raj <raj.khem@gmail.com>
 # Released under the MIT license (see COPYING.MIT for the terms)
 
@@ -39,7 +43,7 @@ do_compile_prepend() {
 
 inherit update-alternatives bash-completion
 
-ALTERNATIVE_PRIORITY = "60"
+ALTERNATIVE_PRIORITY = "70"
 
 ALTERNATIVE_kmod = "insmod modprobe rmmod modinfo bin-lsmod lsmod depmod"
 
