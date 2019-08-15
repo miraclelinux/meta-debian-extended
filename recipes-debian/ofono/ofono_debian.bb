@@ -9,6 +9,6 @@ require recipes-debian/sources/${BPN}.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-connectivity/ofono/ofono"
 SRC_URI += "\
-	file://ofono \
-	file://use-python3.patch \
+  file://ofono \
+  file://use-python3.patch \
 "

@@ -1,8 +1,6 @@
-#
 # base recipe: recipes-connectivity/openssh/openssh_7.9p1.bb
 # base branch: warrior
 # base commit: 59b575a98c8872e8703a1485d6301c64782cf963
-#
 
 SUMMARY = "A suite of security-related network utilities based on \
 the SSH protocol including the ssh client and sshd server"
@@ -21,19 +19,20 @@ DEPENDS = "zlib openssl"
 DEPENDS += "${@bb.utils.contains('DISTRO_FEATURES', 'pam', 'libpam', '', d)}"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-connectivity/openssh/openssh"
-SRC_URI += "file://sshd_config \
-			file://ssh_config \
-			file://init \
-			${@bb.utils.contains('DISTRO_FEATURES', 'pam', '${PAM_SRC_URI}', '', d)} \
-			file://sshd.socket \
-			file://sshd@.service \
-			file://sshdgenkeys.service \
-			file://volatiles.99_sshd \
-			file://run-ptest \
-			file://fix-potential-signed-overflow-in-pointer-arithmatic.patch \
-			file://sshd_check_keys \
-			file://add-test-support-for-busybox.patch \
-			"
+SRC_URI += " \
+           file://sshd_config \
+           file://ssh_config \
+           file://init \
+           ${@bb.utils.contains('DISTRO_FEATURES', 'pam', '${PAM_SRC_URI}', '', d)} \
+           file://sshd.socket \
+           file://sshd@.service \
+           file://sshdgenkeys.service \
+           file://volatiles.99_sshd \
+           file://run-ptest \
+           file://fix-potential-signed-overflow-in-pointer-arithmatic.patch \
+           file://sshd_check_keys \
+           file://add-test-support-for-busybox.patch \
+           "
 
 PAM_SRC_URI = "file://sshd"
 

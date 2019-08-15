@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/nss/nss_3.42.1.bb
+# base branch: warrior
+# base commit: 623e56c34910e0b1c9f4d049a50a925760cbc00a
+
 SUMMARY = "Mozilla's SSL and TLS implementation"
 DESCRIPTION = "Network Security Services (NSS) is a set of libraries \
 designed to support cross-platform development of \

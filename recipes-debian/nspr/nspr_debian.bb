@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/nspr/nspr_4.21.bb
+# base branch: warrior
+# base commit: 84b89105c339a591cfac007fc62f6ad29af6ceee
+
 SUMMARY = "Netscape Portable Runtime Library"
 HOMEPAGE =  "http://www.mozilla.org/projects/nspr/"
 LICENSE = "GPL-2.0 | MPL-2.0 | LGPL-2.1"
@@ -17,12 +21,11 @@ SRC_URI += "\
            file://remove-rpath-from-tests.patch \
            file://fix-build-on-x86_64.patch \
            file://remove-srcdir-from-configure-in.patch \
-           file://0003-Add-nios2-support_debian.patch \
+           file://0002-Add-nios2-support_debian.patch \
            file://0001-md-Fix-build-with-musl.patch \
            file://0004-Add-ARC-support.patch \
            file://nspr.pc.in \
 "
-# file://0003-Add-type-definitions-for-the-RISC-V-architecture.patch
 
 CACHED_CONFIGUREVARS_append_libc-musl = " CFLAGS='${CFLAGS} -D_PR_POLL_AVAILABLE \
                                           -D_PR_HAVE_OFF64_T -D_PR_INET6 -D_PR_HAVE_INET_NTOP \
