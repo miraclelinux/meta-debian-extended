@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-graphics/mesa/mesa_19.0.1.bb
 # base branch: warrior
-# base commit: 3bc700a12d4f21a5c7a1575da0972f9f78b4a091
+# base commit: 259e9a11e1a62b0dc192d9c114f05cd45b02cae1
 
 require ${COREBASE}/meta/recipes-graphics/mesa/mesa.inc
 
@@ -10,12 +10,12 @@ require recipes-debian/sources/${BPN}.inc
 DEBIAN_PATCH_TYPE = "quilt"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/mesa/files"
-SRC_URI += "\
-    file://0001-Simplify-wayland-scanner-lookup.patch \
-    file://0002-winsys-svga-drm-Include-sys-types.h.patch \
-    file://0003-Properly-get-LLVM-version-when-using-LLVM-Git-releas.patch \
-    file://0004-use-PKG_CHECK_VAR-for-defining-WAYLAND_PROTOCOLS_DAT.patch \
-    file://Fix-mising-NULL-compile-failure.patch \
+SRC_URI += " \
+           file://0001-Simplify-wayland-scanner-lookup.patch \
+           file://0002-winsys-svga-drm-Include-sys-types.h.patch \
+           file://0003-Properly-get-LLVM-version-when-using-LLVM-Git-releas.patch \
+           file://0004-use-PKG_CHECK_VAR-for-defining-WAYLAND_PROTOCOLS_DAT.patch \
+           file://Fix-mising-NULL-compile-failure.patch \
 "
 
 EXTRA_OECONF = "--enable-shared-glapi \

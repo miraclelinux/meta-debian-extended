@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/mklibs/mklibs-native_0.1.44.bb
+# base branch: warrior
+# base commit: c70ca84abef02fead7bf4369fa4873d58125baa6
+
 SUMMARY = "Shared library optimisation tool"
 DESCRIPTION = "mklibs produces cut-down shared libraries that contain only the routines required by a particular set of executables."
 HOMEPAGE = "https://launchpad.net/mklibs"

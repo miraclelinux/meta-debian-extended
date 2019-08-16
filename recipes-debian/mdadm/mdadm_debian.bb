@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-extended/mdadm/mdadm_4.1.bb
 # base branch: warrior
 # base commit: 4019b0393fcc779743fab3b258d5436d33e3352f
-#
 
 SUMMARY = "Tool for managing software RAID under Linux"
 HOMEPAGE = "http://www.kernel.org/pub/linux/utils/raid/mdadm/"
@@ -17,7 +15,8 @@ inherit debian-package
 require recipes-debian/sources/mdadm.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/mdadm/files:"
-SRC_URI += "file://run-ptest \
+SRC_URI += " \
+           file://run-ptest \
            file://mdadm-3.3.2_x32_abi_time_t.patch \
            file://mdadm-fix-ptest-build-errors.patch \
            file://0001-mdadm.h-Undefine-dprintf-before-redefining.patch \

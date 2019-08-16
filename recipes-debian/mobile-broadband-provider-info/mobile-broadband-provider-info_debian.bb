@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-connectivity/mobile-broadband-provider-info/mobile-broadband-provider-info_git.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: 6bb442b3f8e6e0eeedf1ecd6dab286ca08f18ac9
 
 SUMMARY = "Mobile Broadband Service Provider Database"
 HOMEPAGE = "http://live.gnome.org/NetworkManager/MobileBroadband/ServiceProviders"

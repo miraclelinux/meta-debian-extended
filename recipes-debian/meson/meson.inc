@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/meson/meson.inc
+# base branch: warrior
+# base commit: d956c45baf65f8b28d732ed4dd3ca4b40e36ee66
+
 HOMEPAGE = "http://mesonbuild.com"
 SUMMARY = "A high performance build system"
 

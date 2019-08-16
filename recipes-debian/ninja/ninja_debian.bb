@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/ninja/ninja_1.9.0.bb
+# base branch: warrior
+# base commit: 5c3a6b5dff21ac06bc24583e96aba4f4f1624b6c
+
 SUMMARY = "Ninja is a small build system with a focus on speed."
 HOMEPAGE = "http://martine.github.com/ninja/"
 LICENSE = "Apache-2.0"

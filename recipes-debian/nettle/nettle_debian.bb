@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/nettle/nettle_3.4.1.bb
+# base branch: warrior
+# base commit: 04b69971fb8571033d445394b9ccce0e4dfe7030
+
 SUMMARY = "A low level cryptographic library"
 HOMEPAGE = "http://www.lysator.liu.se/~nisse/nettle/"
 SECTION = "libs"
@@ -32,6 +36,7 @@ inherit autotools ptest multilib_header
 EXTRA_AUTORECONF += "--exclude=aclocal"
 
 EXTRA_OECONF = "--disable-openssl"
+CFLAGS_append = " -std=gnu99"
 
 do_compile_ptest() {
         oe_runmake buildtest
