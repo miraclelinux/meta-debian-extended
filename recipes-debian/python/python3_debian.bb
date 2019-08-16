@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/python/python3_3.7.2.bb
+# base branch: warrior
+# base commit: 9773b89a2f371acbe1e40d7cef6afb6c2a24f9c5
+
 SUMMARY = "The Python Programming Language"
 HOMEPAGE = "http://www.python.org"
 LICENSE = "PSFv2"
@@ -15,7 +19,7 @@ python () {
        src_dir_name = "Python-%s" % pv.replace('~', '')
    else:
        src_dir_name = "Python-%s" % pv
-      
+
    d.setVar('PYTHON_DEBIAN_SRC_DIR_NAME', src_dir_name)
 }
 
@@ -24,7 +28,8 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/${PYTHON_DEBIAN_SRC_DIR_NAME}"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e466242989bd33c1bd2b6a526a742498"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/python/python3:"
-SRC_URI += "file://run-ptest \
+SRC_URI += " \
+           file://run-ptest \
            file://create_manifest3.py \
            file://get_module_deps3.py \
            file://python3-manifest.json \

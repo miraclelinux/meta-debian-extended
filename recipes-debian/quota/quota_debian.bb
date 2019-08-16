@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-extended/quota/quota_4.04.bb
 # base branch: warrior
 # base commit: 811c07db35354bf97e765942f701896a7433f5b7
-#
 
 SUMMARY = "Tools for monitoring & limiting user disk usage per filesystem"
 SECTION = "base"
@@ -17,7 +15,8 @@ inherit debian-package
 require recipes-debian/sources/quota.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/${BPN}/${BPN}:"
-SRC_URI += "file://fcntl.patch \
+SRC_URI += " \
+           file://fcntl.patch \
            file://remove_non_posix_types.patch \
           "
 SRC_URI_append_libc-musl = " file://replace_getrpcbynumber_r.patch"

@@ -1,5 +1,6 @@
-# From: poky/meta/recipes-devtools/python/python3-pip
-# Rev: 4e0adf684005542430a230692583ed85e659ecd6
+# base recipe: meta/recipes-devtools/python/python3-pip
+# base branch: warrior
+# base commit: 4e0adf684005542430a230692583ed85e659ecd6
 
 SUMMARY = "The PyPA recommended tool for installing Python packages"
 HOMEPAGE = "https://pypi.python.org/pypi/pip"

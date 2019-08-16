@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-devtools/python/python_2.7.16.bb
 # base branch: warrior
 # base commit: 511de9dc4788001f62e225c07f6bc859836ddf0f
-#
 
 require python.inc
 

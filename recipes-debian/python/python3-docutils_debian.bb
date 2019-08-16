@@ -1,5 +1,6 @@
-# From: poky/meta/recipes-debian/python/python3-docutils_0.14.bb
-# Rev: d3982592e143eacfe862d8a9653fd024e33c9714
+# base recipe: meta/recipes-debian/python/python3-docutils_0.14.bb
+# base branch: warrior
+# base commit: d3982592e143eacfe862d8a9653fd024e33c9714
 
 SUMMARY = "Text processing system for documentation"
 HOMEPAGE = "http://docutils.sourceforge.net"

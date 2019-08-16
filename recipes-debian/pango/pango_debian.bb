@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-graphics/pango/pango_1.42.4.bb
 # base branch: warrior
 # base commit: b6553880223c19b2049e77569c3a9840bdd90727
-#
 
 SUMMARY = "Framework for layout and rendering of internationalized text"
 DESCRIPTION = "Pango is a library for laying out and rendering of text, \

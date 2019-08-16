@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/pigz/pigz_2.4.bb
+# base branch: warrior
+# base commit: 4cf6cf65a46aa0030d024e2b8319487d3f880ea1
+
 SUMMARY = "A parallel implementation of gzip"
 DESCRIPTION = "pigz, which stands for parallel implementation of gzip, is a \
 fully functional replacement for gzip that exploits multiple processors and \

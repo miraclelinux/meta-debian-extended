@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-extended/rpcbind/rpcbind.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: a5de19553e401f49d63626be102cc99d7d2539d9
 
 SUMMARY = "Universal Addresses to RPC Program Number Mapper"
 DESCRIPTION = "The rpcbind utility is a server that converts RPC \
@@ -18,7 +18,8 @@ inherit debian-package
 require recipes-debian/sources/rpcbind.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/rpcbind/rpcbind"
 
-SRC_URI += "file://init.d \
+SRC_URI += " \
+           file://init.d \
            file://rpcbind.conf \
            file://rpcbind.socket \
            file://rpcbind.service \
