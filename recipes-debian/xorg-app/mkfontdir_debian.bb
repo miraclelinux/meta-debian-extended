@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-app/mkfontdir_1.0.7.bb
+# base branch: warrior
+# base commit: cc1f50fca85dc48a237a518b8afe8563225ea8fa
+
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
 # clear SRC_URI

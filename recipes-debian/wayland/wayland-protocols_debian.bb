@@ -10,11 +10,8 @@ protocol either in Wayland core, or some other protocol in \
 wayland-protocols."
 HOMEPAGE = "http://wayland.freedesktop.org"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "\
-    file://COPYING;md5=c7b12b6702da38ca028ace54aae3d484 \
-    file://stable/presentation-time/presentation-time.xml;endline=26;md5=4646cd7d9edc9fa55db941f2d3a7dc53 \
-"
-
+LIC_FILES_CHKSUM = "file://COPYING;md5=c7b12b6702da38ca028ace54aae3d484 \
+                    file://stable/presentation-time/presentation-time.xml;endline=26;md5=4646cd7d9edc9fa55db941f2d3a7dc53"
 
 inherit debian-package
 require recipes-debian/sources/${BPN}.inc

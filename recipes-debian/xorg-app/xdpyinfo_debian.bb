@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-app/xdpyinfo_1.3.2.bb
+# base branch: warrior
+# base commit: b88a24ae5bb91e3d9e1d2a8d0f908280398f7c5a
+
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
 # clear SRC_URI

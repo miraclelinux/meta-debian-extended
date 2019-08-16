@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/wayland/libinput_1.12.6.bb
+# base branch: warrior
+# base commit: 01784e730a884a9ab7ff073fdb3857b7f597a117
+
 SUMMARY = "Library to handle input devices in Wayland compositors"
 HOMEPAGE = "http://www.freedesktop.org/wiki/Software/libinput/"
 SECTION = "libs"

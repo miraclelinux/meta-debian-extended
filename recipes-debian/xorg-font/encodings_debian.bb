@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-font/encodings_1.0.4.bb
+# base branch: warrior
+# base commit: d2259ac280bd93be3b0c9779dad1d43bb0b798a2
+
 SUMMARY = "The Xorg font encoding files"
 
 DESCRIPTION = "The encodings that map to specific characters for a \

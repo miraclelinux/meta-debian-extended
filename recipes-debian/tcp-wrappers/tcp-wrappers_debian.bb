@@ -35,12 +35,13 @@ FILES_${PN} = "${sbindir}"
 FILES_${PN}-doc = "${mandir}/man8"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/tcp-wrappers/tcp-wrappers-7.6:"
-SRC_URI += "file://rename_strings_variable.patch \
-			file://try-from.8 \
-			file://safe_finger.8 \
-			file://makefile-fix-parallel.patch \
-			file://musl-decls.patch \
-			"
+SRC_URI += " \
+           file://rename_strings_variable.patch \
+           file://try-from.8 \
+           file://safe_finger.8 \
+           file://makefile-fix-parallel.patch \
+           file://musl-decls.patch \
+           "
 
 EXTRA_OEMAKE = "'CC=${CC}' \
                 'AR=${AR}' \

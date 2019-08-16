@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-app/xmodmap_1.0.10.bb
+# base branch: warrior
+# base commit: 3b3d520710c71bfe1fd724e1beb2dccc461485bc
+
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
 # clear SRC_URI

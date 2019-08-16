@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/wayland/mtdev_1.1.5.bb
+# base branch: warrior
+# base commit: f874ac6e873e3d2195b671d9eea24aca3ff69cbd
+
 SUMMARY = "Multitouch Protocol Translation Library"
 
 DESCRIPTION = "mtdev is a library which transforms all variants of kernel \

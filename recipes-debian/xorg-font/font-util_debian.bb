@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-graphics/xorg-font/font-util_1.3.1.bb
 # base branch: warrior
 # base commit: f2d73d6cbb0c1dec049e93124c6bbcdb52f8e757
-#
 
 SUMMARY = "X.Org font package creation/installation utilities"
 

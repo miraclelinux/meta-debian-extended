@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-app/xset_1.2.4.bb
+# base branch: warrior
+# base commit: ca0a42695375fd43357ee753ae9c013128153391
+
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
 # clear SRC_URI

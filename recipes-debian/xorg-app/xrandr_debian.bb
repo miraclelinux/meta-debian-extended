@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-graphics/xorg-app/xrandr_1.5.0.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: 376bba7d354d08318ed00f158424e5351abe41d3
 
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
