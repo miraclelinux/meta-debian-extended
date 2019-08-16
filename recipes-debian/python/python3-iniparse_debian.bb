@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python3-iniparse_0.4.bb
-# Rev: 9f8525721672577cbaab96081094211479db4c76
+# base recipe: meta/recipes-devtools/python/python3-iniparse_0.4.bb
+# base branch: warrior
+# base commit: 9f8525721672577cbaab96081094211479db4c76
+
 SUMMARY = "Accessing and Modifying INI files"
 HOMEPAGE = "https://pypi.python.org/pypi/iniparse/"
 LICENSE = "MIT & PSF"

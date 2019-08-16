@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python3-dbus_1.2.8.bb
-# Rev: ec9ad3648bd9882fd2004bf5fcb0e0f55e160cc8
+# base recipe: meta/recipes-devtools/python/python3-dbus_1.2.8.bb
+# base branch: warrior
+# base commit: ec9ad3648bd9882fd2004bf5fcb0e0f55e160cc8
+
 SUMMARY = "Python bindings for the DBus inter-process communication system"
 SECTION = "devel/python"
 HOMEPAGE = "http://www.freedesktop.org/Software/dbus"

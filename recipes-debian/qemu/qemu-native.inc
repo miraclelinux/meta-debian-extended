@@ -1,6 +1,6 @@
-# From poky/meta/recipes-devtools/qemu/qemu-native.inc
-# Branch: warrior
-# rev: 48522906a261f9a552f13b146aa7f3691be37002
+# base recipe: meta/recipes-devtools/qemu/qemu-native.inc
+# base branch: warrior
+# base commit: 48522906a261f9a552f13b146aa7f3691be37002
 
 inherit native
 

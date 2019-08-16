@@ -1,6 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python3-pygobject_3.32.1.bb
-# Rev: 8eda06e9e1e6c3f3f20c9bbfd0730157d7aa2834
-# Branch: master
+# base recipe: meta/recipes-devtools/python/python3-pygobject_3.32.1.bb
+# base branch: master
+# base commit: 8eda06e9e1e6c3f3f20c9bbfd0730157d7aa2834
+
 SUMMARY = "Python GObject bindings"
 SECTION = "devel/python"
 LICENSE = "LGPLv2.1"

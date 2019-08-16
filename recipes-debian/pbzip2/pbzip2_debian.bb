@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/pbzip2/pbzip2_1.1.13.bb
+# base branch: warrior
+# base commit: 00cf91aacc8e11aedad967742a59d45724619c97
+
 SUMMARY = "PBZIP2 is a parallel implementation of bzip2"
 DESCRIPTION = "PBZIP2 is a parallel implementation of the bzip2 block-sorting \
 file compressor that uses pthreads and achieves near-linear speedup on SMP \

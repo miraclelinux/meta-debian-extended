@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-devtools/pseudo/pseudo_git.bb
+# base branch: warrior
+# base commit: cef43d10bdadb3d492293177d8e6edf9cf313d29
+
 require ${COREBASE}/meta/recipes-devtools/pseudo/pseudo.inc
 
 inherit debian-package

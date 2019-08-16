@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-connectivity/resolvconf/resolvconf_1.79.bb
 # base branch: warrior
 # base commit: 4b777079066e6fa72d7c9db1e1cae3ebb9338351
-#
 
 SUMMARY = "name server information handler"
 DESCRIPTION = "Resolvconf is a framework for keeping track of the system's \
@@ -21,7 +19,8 @@ inherit debian-package
 require recipes-debian/sources/${BPN}.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-connectivity/${BPN}/${BPN}:"
-SRC_URI += "file://fix-path-for-busybox.patch \
+SRC_URI += " \
+           file://fix-path-for-busybox.patch \
            file://99_resolvconf \
           "
 

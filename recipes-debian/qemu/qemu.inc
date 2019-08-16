@@ -1,6 +1,7 @@
-# From poky/meta/recipes-devtools/qemu/qemu.inc
-# Branch: warrior
-# rev: 49c2351f3a50f4aab12a56ae587b71080e6f42b2
+# base recipe: meta/recipes-devtools/qemu/qemu.inc
+# base branch: warrior
+# base commit: 49c2351f3a50f4aab12a56ae587b71080e6f42b2
+
 SUMMARY = "Fast open source processor emulator"
 HOMEPAGE = "http://qemu.org"
 LICENSE = "GPLv2 & LGPLv2.1"
@@ -15,7 +16,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
                     file://COPYING.LIB;endline=24;md5=c04def7ae38850e7d3ef548588159913"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/qemu/qemu:"
-SRC_URI += "file://powerpc_rom.bin \
+SRC_URI += " \
+           file://powerpc_rom.bin \
            file://0001-sdl.c-allow-user-to-disable-pointer-grabs.patch \
            file://0002-qemu-Add-missing-wacom-HID-descriptor.patch \
            file://0003-Add-subpackage-ptest-which-runs-all-unit-test-cases-.patch \

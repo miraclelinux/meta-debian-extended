@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/re2c/re2c_1.0.1.bb
+# base branch: warrior
+# base commit: c8ac784b8fa34c5ef3366cc1248988a1dbc85039
+
 SUMMARY = "Tool for writing very fast and very flexible scanners"
 HOMEPAGE = "http://re2c.sourceforge.net/"
 AUTHOR = "Marcus Börger <helly@users.sourceforge.net>"

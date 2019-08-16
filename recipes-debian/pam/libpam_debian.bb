@@ -12,8 +12,8 @@ SECTION = "base"
 # libpam-runtime-1.0.1 is GPLv2+), by openembedded
 LICENSE = "GPLv2+ | BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7eb5c1bf854e8881005d673599ee74d3 \
-					file://libpamc/License;md5=a4da476a14c093fdc73be3c3c9ba8fb3 \
-					"
+                    file://libpamc/License;md5=a4da476a14c093fdc73be3c3c9ba8fb3 \
+                    "
 
 inherit debian-package
 require recipes-debian/sources/pam.inc
@@ -22,27 +22,28 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/Linux-PAM-${PV}"
 DEBIAN_QUILT_PATCHES = "${DEBIAN_UNPACK_DIR}/debian/patches-applied"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-extended/pam/libpam:"
-SRC_URI += "file://99_pam \
-			file://pam.d/common-account \
-			file://pam.d/common-auth \
-			file://pam.d/common-password \
-			file://pam.d/common-session \
-			file://pam.d/common-session-noninteractive \
-			file://pam.d/other \
-			file://libpam-xtests.patch \
-			file://fixsepbuild.patch \
-			file://crypt_configure.patch \
-			file://override-uservariables.patch \
-		   "
+SRC_URI += " \
+           file://99_pam \
+           file://pam.d/common-account \
+           file://pam.d/common-auth \
+           file://pam.d/common-password \
+           file://pam.d/common-session \
+           file://pam.d/common-session-noninteractive \
+           file://pam.d/other \
+           file://libpam-xtests.patch \
+           file://fixsepbuild.patch \
+           file://crypt_configure.patch \
+           file://override-uservariables.patch \
+          "
 
 DEPENDS = "bison-native flex flex-native cracklib libxml2-native virtual/crypt"
 
 EXTRA_OECONF = "--with-db-uniquename=_pam \
-				--includedir=${includedir}/security \
-				--libdir=${base_libdir} \
-				--disable-nis \
-				--disable-regenerate-docu \
-				--disable-prelude"
+                --includedir=${includedir}/security \
+                --libdir=${base_libdir} \
+                --disable-nis \
+                --disable-regenerate-docu \
+		--disable-prelude"
 
 CFLAGS_append = " -fPIC "
 

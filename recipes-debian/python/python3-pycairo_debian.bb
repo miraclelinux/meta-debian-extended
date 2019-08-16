@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python3-pycairo_1.15.6.bb
-# Rev: 7aa9be36dbb911d860990030188bea8e29a8375d
+# base recipe: meta/recipes-devtools/python/python3-pycairo_1.15.6.bb
+# base branch: warrior
+# base commit: 7aa9be36dbb911d860990030188bea8e29a8375d
+
 SUMMARY = "Python bindings for the Cairo canvas library"
 HOMEPAGE = "http://cairographics.org/pycairo"
 BUGTRACKER = "http://bugs.freedesktop.org"

@@ -14,7 +14,8 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/${PN}5-${PV}"
 BPN = "${PN}5"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/rng-tools/rng-tools:"
-SRC_URI += "file://0001-If-the-libc-is-lacking-argp-use-libargp.patch \
+SRC_URI += " \
+           file://0001-If-the-libc-is-lacking-argp-use-libargp.patch \
            file://0002-Add-argument-to-control-the-libargp-dependency.patch \
            file://underquote.patch \
            file://rng-tools-5-fix-textrels-on-PIC-x86.patch \

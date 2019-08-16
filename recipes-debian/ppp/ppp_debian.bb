@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-connectivity/ppp/ppp_2.4.7.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: 562210c8a09967e1573107fea12e0bd2cca5501b
 
 SUMMARY = "Point-to-Point Protocol (PPP) support"
 DESCRIPTION = "ppp (Paul's PPP Package) is an open source package which implements \
@@ -20,7 +20,8 @@ inherit debian-package
 require recipes-debian/sources/ppp.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-connectivity/ppp/ppp"
 
-SRC_URI += "file://pppd-resolv-varrun.patch \
+SRC_URI += " \
+           file://pppd-resolv-varrun.patch \
            file://pon \
            file://poff \
            file://init \
