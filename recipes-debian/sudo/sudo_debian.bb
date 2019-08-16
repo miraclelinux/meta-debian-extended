@@ -1,13 +1,17 @@
-#
 # base recipe: meta/recipes-extended/sudo/sudo_1.8.27.bb
 # base branch: warrior
 # base commit: fd73e062ea314deff3e247acaa5492b060c5155b
-#
+
+require ${COREBASE}/meta/recipes-extended/sudo/sudo.inc
 
 inherit debian-package
 require recipes-debian/sources/sudo.inc
 
-require recipes-extended/sudo/sudo.inc
+FILESPATH_append = ":${COREBASE}/meta/recipes-extended/sudo/sudo:${COREBASE}/meta/recipes-extended/sudo/files"
+SRC_URI += " \
+           ${@bb.utils.contains('DISTRO_FEATURES', 'pam', '${PAM_SRC_URI}', '', d)} \
+           file://0001-Include-sys-types.h-for-id_t-definition.patch \
+"
 
 PAM_SRC_URI = "file://sudo.pam"
 
