@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-connectivity/socat/socat_1.7.3.2.bb
 # base branch: warrior
-# base commit: 048c1467e2e077076213ec01c4f0d1f181434e4c
-#
+# base commit: 8b9dbff36bfd335eb6a93aa0de09adc9f6cbf9d5
 
 SUMMARY = "Multipurpose relay for bidirectional data transfer"
 DESCRIPTION = "Socat is a relay for bidirectional data \
@@ -21,7 +19,8 @@ inherit debian-package
 require recipes-debian/sources/socat.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-connectivity/socat/socat:"
-SRC_URI += "file://Makefile.in-fix-for-parallel-build.patch \
+SRC_URI += " \
+           file://Makefile.in-fix-for-parallel-build.patch \
            file://0001-define-NETDB_INTERNAL-to-1-if-not-available.patch \
            file://0001-Access-c_ispeed-and-c_ospeed-via-APIs.patch \
 "

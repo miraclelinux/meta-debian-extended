@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/sqlite/sqlite3.inc
+# base branch: warrior
+# base commit: f7db0478d2387a4534a555b2cdb6429edf984adc
+
 SUMMARY = "Embeddable SQL database engine"
 HOMEPAGE = "http://www.sqlite.org"
 SECTION = "libs"
@@ -47,7 +51,7 @@ CFLAGS += "-DSQLITE_ENABLE_PREUPDATE_HOOK"
 CFLAGS += "-DSQLITE_ENABLE_SESSION"
 CFLAGS += "-DSQLITE_ENABLE_STMTVTAB"
 CFLAGS += "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
-																	
+
 EXTRA_OECONF = " \
     --enable-shared \
     --enable-threadsafe \
@@ -83,4 +87,3 @@ FILES_lib${BPN}-doc = "${docdir} ${mandir} ${infodir}"
 FILES_lib${BPN}-staticdev = "${libdir}/lib*.a"
 
 AUTO_LIBNAME_PKGS = "${MLPREFIX}lib${BPN}"
-
