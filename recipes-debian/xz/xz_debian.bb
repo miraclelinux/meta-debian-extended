@@ -1,7 +1,6 @@
-# From: poky
-# Branch: warrior
-# Rev: 6e3a4d7926296380da23536c29af35d5702e02fb
-# File: meta/recipes-extended/xz/xz_5.2.4.bb
+# base recipe: meta/recipes-extended/xz/xz_5.2.4.bb
+# base branch: warrior
+# base commit: 6494ab4ab361a53d739caa47fb48ddac44278494
 
 SUMMARY = "Utilities for managing LZMA compressed files"
 HOMEPAGE = "http://tukaani.org/xz/"
