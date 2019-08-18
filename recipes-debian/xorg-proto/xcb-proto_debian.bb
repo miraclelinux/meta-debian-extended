@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-proto/xcb-proto_1.13.bb
+# base branch: warrior
+# base commit: 5ce58802e03fa8c32212d85f99d57aeabf8d3b53
+
 SUMMARY = "XCB: The X protocol C binding headers"
 DESCRIPTION = "Function prototypes for the X protocol C-language Binding \
 (XCB).  XCB is a replacement for Xlib featuring a small footprint, \
@@ -15,36 +19,15 @@ inherit debian-package
 require recipes-debian/sources/xcb-proto.inc
 DEBIAN_PATCH_TYPE = "nopatch"
 
-inherit autotools pkgconfig
-
-# Force the use of Python 3 and a specific library path so we don't need to
-# depend on python3-native
-CACHED_CONFIGUREVARS += "PYTHON=python3 am_cv_python_pythondir=${libdir}/xcb-proto"
+inherit autotools pkgconfig python3native
 
 PACKAGES += "python-xcbgen"
 
 FILES_${PN} = ""
 FILES_${PN}-dev += "${datadir}/xcb/*.xml ${datadir}/xcb/*.xsd"
-FILES_python-xcbgen = "${libdir}/xcb-proto"
+FILES_python-xcbgen = "${PYTHON_SITEPACKAGES_DIR}"
 
 RDEPENDS_${PN}-dev = ""
 RRECOMMENDS_${PN}-dbg = "${PN}-dev (= ${EXTENDPKGV})"
 
 BBCLASSEXTEND = "native nativesdk"
-
-# Need to do this dance because we're forcing the use of host Python above and
-# if xcb-proto is built with Py3.5 and then re-used from sstate on a host with
-# Py3.6 the second build will write new cache files into the sysroot which won't
-# be listed in the manifest so won't be deleted, resulting in an error on
-# rebuilds.  Solve this by deleting the entire cache directory when this package
-# is removed from the sysroot.
-SSTATEPOSTINSTFUNCS += "xcb_sstate_postinst"
-xcb_sstate_postinst() {
-	if [ "${BB_CURRENTTASK}" = "populate_sysroot" -o "${BB_CURRENTTASK}" = "populate_sysroot_setscene" ]
-	then
-		cat <<EOF >${SSTATE_INST_POSTRM}
-#!/bin/sh
-rm -rf ${libdir}/xcb-proto/xcbgen/__pycache__
-EOF
-	fi
-}
