@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-support/shared-mime-info/shared-mime-info_1.10.bb
+# base branch: warrior
+# base commit: afc016553ba1a089b766c5808d695093bda6aef6
+
 require ${COREBASE}/meta/recipes-support/shared-mime-info/shared-mime-info.inc
 
 # clear SRC_URI

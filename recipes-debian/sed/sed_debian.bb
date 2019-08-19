@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/sed/sed_4.2.2.bb
+# base branch: warrior
+# base commit: 8668495611590d93f77751be4c0b919412036479
+
 SUMMARY = "Stream EDitor (text filtering utility)"
 HOMEPAGE = "http://www.gnu.org/software/sed/"
 LICENSE = "GPLv3+"
@@ -29,3 +33,5 @@ do_install () {
 ALTERNATIVE_${PN} = "sed"
 ALTERNATIVE_LINK_NAME[sed] = "${base_bindir}/sed"
 ALTERNATIVE_PRIORITY = "100"
+
+RPROVIDES_${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'usrmerge', '/bin/sed', '', d)}"

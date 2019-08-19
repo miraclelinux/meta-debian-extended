@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/swig/swig_3.0.12.bb
 # base branch: warrior
-# base commit: 38d5c8ea98cfa49825c473eba8984c12edf062be
+# base commit: c3acb677fa5b262511716446ed9330a87508774f
 
 require ${COREBASE}/meta/recipes-devtools/${BPN}/${BPN}.inc
 

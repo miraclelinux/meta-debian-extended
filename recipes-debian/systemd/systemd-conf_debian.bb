@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-core/systemd/systemd-conf_241.bb
 # base branch: warrior
-# 40bc0ed88062906c310642d4fb958d34d407e98e
+# base commit: 40bc0ed88062906c310642d4fb958d34d407e98e
 
 require systemd.inc
 

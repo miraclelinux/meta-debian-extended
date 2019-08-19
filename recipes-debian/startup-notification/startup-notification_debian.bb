@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/startup-notification/startup-notification_0.12.bb
+# base branch: warrior
+# base commit: ba78a365ee97e2b4c6eddbf603ca6f0eb2bc8e17
+
 SUMMARY = "Enables monitoring and display of application startup"
 HOMEPAGE = "http://www.freedesktop.org/wiki/Software/startup-notification/"
 BUGTRACKER = "https://bugs.freedesktop.org/enter_bug.cgi?product=Specifications"

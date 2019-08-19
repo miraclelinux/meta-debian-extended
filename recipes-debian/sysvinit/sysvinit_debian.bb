@@ -1,8 +1,7 @@
-#
-# poky rev: 753e2a0ede4449917c75353b57f13bbafe70fac8
-# base file: https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/meta/recipes-core/sysvinit/sysvinit_2.88dsf.bb?id=753e2a0ede4449917c75353b57f13bbafe70fac8
-# branch: master
-#
+# base recipe: meta/recipes-core/sysvinit/sysvinit_2.88dsf.bb
+# base branch: warrior
+# base commit: 485b4a0e7a95a2ca0ff21637d073ee510468b9de
+
 SUMMARY = "System-V like init"
 DESCRIPTION = "This package is required to boot in most configurations.  It provides the /sbin/init program.  This is the first process started on boot, and the last process terminated before the system halts."
 HOMEPAGE = "http://savannah.nongnu.org/projects/sysvinit/"

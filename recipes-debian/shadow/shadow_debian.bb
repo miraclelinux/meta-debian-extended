@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/shadow/shadow_4.6.bb
+# base branch: warrior
+# base commit: 9d973d3b4ed8d2ce3c8997dc21603a0952e7ef0e
+
 require ${COREBASE}/meta/recipes-extended/shadow/shadow.inc
 
 # remove patches from original SRC_URI
@@ -69,7 +73,7 @@ SRC_URI_append_class-nativesdk = " \
 
 # Build falsely assumes that if --enable-libpam is set, we don't need to link against
 # libcrypt. This breaks chsh.
-BUILD_LDFLAGS_append_class-target = " ${@bb.utils.contains('DISTRO_FEATURES', 'pam', bb.utils.contains('DISTRO_FEATURES', 'libc-crypt',  '-lcrypt', '', d), '', d)}"
+BUILD_LDFLAGS_append_class-target = " ${@bb.utils.contains('DISTRO_FEATURES', 'pam', '-lcrypt', '', d)}"
 
 BBCLASSEXTEND = "native nativesdk"
 
