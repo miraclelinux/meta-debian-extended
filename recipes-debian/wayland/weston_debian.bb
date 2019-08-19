@@ -16,9 +16,9 @@ DEBIAN_PATCH_TYPE = "quilt"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/wayland/weston"
 SRC_URI += "\
-	file://0001-make-error-portable.patch \
-	file://xwayland.weston-start \
-	file://0001-weston-launch-Provide-a-default-version-that-doesn-t.patch \
+           file://0001-make-error-portable.patch \
+           file://xwayland.weston-start \
+           file://0001-weston-launch-Provide-a-default-version-that-doesn-t.patch \
 "
 
 UPSTREAM_CHECK_URI = "https://wayland.freedesktop.org/releases.html"

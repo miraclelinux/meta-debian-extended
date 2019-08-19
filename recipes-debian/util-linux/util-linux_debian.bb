@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-core/util-linux/util-linux_2.32.1.bb
+# base branch: warrior
+# base commit: 7f8cad5b1a7d72ba7225dcf42575971338d3b19b
+
 MAJOR_VERSION = "2.32"
 
 require ${COREBASE}/meta/recipes-core/util-linux/util-linux.inc

@@ -25,11 +25,10 @@ inherit gtk-doc distro_features_check upstream-version-is-even gobject-introspec
 
 # vapigen.m4 is required when vala is not present (but the one from vala should be used normally)
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/vte/vte"
-SRC_URI += "\
-	file://0001-Don-t-enable-stack-protection-by-default.patch \
-	${@bb.utils.contains('PACKAGECONFIG', 'vala', '', 'file://0001-Add-m4-vapigen.m4.patch', d) } \
-	file://0001-app.cc-use-old-school-asignment-to-avoid-gcc-4.8-err.patch \
-"
+SRC_URI += "file://0001-Don-t-enable-stack-protection-by-default.patch \
+           ${@bb.utils.contains('PACKAGECONFIG', 'vala', '', 'file://0001-Add-m4-vapigen.m4.patch', d) } \
+           file://0001-app.cc-use-old-school-asignment-to-avoid-gcc-4.8-err.patch \
+           "
 
 ANY_OF_DISTRO_FEATURES = "${GTK3DISTROFEATURES}"
 
@@ -43,7 +42,7 @@ export XDG_DATA_DIRS = "${STAGING_DATADIR}"
 
 # Help g-ir-scanner find the .so for linking
 do_compile_prepend() {
-	export GIR_EXTRA_LIBS_PATH="${B}/src/.libs"
+        export GIR_EXTRA_LIBS_PATH="${B}/src/.libs"
 }
 
 # Package additional files

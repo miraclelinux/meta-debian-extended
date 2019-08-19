@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/unzip/unzip_6.0.bb
+# base branch: warrior
+# base commit: 886922a0b3636c5809b526afb5496679c1196f4d
+
 SUMMARY = "Utilities for extracting and viewing files in .zip archives"
 HOMEPAGE = "http://www.info-zip.org"
 SECTION = "console/utils"

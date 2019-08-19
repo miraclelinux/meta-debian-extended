@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-app/xauth_1.0.10.bb
+# base branch: warrior
+# base commit: 254bfb107134702d8d1e0bfbdd1b011212e8c291
+
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
 # clear SRC_URI

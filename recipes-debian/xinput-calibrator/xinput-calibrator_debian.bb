@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xinput-calibrator/xinput-calibrator_git.bb
+# base branch: warrior
+# base commit: c38a24f6205df5814373e1b3f1a4bee0a94d07e4
+
 SUMMARY = "Touchscreen calibration program for X11"
 HOMEPAGE = "http://www.freedesktop.org/wiki/Software/xinput_calibrator"
 LICENSE = "MIT-X"
@@ -15,7 +19,9 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI += " \
            file://30xinput_calibrate.sh \
-           file://Allow-xinput_calibrator_pointercal.sh-to-be-run-as-n.patch"
+           file://Allow-xinput_calibrator_pointercal.sh-to-be-run-as-n.patch \
+           file://0001-calibrator.hh-Include-string-to-get-std-string.patch \
+           "
 
 # force native X11 ui as we don't have gtk+ in DEPENDS
 EXTRA_OECONF += "--with-gui=x11"

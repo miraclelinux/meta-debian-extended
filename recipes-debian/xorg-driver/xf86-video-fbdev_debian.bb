@@ -1,4 +1,8 @@
-require recipes-graphics/xorg-driver/xorg-driver-video.inc
+# base recipe: meta/recipes-graphics/xorg-driver/xf86-video-fbdev_0.5.0.bb
+# base branch: warrior
+# base commit: b78597a4e038ed64b379f11257002e5a5f24886f
+
+require ${COREBASE}/meta/recipes-graphics/xorg-driver/xorg-driver-video.inc
 
 SUMMARY = "X.Org X server -- fbdev display driver"
 DESCRIPTION = "fbdev is an Xorg driver for framebuffer devices. This is a non-accelerated driver."

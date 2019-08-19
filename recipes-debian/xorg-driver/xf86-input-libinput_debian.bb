@@ -1,4 +1,8 @@
-require recipes-graphics/xorg-driver/xorg-driver-input.inc
+# base recipe: meta/xorg-driver/xf86-input-libinput_0.28.2.bb
+# base branch: warrior
+# base commit: aba2567e7a345ca1d44cb8798f10aeb30bdbe09d
+
+require ${COREBASE}/meta/recipes-graphics/xorg-driver/xorg-driver-input.inc
 
 SUMMARY = "Generic input driver for the X.Org server based on libinput"
 LIC_FILES_CHKSUM = "file://COPYING;md5=5e6b20ea2ef94a998145f0ea3f788ee0"

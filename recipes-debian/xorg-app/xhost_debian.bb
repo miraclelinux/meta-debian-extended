@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-app/xhost_1.0.8.bb
+# base branch: warrior
+# base commit: 2ccddba8c723f3c09db0c8c145ad6922d934196d
+
 require ${COREBASE}/meta/recipes-graphics/xorg-app/xorg-app-common.inc
 
 # clear SRC_URI
