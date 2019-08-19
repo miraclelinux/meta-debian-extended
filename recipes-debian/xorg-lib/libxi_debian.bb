@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxi_1.7.9.bb
+# base branch: warrior
+# base commit: 997b526d8b732112edae252eb615b124c5a95760
+
 require ${COREBASE}/meta/recipes-graphics/xorg-lib/xorg-lib-common.inc
 
 SUMMARY = "XI: X Input extension library"
@@ -21,3 +25,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=17b064789fab936a1c58c4e13d965b0f \
 DEPENDS += "libxext xorgproto libxfixes"
 
 XORG_PN = "libXi"
+
+BBCLASSEXTEND = "native nativesdk"
+
