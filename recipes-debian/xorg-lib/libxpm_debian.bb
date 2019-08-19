@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxpm_3.5.12.bb
+# base branch: warrior
+# base commit: 4a7855e3f0a3fcb3f197890280ebd1ab88e85c24
+
 require ${COREBASE}/meta/recipes-graphics/xorg-lib/xorg-lib-common.inc
 
 # clear SRC_URI
@@ -19,7 +23,7 @@ protocol."
 
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=51f4270b012ecd4ab1a164f5f4ed6cf7"
-DEPENDS += "libxext libsm libxt"
+DEPENDS += "libxext libsm libxt gettext-native"
 
 XORG_PN = "libXpm"
 
