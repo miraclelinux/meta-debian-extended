@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxkbcommon_0.8.4.bb
+# base branch: warrior
+# base commit: 1ed4d68be75b31cfc5eff82d6a3c91505751d974
+
 SUMMARY = "Generic XKB keymap library"
 DESCRIPTION = "libxkbcommon is a keymap compiler and support library which \
 processes a reduced subset of keymaps as defined by the XKB specification."

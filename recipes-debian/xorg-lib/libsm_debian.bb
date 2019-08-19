@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libsm_1.2.3.bb
+# base branch: warrior
+# base commit: e4263671a341adf08d597eb2701e128c79a84f68
+
 SUMMARY = "SM: Session Management library"
 
 DESCRIPTION = "The Session Management Library (SMlib) is a low-level \"C\" \
@@ -27,7 +31,7 @@ EXTRA_OECONF += "--without-libuuid"
 
 XORG_PN = "libSM"
 
-BBCLASSEXTEND = "native"
-
 PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'ipv6', d)}"
 PACKAGECONFIG[ipv6] = "--enable-ipv6,--disable-ipv6,"
+
+BBCLASSEXTEND = "native nativesdk"

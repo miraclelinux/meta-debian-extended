@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxext_1.3.3.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XExt: X Extension library"
 
 DESCRIPTION = "libXext provides an X Window System client interface to \

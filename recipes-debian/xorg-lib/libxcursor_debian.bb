@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxcursor_1.2.0.bb
+# base branch: warrior
+# base commit: 2965a9a5ed83a3a08acdbe03580261bd35538427
+
 SUMMARY = "Xcursor: X Cursor management library"
 
 DESCRIPTION = "Xcursor is a simple library designed to help locate and \
@@ -19,6 +23,7 @@ LICENSE = "MIT-style"
 LIC_FILES_CHKSUM = "file://COPYING;md5=8902e6643f7bcd7793b23dcd5d8031a4"
 
 DEPENDS += "libxrender libxfixes"
-BBCLASSEXTEND = "native nativesdk"
 
 XORG_PN = "libXcursor"
+
+BBCLASSEXTEND = "native nativesdk"

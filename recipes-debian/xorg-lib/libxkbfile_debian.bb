@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxkbfile_1.0.9.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XKB: X Keyboard File manipulation library"
 
 DESCRIPTION = "libxkbfile provides an interface to read and manipulate \

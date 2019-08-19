@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxcb_1.13.1.bb
+# base branch: warrior
+# base commit: cd4b8a8553f9d551af27941910cf4d3405ecb7b0
+
 SUMMARY = "XCB: The X protocol C binding library"
 DESCRIPTION = "The X protocol C-language Binding (XCB) is a replacement \
 for Xlib featuring a small footprint, latency hiding, direct access to \
@@ -37,5 +41,5 @@ REQUIRED_DISTRO_FEATURES_class-native = ""
 export PYTHON = "python3"
 
 python populate_packages_prepend () {
-    do_split_packages(d, '${libdir}', '^libxcb-(.*)\.so\..*$', 'libxcb-%s', 'XCB library module for %s', allow_links=True)
+    do_split_packages(d, '${libdir}', r'^libxcb-(.*)\.so\..*$', 'libxcb-%s', 'XCB library module for %s', allow_links=True)
 }

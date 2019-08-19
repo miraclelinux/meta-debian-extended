@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxshmfence_1.3.bb
+# base branch: warrior
+# base commit: 36166dbade7ef35ef656068425d3bde6607ab9c5
+
 SUMMARY = "Shared memory 'SyncFence' synchronization primitive"
 
 DESCRIPTION = "This library offers a CPU-based synchronization primitive compatible \

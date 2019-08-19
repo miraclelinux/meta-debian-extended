@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/xcb-util_0.4.0.bb
+# base branch: warrior
+# base commit: 5da3d30d6780a01331db12ecebd4508beaba5ef8
+
 require ${COREBASE}/meta/recipes-graphics/xorg-lib/xcb-util.inc
 
 # clear SRC_URI

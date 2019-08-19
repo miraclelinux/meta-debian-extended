@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxvmc_1.0.10.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XvMC: X Video Motion Compensation extension library"
 
 DESCRIPTION = "XvMC extends the X Video extension (Xv) and enables \

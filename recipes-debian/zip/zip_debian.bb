@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-extended/zip/zip_3.0.bb
+# base branch: warrior
+# base commit: 5813f1f764f0c18ee2d00af9491f897bcc4089ab
+
 SUMMARY = "Compressor/archiver for creating and modifying .zip files"
 HOMEPAGE = "http://www.info-zip.org"
 SECTION = "console/utils"

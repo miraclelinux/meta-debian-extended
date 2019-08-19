@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libx11.inc
+# base branch: warrior
+# base commit: 7862ee16890828507f17b0e8e5390e0310776e8a
+
 SUMMARY = "Xlib: C Language X Interface library"
 
 DESCRIPTION = "This package provides a client interface to the X Window \

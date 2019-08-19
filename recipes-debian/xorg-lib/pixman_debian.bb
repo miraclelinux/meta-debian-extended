@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/pixman_0.38.0.bb
+# base branch: warrior
+# base commit: bdb23bd1e3a17594f0352fabf3df90011940b0a0
+
 SUMMARY = "Pixman: Pixel Manipulation library"
 
 DESCRIPTION = "Pixman provides a library for manipulating pixel regions \

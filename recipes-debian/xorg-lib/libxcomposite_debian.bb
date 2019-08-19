@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxcomposite_0.4.5.bb
+# base branch: warrior
+# base commit: feaf218deafb700a5e5901cf6981743f3c72983a
+
 SUMMARY = "Xcomposite: X Composite extension library"
 
 DESCRIPTION = "The composite extension provides three related \
@@ -24,7 +28,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=3f2907aad541f6f226fbc58cc1b3cdf1"
 
 DEPENDS += " xorgproto virtual/libx11 libxfixes libxext"
 PROVIDES = "xcomposite"
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
 
 XORG_PN = "libXcomposite"
 

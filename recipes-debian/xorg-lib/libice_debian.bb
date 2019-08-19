@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libice_1.0.9.bb
+# base branch: warrior
+# base commit: b0e6452137374b8e56215d229570b4bcb002e7bc
+
 SUMMARY = "ICE: Inter-Client Exchange library"
 
 DESCRIPTION = "The Inter-Client Exchange (ICE) protocol provides a \
@@ -24,7 +28,7 @@ PROVIDES = "ice"
 
 XORG_PN = "libICE"
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
 
 SRC_URI += "file://CVE-2017-2626.patch"
 

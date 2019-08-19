@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-proto/xorg-proto-common.inc
+# base branch: warrior
+# base commit: c61cc3cb9e504364f83acee7e8c1e62a9d4bad42
+
 SUMMARY = "X protocol headers: ${XORG_PN}"
 HOMEPAGE = "http://www.x.org"
 BUGTRACKER = "https://bugs.freedesktop.org/enter_bug.cgi?product=xorg"
