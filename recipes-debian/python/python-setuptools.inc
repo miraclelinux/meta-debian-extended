@@ -1,5 +1,6 @@
-# From meta/recipes-devtools/python/python-setuptools.inc
-# Rev: 806de34fda21fb1ab38d6b00566eb3d538d574d0
+# base recipe: meta/recipes-devtools/python/python-setuptools.inc
+# base branch: warrior
+# base commit: 806de34fda21fb1ab38d6b00566eb3d538d574d0
 
 SUMMARY = "Download, build, install, upgrade, and uninstall Python packages"
 HOMEPAGE = "https://pypi.python.org/pypi/setuptools"

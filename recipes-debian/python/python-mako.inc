@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python-mako.inc
-# Rev: 23626bd9025aad8a10d7cb13796a493e9db816e1
+# base recipe: meta/recipes-devtools/python/python-mako.inc
+# base branch: warrior
+# base commit: 23626bd9025aad8a10d7cb13796a493e9db816e1
+
 SUMMARY = "Templating library for Python"
 HOMEPAGE = "http://www.makotemplates.org/"
 SECTION = "devel/python"

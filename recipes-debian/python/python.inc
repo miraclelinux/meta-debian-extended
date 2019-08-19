@@ -1,8 +1,6 @@
-#
 # base recipe: meta/recipes-devtools/python/python.inc
 # base branch: warrior
 # base commit: 2268bf548a2f7e06da9071b11b4c7a487859778d
-#
 
 SUMMARY = "The Python Programming Language"
 HOMEPAGE = "http://www.python.org"

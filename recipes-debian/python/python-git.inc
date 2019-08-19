@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python-git.inc
-# Rev: dfe84d9ca3693037a650ca724ad2f118b1acfef8
+# base recipe: meta/recipes-devtools/python/python-git.inc
+# base branch: warrior
+# base commit: dfe84d9ca3693037a650ca724ad2f118b1acfef8
+
 SUMMARY = "Python library used to interact with Git repositories"
 DESCRIPTION = "GitPython provides object model read and write access to \
 a git repository. Access repository information conveniently, alter the \

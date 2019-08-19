@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python-six.inc
-# REv: aadf0716edbad9002173800e15965eda33796ad5
+# base recipe: meta/recipes-devtools/python/python-six.inc
+# base branch: warrior
+# base commit: aadf0716edbad9002173800e15965eda33796ad5
+
 SUMMARY = "Python 2 and 3 compatibility library"
 HOMEPAGE = "https://pypi.python.org/pypi/six/"
 SECTION = "devel/python"

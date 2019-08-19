@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python-gitdb.inc
-# Rev: 97e68f42bbfd8ec9bafab5c30f38cfb8f3dd5e3e
+# base recipe: meta/recipes-devtools/python/python-gitdb.inc
+# base branch: warrior
+# base commit: 97e68f42bbfd8ec9bafab5c30f38cfb8f3dd5e3e
+
 SUMMARY = "A pure-Python git object database"
 HOMEPAGE = "http://github.com/gitpython-developers/gitdb"
 SECTION = "devel/python"
