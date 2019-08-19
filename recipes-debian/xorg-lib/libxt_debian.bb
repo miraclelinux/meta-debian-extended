@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxt_1.1.5.bb
+# base branch: warrior
+# base commit: 62a36938e5c5673eb6168338fd177e67d0fa973f
+
 SUMMARY = "Xt: X Toolkit Intrinsics library"
 
 DESCRIPTION = "The Intrinsics are a programming library tailored to the \
@@ -23,6 +27,7 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/xorg-lib/libxt"
 LICENSE = "MIT & MIT-style"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6565b1e0094ea1caae0971cc4035f343"
 
+
 DEPENDS += "util-linux libxcb libsm virtual/libx11 xorgproto libxdmcp"
 PROVIDES = "xt"
 
@@ -32,6 +37,6 @@ SRC_URI +=  "file://libxt_fix_for_x32.patch \
              file://0001-libXt-util-don-t-link-makestrs-with-target-cflags.patch \
             "
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
 
 EXTRA_OECONF += "--disable-xkb"
