@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/xkeyboard-config_2.26.bb
+# base branch: warrior
+# base commit: 550ed6ba7e43ba7b33e2a1a91c2b8b34d4802b3e
+
 SUMMARY = "Keyboard configuration database for X Window"
 
 DESCRIPTION = "The non-arch keyboard configuration database for X \

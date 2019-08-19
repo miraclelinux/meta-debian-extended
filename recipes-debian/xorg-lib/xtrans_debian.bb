@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/xtrans_1.3.5.bb
+# base branch: warrior
+# base commit: 0609f4fee30494792d7c5b9e9113a6275dc93d1c
+
 SUMMARY = "XTrans: X Transport library"
 
 DESCRIPTION = "The X Transport Interface is intended to combine all \

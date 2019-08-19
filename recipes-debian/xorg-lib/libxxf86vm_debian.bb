@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxxf86vm_1.1.4.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XFree86-VM: XFree86 video mode extension library"
 
 DESCRIPTION = "libXxf86vm provides an interface to the \

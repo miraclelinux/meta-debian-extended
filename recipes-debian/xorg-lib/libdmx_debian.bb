@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libdmx_1.1.4.bb
+# base branch: warrior
+# base commit: a303844f3c6db0afe5beef6b9a411e68ac7731de
+
 require ${COREBASE}/meta/recipes-graphics/xorg-lib/xorg-lib-common.inc
 
 SUMMARY = "DMX: Distributed Multihead X extension library"

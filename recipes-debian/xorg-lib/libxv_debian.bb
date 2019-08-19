@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxv_1.0.11.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "Xv: X Video extension library"
 
 DESCRIPTION = "libXv provides an X Window System client interface to the \

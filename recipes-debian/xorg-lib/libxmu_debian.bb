@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxmu_1.1.2.bb
+# base branch: warrior
+# base commit: 254bfb107134702d8d1e0bfbdd1b011212e8c291
+
 SUMMARY = "Xmu and Xmuu: X Miscellaneous Utility libraries"
 
 DESCRIPTION = "The Xmu Library is a collection of miscellaneous (some \

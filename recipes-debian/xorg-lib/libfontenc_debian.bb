@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libfontenc_1.1.4.bb
+# base branch: warrior
+# base commit: a1c2b81d79bfd2f0ea12d5dfe21e997e7424d9d8
+
 SUMMARY = "X font encoding library"
 
 DESCRIPTION = "libfontenc is a library which helps font libraries \

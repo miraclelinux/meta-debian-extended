@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxfont2_2.0.3.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XFont2: X Font rasterisation library"
 
 DESCRIPTION = "libXfont2 provides various services for X servers, most \

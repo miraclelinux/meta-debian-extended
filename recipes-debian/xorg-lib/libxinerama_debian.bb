@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxinerama_1.1.4.bb
+# base branch: warrior
+# base commit: 4e1f9fd4ddff37e6f012c86af7eafdb687f0825d
+
 require ${COREBASE}/meta/recipes-graphics/xorg-lib/xorg-lib-common.inc
 
 SUMMARY = "Xinerama: Xinerama extension library"

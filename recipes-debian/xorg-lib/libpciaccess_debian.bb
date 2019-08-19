@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libpciaccess_0.14.bb
+# base branch: warrior
+# base commit: 800f4a0c192f05270490ca10b28357e83a36d978
+
 SUMMARY = "Generic PCI access library for X"
 
 DESCRIPTION = "libpciaccess provides functionality for X to access the \

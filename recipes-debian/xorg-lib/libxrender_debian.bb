@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxrender_0.9.10.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XRender: X Rendering Extension library"
 
 DESCRIPTION = "The X Rendering Extension (Render) introduces digital \

@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxfixes_5.0.3.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XFixes: X Fixes extension library"
 
 DESCRIPTION = "X applications have often needed to work around various \

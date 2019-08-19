@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxau_1.0.9.bb
+# base branch: warrior
+# base commit: 90baf6a8f786ae653f349cd2481fe95fa49aee32
+
 SUMMARY = "Xau: X Authority Database library"
 
 DESCRIPTION = "libxau provides the main interfaces to the X11 \

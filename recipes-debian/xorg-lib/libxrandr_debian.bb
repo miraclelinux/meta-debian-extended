@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxrandr_1.5.1.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XRandR: X Resize, Rotate and Reflect extension library"
 
 DESCRIPTION = "The X Resize, Rotate and Reflect Extension, called RandR \

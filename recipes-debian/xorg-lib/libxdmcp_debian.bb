@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxdmcp_1.1.2.bb
+# base branch: warrior
+# base commit: 4ba923dbac2845aca5b4312a5f278ad886a7acc7
+
 SUMMARY = "XDMCP: X Display Manager Control Protocol library"
 
 DESCRIPTION = "The purpose of the X Display Manager Control Protocol \
