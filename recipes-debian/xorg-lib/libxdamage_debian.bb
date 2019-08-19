@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxdamage_1.1.5.bb
+# base branch: warrior
+# base commit: 5674cd05fd64c4dd3ea567bc30ec1f761f693a4d
+
 SUMMARY = "Xdamage: X Damage extension library"
 
 DESCRIPTION = "'Damage' is a term that describes changes make to pixel \
@@ -25,6 +29,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=9fe101f30dd24134cf43146863241868"
 
 DEPENDS += "virtual/libx11 xorgproto libxfixes"
 PROVIDES = "xdamage"
-BBCLASSEXTEND = "native"
 
 XORG_PN = "libXdamage"
+
+BBCLASSEXTEND = "native nativesdk"
