@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxtst_1.2.3.bb
+# base branch: warrior
+# base commit: 997b526d8b732112edae252eb615b124c5a95760
+
 require ${COREBASE}/meta/recipes-graphics/xorg-lib/xorg-lib-common.inc
 
 SUMMARY = "XTest: X Test extension library"
@@ -21,3 +25,5 @@ DEPENDS += "libxext xorgproto libxi"
 PROVIDES = "xtst"
 
 XORG_PN = "libXtst"
+
+BBCLASSEXTEND = "native nativesdk"
