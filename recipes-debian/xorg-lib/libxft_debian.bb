@@ -1,3 +1,7 @@
+# base recipe: meta/recipes-graphics/xorg-lib/libxft_2.3.2.bb
+# base branch: warrior
+# base commit: ca2e5ccfa067cd18e03ea6d90f980673fcd15ac1
+
 SUMMARY = "XFt: X FreeType libary"
 
 DESCRIPTION = "Xft was designed to provide good support for scalable \
@@ -28,7 +32,7 @@ PROVIDES = "xft"
 
 XORG_PN = "libXft"
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
 
 python () {
         if d.getVar('DEBIAN_NAMES'):
