@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-devtools/python/python-subunit.inc
-# Rev: 2f214b2e17d34084ddd5b5261a991a29d891891c
+# base recipe: meta/recipes-devtools/python/python-subunit.inc
+# base branch: warrior
+# base commit: 2f214b2e17d34084ddd5b5261a991a29d891891c
+
 SUMMARY = "Python implementation of subunit test streaming protocol"
 HOMEPAGE = "https://pypi.python.org/pypi/python-subunit/"
 SECTION = "devel/python"

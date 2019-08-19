@@ -32,6 +32,11 @@ SRC_URI += " \
            file://0011-Revert-linux-user-fix-mmap-munmap-mprotect-mremap-sh.patch \
            file://0001-Add-a-missing-X11-include.patch \
            file://0001-egl-headless-add-egl_create_context.patch \
+           file://0015-fix-CVE-2018-20124.patch \
+           file://0016-fix-CVE-2018-20125.patch \
+           file://0017-fix-CVE-2018-20126.patch \
+           file://0018-fix-CVE-2018-20191.patch \
+           file://0019-fix-CVE-2018-20216.patch \
            "
 COMPATIBLE_HOST_mipsarchn32 = "null"
 COMPATIBLE_HOST_mipsarchn64 = "null"

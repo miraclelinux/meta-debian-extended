@@ -1,5 +1,7 @@
-# From: poky/meta/recipes-debian/python/python-smmap.inc
-# Rev: 1b15b02b119221791f564ea94987336fbf00ca2c
+# base recipe: meta/recipes-debian/python/python-smmap.inc
+# base branch: warrior
+# base commit: 1b15b02b119221791f564ea94987336fbf00ca2c
+
 SUMMARY = "Python implementation of a sliding window memory map manager"
 DESCRIPTION = "A pure Python implementation of a sliding memory map to \
 help unifying memory mapped access on 32 and 64 bit systems and to help \
