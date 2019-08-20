@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/python/python3-pygobject_3.32.1.bb
 # base branch: master
-# base commit: 8eda06e9e1e6c3f3f20c9bbfd0730157d7aa2834
+# base commit: e8cca73c92ebf046d103dec0811afeff157197e0
 
 SUMMARY = "Python GObject bindings"
 SECTION = "devel/python"
@@ -27,23 +27,30 @@ DEBIAN_QUILT_PATCHES = ""
 
 PACKAGECONFIG ??= "${@bb.utils.contains_any('DISTRO_FEATURES', [ 'directfb', 'wayland', 'x11' ], 'cairo', '', d)}"
 
+RDEPENDS_${PN} += "python3-pkgutil"
+
 # python3-pycairo is checked on configuration -> DEPENDS
 # we don't link against python3-pycairo -> RDEPENDS
 PACKAGECONFIG[cairo] = "-Dpycairo=true,-Dpycairo=false, cairo python3-pycairo, python3-pycairo"
 
-RDEPENDS_${PN} += "python3-setuptools"
-
 BBCLASSEXTEND = "native"
 PACKAGECONFIG_class-native = ""
 
-# Temporary workaround to fix followin duplicate usr directory error.
-# ERROR: python3-pygobject-3.30.4-r0 do_package: QA Issue: python3-pygobject: Files/directories were installed but not shipped in any package:
-#  /usr/usr/lib/python3.7/site-packages/PyGObject-3.30.4.egg-info
-#  /usr/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
-#  /usr/usr/lib/python3.7/site-packages/pygtkcompat
-#  /usr/usr/lib/python3.7/site-packages/pygtkcompat/pygtkcompat.py
-#  /usr/usr/lib/python3.7/site-packages/pygtkcompat/generictreemodel.py
 do_install_append() {
+  # Temporary workaround to fix following duplicate usr directory error.
+  # ERROR: python3-pygobject-3.30.4-r0 do_package: QA Issue: python3-pygobject: Files/directories were installed but not shipped in any package:
+  #  /usr/usr/lib/python3.7/site-packages/PyGObject-3.30.4.egg-info
+  #  /usr/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
+  #  /usr/usr/lib/python3.7/site-packages/pygtkcompat
+  #  /usr/usr/lib/python3.7/site-packages/pygtkcompat/pygtkcompat.py
+  #  /usr/usr/lib/python3.7/site-packages/pygtkcompat/generictreemodel.py
   mv ${D}/usr/usr/lib/* ${D}/usr/lib/.
   rm -fr ${D}/usr/usr
+
+  # Workaround for the conflict with pycairo
+  rm -fr \
+    ${D}/usr/include/pycairo \
+    ${D}/usr/lib/pkgconfig/py3cairo.pc \
+    ${D}/usr/lib/python3.7/site-packages/cairo \
+    ${D}/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
 }
