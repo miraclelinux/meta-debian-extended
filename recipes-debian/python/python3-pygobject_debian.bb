@@ -36,14 +36,21 @@ PACKAGECONFIG[cairo] = "-Dpycairo=true,-Dpycairo=false, cairo python3-pycairo, p
 BBCLASSEXTEND = "native"
 PACKAGECONFIG_class-native = ""
 
-# Temporary workaround to fix followin duplicate usr directory error.
-# ERROR: python3-pygobject-3.30.4-r0 do_package: QA Issue: python3-pygobject: Files/directories were installed but not shipped in any package:
-#  /usr/usr/lib/python3.7/site-packages/PyGObject-3.30.4.egg-info
-#  /usr/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
-#  /usr/usr/lib/python3.7/site-packages/pygtkcompat
-#  /usr/usr/lib/python3.7/site-packages/pygtkcompat/pygtkcompat.py
-#  /usr/usr/lib/python3.7/site-packages/pygtkcompat/generictreemodel.py
 do_install_append() {
+  # Temporary workaround to fix following duplicate usr directory error.
+  # ERROR: python3-pygobject-3.30.4-r0 do_package: QA Issue: python3-pygobject: Files/directories were installed but not shipped in any package:
+  #  /usr/usr/lib/python3.7/site-packages/PyGObject-3.30.4.egg-info
+  #  /usr/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
+  #  /usr/usr/lib/python3.7/site-packages/pygtkcompat
+  #  /usr/usr/lib/python3.7/site-packages/pygtkcompat/pygtkcompat.py
+  #  /usr/usr/lib/python3.7/site-packages/pygtkcompat/generictreemodel.py
   mv ${D}/usr/usr/lib/* ${D}/usr/lib/.
   rm -fr ${D}/usr/usr
+
+  # Workaround for the conflict with pycairo
+  rm -fr \
+    ${D}/usr/include/pycairo \
+    ${D}/usr/lib/pkgconfig/py3cairo.pc \
+    ${D}/usr/lib/python3.7/site-packages/cairo \
+    ${D}/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
 }
