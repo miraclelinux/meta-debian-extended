@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/python/python3-pygobject_3.32.1.bb
 # base branch: master
-# base commit: 8eda06e9e1e6c3f3f20c9bbfd0730157d7aa2834
+# base commit: e8cca73c92ebf046d103dec0811afeff157197e0
 
 SUMMARY = "Python GObject bindings"
 SECTION = "devel/python"
@@ -27,11 +27,11 @@ DEBIAN_QUILT_PATCHES = ""
 
 PACKAGECONFIG ??= "${@bb.utils.contains_any('DISTRO_FEATURES', [ 'directfb', 'wayland', 'x11' ], 'cairo', '', d)}"
 
+RDEPENDS_${PN} += "python3-pkgutil"
+
 # python3-pycairo is checked on configuration -> DEPENDS
 # we don't link against python3-pycairo -> RDEPENDS
 PACKAGECONFIG[cairo] = "-Dpycairo=true,-Dpycairo=false, cairo python3-pycairo, python3-pycairo"
-
-RDEPENDS_${PN} += "python3-setuptools"
 
 BBCLASSEXTEND = "native"
 PACKAGECONFIG_class-native = ""
