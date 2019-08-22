@@ -1,0 +1,38 @@
+From 839465b0b5546638141fb22aea014ceb5a9100eb Mon Sep 17 00:00:00 2001
+From: Hiraku Sugiura <hiraku.sugiura@miraclelinux.com>
+Date: Thu, 22 Aug 2019 09:37:06 +0900
+Subject: [PATCH] Remove install-exec-hook and install-data-hook
+
+haveged.service is installed by do_install_append
+in Debianized version.
+---
+ init.d/Makefile.am | 16 ----------------
+ 1 file changed, 16 deletions(-)
+
+diff --git a/init.d/Makefile.am b/init.d/Makefile.am
+index ca3ad1c..d10dcf5 100644
+--- a/init.d/Makefile.am
++++ b/init.d/Makefile.am
+@@ -26,19 +26,3 @@ haveged:	$(src_tmpl) Makefile
+ 			$(do_subst) < $(srcdir)/$(src_tmpl) > haveged;
+ 
+ endif
+-
+-if ENABLE_SYSTEMD
+-## systemd script - lookup unitdir if not specified
+-
+-install-exec-hook:
+-	$(do_subst) < $(srcdir)/$(src_tmpl) > haveged.service;
+-
+-install-data-hook:
+-if ENABLE_SYSTEMD_LOOKUP
+-	install -p -m644 haveged.service `pkg-config --variable=systemdsystemunitdir systemd`/haveged.service;
+-else
+-	install -p -m644 haveged.service ($unit_dir)/haveged.service;
+-endif
+-	systemctl enable haveged.service;
+-
+-endif
+-- 
+2.20.1
+
