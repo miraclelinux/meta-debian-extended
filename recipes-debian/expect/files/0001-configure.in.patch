@@ -1,0 +1,19 @@
+Allow cross compiling.
+
+Signed-off-by: Anders Roxell <anders.roxell@enea.com>
+Upstream-Status: Pending
+---
+diff -uNr a/configure.in b/configure.in
+--- a/configure.in	2012-12-14 15:31:32.623180450 +0100
++++ b/configure.in	2012-12-14 15:53:34.518233519 +0100
+@@ -574,7 +576,8 @@
+ 	AC_DEFINE(REARM_SIG)
+ ,
+ 	AC_MSG_RESULT(no)
+-, AC_MSG_WARN([Expect can't be cross compiled])
++,
++	AC_MSG_RESULT(no)
+ )
+ 
+ # HPUX7 has trouble with the big cat so split it
+ 
