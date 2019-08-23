@@ -1,0 +1,11 @@
+--- a/Makefile	2019-01-29 02:25:50.000000000 +0900
++++ b/Makefile	2019-08-23 13:41:51.443204873 +0900
+@@ -1,6 +1,7 @@
+ VERSION ?= 0.8
+ CFLAGS ?= -Wall -W -Wno-unused-parameter -g -O2
+-ARCH := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
++#ARCH := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
++ARCH := linux
+ 
+ BASEDIR ?= $(DESTDIR)
+ 
