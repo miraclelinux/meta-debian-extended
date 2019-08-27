@@ -52,8 +52,6 @@ SRC_URI += " \
            file://dont-use-multiarch.patch \
 "
 
-S = "${WORKDIR}/Python-${PV}"
-
 inherit autotools multilib_header python-dir pythonnative ptest
 
 CONFIGUREOPTS += " --with-system-ffi "
