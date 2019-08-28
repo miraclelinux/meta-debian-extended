@@ -69,7 +69,7 @@ CFLAGS += "-DUSE_PREAD"
 CFLAGS += "-DSQLITE_ENABLE_COLUMN_METADATA"
 
 do_configure_append() {
-  mv ${B}/${TARGET_PREFIX}libtool ${B}/libtool
+  mv ${B}/${TARGET_SYS}-libtool ${B}/libtool
 }
 
 do_install_append() {
@@ -87,3 +87,5 @@ FILES_lib${BPN}-doc = "${docdir} ${mandir} ${infodir}"
 FILES_lib${BPN}-staticdev = "${libdir}/lib*.a"
 
 AUTO_LIBNAME_PKGS = "${MLPREFIX}lib${BPN}"
+
+BBCLASSEXTEND = "native nativesdk"
