@@ -8,8 +8,8 @@ SECTION = "libs"
 
 LICENSE = "PD"
 
-# we don't have sqlite3.h before run comile task.
-# so, use base licene file instead.
+# we don't have sqlite3.h before run compile task.
+# so, use base license file instead.
 LIC_FILES_CHKSUM = "file://autoconf/tea/license.terms;md5=5e0405ae78edb434653628790bb02b17"
 
 PE = "3"
