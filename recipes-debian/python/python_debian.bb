@@ -52,8 +52,6 @@ SRC_URI += " \
            file://dont-use-multiarch.patch \
 "
 
-S = "${WORKDIR}/Python-${PV}"
-
 inherit autotools multilib_header python-dir pythonnative ptest
 
 CONFIGUREOPTS += " --with-system-ffi "
@@ -69,14 +67,11 @@ do_debian_patch_prepend() {
     export DEB_TARGET_ARCH_OS=${TARGET_OS}
 
     cd ${DEBIAN_UNPACK_DIR}
-    chmod +x ./debian/rules
     # Generage ./debian/patches/series
-    ./debian/rules ./debian/patches/series
-}
+    make -f ./debian/rules ./debian/patches/series
 
-do_debian_patch_append() {
-	cd ${S}
-	patch -uR -p1 <${S}/debian/patches/multiarch-libc.diff
+    # remove multiarch-libc.diff from patch series
+    sed -i -e '/multiarch-libc\.diff/ d' ./debian/patches/series
 }
 
 do_configure_append() {
