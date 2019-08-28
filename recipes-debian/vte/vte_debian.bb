@@ -23,6 +23,8 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/vte-${PV}"
 
 inherit gtk-doc distro_features_check upstream-version-is-even gobject-introspection
 
+DEPENDS_native-class_append = " pango-native gtk+3-native"
+
 # vapigen.m4 is required when vala is not present (but the one from vala should be used normally)
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/vte/vte"
 SRC_URI += "file://0001-Don-t-enable-stack-protection-by-default.patch \
