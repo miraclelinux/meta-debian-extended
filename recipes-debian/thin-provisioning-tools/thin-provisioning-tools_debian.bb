@@ -19,10 +19,7 @@ S = "${WORKDIR}/${BPN}-${PV}"
 
 SRC_URI += " \
            file://0001-fix-compile-failed-with-libc-musl.patch \
-           file://use-sh-on-path.patch \
 "
-
-UPSTREAM_CHECK_GITTAGREGEX = "v(?P<pver>\d+(\.\d+)+)"
 
 DEPENDS += "expat libaio boost"
 
