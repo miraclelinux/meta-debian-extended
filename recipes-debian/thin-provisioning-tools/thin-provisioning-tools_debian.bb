@@ -1,4 +1,4 @@
-# base recipe: https://github.com/openembedded/meta-openembedded/tree/warrior/meta-oe/recipes-support/thin-provisioning-tools/thin-provisioning-tools_0.7.6.bb
+# base recipe: meta-oe/recipes-support/thin-provisioning-tools/thin-provisioning-tools_0.7.6.bb
 # base branch: warrior
 # base commit: 882d907f77e21df644ec7c5bc910ea13e915f600
 
@@ -19,6 +19,7 @@ S = "${WORKDIR}/${BPN}-${PV}"
 
 SRC_URI += " \
            file://0001-fix-compile-failed-with-libc-musl.patch \
+           file://use-sh-on-path.patch \
 "
 
 DEPENDS += "expat libaio boost"
