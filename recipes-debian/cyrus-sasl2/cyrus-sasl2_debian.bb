@@ -20,8 +20,6 @@ SRC_URI += " \
            file://saslauthd.conf \
            "
 
-UPSTREAM_CHECK_URI = "https://github.com/cyrusimap/cyrus-sasl/archives"
-
 S = "${WORKDIR}/cyrus-sasl-${PV}"
 
 inherit autotools pkgconfig useradd systemd
