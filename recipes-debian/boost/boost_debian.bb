@@ -8,7 +8,11 @@ LIC_FILES_CHKSUM = "file://LICENSE_1_0.txt;md5=e4224ccaecb14d942c71d31bef20d78c"
 
 inherit debian-package
 require recipes-debian/sources/boost1.67.inc
-require boost.inc
+require ${COREBASE}/meta/recipes-support/boost/boost.inc
+BOOST_LIBS += " signals"
+BOOST_LIBS_append_arm = ""
+BJAM_OPTS_append_arm = ""
+
 DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/boost/boost"
