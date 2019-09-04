@@ -1,4 +1,4 @@
-# base recipe: https://github.com/openembedded/meta-openembedded/tree/warrior/meta-networking/recipes-daemons/cyrus-sasl
+# base recipe: meta-networking/recipes-daemons/cyrus-sasl/cyrus-sasl_2.1.27.bb
 # base branch: warrior
 # base commit: e04a0b57f3cbcedd2765ce6c7b2e9d5737827a51
 
