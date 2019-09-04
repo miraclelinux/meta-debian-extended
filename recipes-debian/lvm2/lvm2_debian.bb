@@ -1,4 +1,4 @@
-# base recipe: https://github.com/openembedded/meta-openembedded/tree/warrior/meta-oe/recipes-support/lvm2
+# base recipe: meta-oe/recipes-support/lvm2/lvm2_2.03.02.bb
 # base branch: warrior
 # base commit: 9e4214abfabe000cc5b71b0dfc67708573b149ad
 
