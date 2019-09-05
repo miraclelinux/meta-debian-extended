@@ -24,12 +24,12 @@ SRC_URI += "\
             file://05-enable-ctypes-cross-build.patch \
             file://10-distutils-fix-swig-parameter.patch \
             file://11-distutils-never-modify-shebang-line.patch \
+            file://0001-distutils-set-the-prefix-to-be-inside-staging-direct-rebase.patch \
             file://debug.patch \
             file://unixccompiler.patch \
-            file://multilib-debian.patch \
+            file://multilib-debian-native.patch \
             file://add-md5module-support.patch \
             file://builddir.patch \
-            file://revert_use_of_sysconfigdata.patch \
             file://0001-python-native-fix-one-do_populate_sysroot-warning.patch \
             file://bpo-35907-cve-2019-9948-fix.patch \
             file://bpo-36216-cve-2019-9636-fix.patch \
