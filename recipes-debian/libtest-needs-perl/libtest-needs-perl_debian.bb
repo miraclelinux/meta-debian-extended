@@ -1,4 +1,4 @@
-# base recipe: pocy
+# base recipe: poky/meta/recipes-devtools/perl/libtest-needs-perl_0.002005.bb
 # base branch: warrior
 # base commit: 01b8a8b54bc569e5ef3f5e6fc6abcee365ab25d9
 
