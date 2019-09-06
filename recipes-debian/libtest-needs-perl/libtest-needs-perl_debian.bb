@@ -22,7 +22,8 @@ DEPENDS += "perl"
 inherit debian-package
 require recipes-debian/sources/libtest-needs-perl.inc
 
-DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}${PV}"
+DEBIAN_QUILT_PATCHES = ""
+DEBIAN_UNPACK_DIR = "${WORKDIR}/${CPAN_NAME}-${PV}" 
 
 S = "${WORKDIR}/${CPAN_NAME}-${PV}"
 
@@ -31,6 +32,3 @@ inherit cpan ptest-perl
 RDEPENDS_${PN}-ptest += "perl-module-test-more"
 
 BBCLASSEXTEND = "native"
-
-do_debian_patch(){
-}
