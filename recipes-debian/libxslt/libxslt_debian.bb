@@ -17,9 +17,6 @@ require recipes-debian/sources/libxslt.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/libxslt/files"
 
 SRC_URI += " \
-           file://0001-Fix-security-framework-bypass.patch \
-           file://0007-Fix-uninitialized-read-of-xsl-number-token.patch \
-           file://0008-Fix-uninitialized-read-with-UTF-8-grouping-chars.patch \
            file://fix-rvts-handling.patch \
 "
 
