@@ -1,0 +1,42 @@
+Adjust headers for non-glibc cases
+especially exposed by musl
+
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+Upstream-Status: Pending
+
+Index: net-tools-1.60/lib/inet_sr.c
+===================================================================
+--- net-tools-1.60.orig/lib/inet_sr.c
++++ net-tools-1.60/lib/inet_sr.c
+@@ -28,6 +28,7 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <unistd.h>
++#include <asm-generic/param.h>
+ #include "version.h"
+ #include "net-support.h"
+ #include "pathnames.h"
+Index: net-tools-1.60/lib/util-ank.c
+===================================================================
+--- net-tools-1.60.orig/lib/util-ank.c
++++ net-tools-1.60/lib/util-ank.c
+@@ -14,6 +14,7 @@
+  * Rani Assaf <rani@magic.metawire.com> 980929:	resolve addresses
+  */
+ 
++#include <limits.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+Index: net-tools-1.60/netstat.c
+===================================================================
+--- net-tools-1.60.orig/netstat.c
++++ net-tools-1.60/netstat.c
+@@ -89,6 +89,7 @@
+ #include <net/if.h>
+ #include <dirent.h>
+ #include <sys/types.h>
++#include <asm-generic/param.h>
+ 
+ #include "net-support.h"
+ #include "pathnames.h"
