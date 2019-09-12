@@ -6,6 +6,10 @@ SUMMARY = "X autotools macros"
 
 DESCRIPTION = "M4 autotools macros used by various X.org programs."
 
+HOMEPAGE = "http://www.x.org"
+BUGTRACKER = "https://bugs.freedesktop.org/enter_bug.cgi?product=xorg"
+SECTION = "x11/utils"
+
 LICENSE = "MIT & MIT-style"
 LIC_FILES_CHKSUM = "file://COPYING;md5=1970511fddd439b07a6ba789d28ff662"
 
