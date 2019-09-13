@@ -17,7 +17,6 @@ PR = "0"
 inherit debian-package
 require recipes-debian/sources/lz4.inc
 
-FILESPATH_append = ":${COREBASE}/meta/recipes-support/lz4/files:"
 SRC_URI += "file://run-ptest"
 
 export CPPFLAGS = "-DLZ4F_PUBLISH_STATIC_FUNCTIONS"
@@ -29,3 +28,16 @@ do_install() {
 }
 
 BBCLASSEXTEND = "native nativesdk"
+
+inherit ptest
+RDEPENDS_${PN}-ptest += "make gcc"
+
+do_compile_ptest() {
+        cd ${S}/tests
+        make
+}
+
+do_install_ptest() {
+        install -d ${D}${PTEST_PATH}/testsuite
+        cp -r --no-preserve=ownership ${S} ${D}${PTEST_PATH}/testsuite/lz4
+}
