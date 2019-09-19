@@ -19,7 +19,8 @@ inherit debian-package
 require recipes-debian/sources/libgpg-error.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/libgpg-error/libgpg-error:"
-SRC_URI += "file://pkgconfig.patch"
+SRC_URI += "file://pkgconfig.patch \
+            file://awk-prepare-for-gawk-5.0.patch"
 
 BINCONFIG = "${bindir}/gpg-error-config"
 
