@@ -3,8 +3,6 @@ PROVIDES += "locales"
 
 FILES_locales = "${sbindir}/locale-gen ${sbindir}/update-locale ${sbindir}/validlocale \
     ${libdir}/locale"
-FILES_${PN}-utils_remove = "${sbindir}/*"
-FILES_${PN}-utils += "${sbindir}/iconvconfig"
 
 RDEPENDS_locales = "glibc perl \
     perl-module-getopt-long \
