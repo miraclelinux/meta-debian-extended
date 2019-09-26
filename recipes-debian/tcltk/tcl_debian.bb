@@ -21,13 +21,14 @@ S = "${DEBIAN_UNPACK_DIR}/unix"
 DEBIAN_QUILT_DIR = "${DEBIAN_UNPACK_DIR}/.quilt_pc"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/tcltk/tcl"
-SRC_URI += "file://tcl-add-soname.patch"
+SRC_URI += "file://tcl-add-soname.patch \
+            file://alter-includedir.patch \
+           "
 SRC_URI_append_class_target += " \
            file://fix_non_native_build_issue.patch \
            file://fix_issue_with_old_distro_glibc.patch \
            file://no_packages.patch \
            file://tcl-remove-hardcoded-install-path.patch \
-           file://alter-includedir.patch \
            file://run-ptest \
 "
 
