@@ -11,8 +11,6 @@ RDEPENDS_locales = "glibc perl \
 "
 DESCRIPTION_locales = "locales utils -- locale-gen, update-locale, validlocale"
 
-RDEPENDS_${PN}-utils = "perl"
-
 do_install_append () {
     if ${@bb.utils.contains('IMAGE_INSTALL', "locales", 'true', 'false', d)}; then
         install -d ${D}/${sbindir}
