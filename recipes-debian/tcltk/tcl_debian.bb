@@ -34,6 +34,11 @@ SRC_URI_append_class_target += " \
 
 VER = "${PV}"
 
+do_debian_patch_append() {
+    cd ${S}/..
+    patch  -R -u -p1 <debian/patches/tclprivate.diff
+}
+
 inherit autotools ptest binconfig
 
 EXTRA_OECONF = "--enable-threads --disable-rpath --libdir=${libdir}"
