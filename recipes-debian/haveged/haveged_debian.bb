@@ -38,6 +38,9 @@ do_install_append() {
         install -d ${D}${systemd_system_unitdir}
         install -p -m644 ${S}/debian/haveged.service ${D}${systemd_system_unitdir}/haveged.service
     fi
+
+    install -d ${D}${sysconfdir}/init.d/
+    install -p -m644 ${S}/debian/haveged.init.d ${D}${sysconfdir}/init.d/haveged
 }
 
 MIPS_INSTRUCTION_SET = "mips"
