@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/qemu/qemu.inc
 # base branch: warrior
-# base commit: 49c2351f3a50f4aab12a56ae587b71080e6f42b2
+# base commit: 1eb6e018a3733ca6065141ce04b59bc02ad452ef
 
 SUMMARY = "Fast open source processor emulator"
 HOMEPAGE = "http://qemu.org"
