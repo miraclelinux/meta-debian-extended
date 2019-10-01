@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-graphics/pango/pango_1.42.4.bb
 # base branch: warrior
-# base commit: b6553880223c19b2049e77569c3a9840bdd90727
+# base commit: e7649d187ee6cd5eb71bbbed939c408f29d5ec50
 
 SUMMARY = "Framework for layout and rendering of internationalized text"
 DESCRIPTION = "Pango is a library for laying out and rendering of text, \
@@ -25,7 +25,8 @@ require recipes-debian/sources/pango1.0.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/pango/pango/"
 
 SRC_URI += "file://run-ptest \
-            file://insensitive-diff.patch"
+            file://insensitive-diff.patch \
+            "
 
 DEPENDS = "glib-2.0 glib-2.0-native fontconfig freetype virtual/libiconv cairo harfbuzz fribidi"
 
