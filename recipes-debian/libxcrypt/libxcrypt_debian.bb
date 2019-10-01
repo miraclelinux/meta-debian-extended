@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-core/libxcrypt/libxcrypt_4.1.1.bb
 # base branch: warrior
-# base commit: 3c790c9bd1c096aa47f92283f7a4a5180d51ea68
+# base commit: 86beba7ac3a1d59bef517bde87a90226f197541a
 
 SUMMARY = "Extended cryptographic library (from glibc)"
 DESCRIPTION = "Forked code from glibc libary to extract only crypto part."
@@ -24,6 +24,7 @@ PROVIDES = "virtual/crypt"
 FILES_${PN} = "${libdir}/libcrypt*.so.* ${libdir}/libcrypt-*.so ${libdir}/libowcrypt*.so.* ${libdir}/libowcrypt-*.so"
 
 BUILD_CPPFLAGS = "-I${STAGING_INCDIR_NATIVE} -std=gnu99"
-TARGET_CPPFLAGS = "-I${STAGING_DIR_TARGET}${includedir}"
+TARGET_CPPFLAGS = "-I${STAGING_DIR_TARGET}${includedir} -Wno-error"
+CPPFLAGS_append_class-nativesdk = " -Wno-error"
 
 BBCLASSEXTEND = "nativesdk"
