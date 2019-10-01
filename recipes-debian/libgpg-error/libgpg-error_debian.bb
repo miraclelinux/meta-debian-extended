@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-support/libgpg-error/libgpg-error_1.35.bb
 # base branch: warrior
-# base commit: 775d89d45d55defe168c1ce3752de6ac3b7c7e61
+# base commit: c6720451a8d0cb672d8fe36a34b5283787edac55
 
 SUMMARY = "Small library that defines common error values for all GnuPG components"
 HOMEPAGE = "http://www.gnupg.org/related_software/libgpg-error/"
@@ -20,7 +20,8 @@ require recipes-debian/sources/libgpg-error.inc
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-support/libgpg-error/libgpg-error:"
 SRC_URI += "file://pkgconfig.patch \
-            file://awk-prepare-for-gawk-5.0.patch"
+            file://libgpg-error-1.35-gawk5-support.patch \
+"
 
 BINCONFIG = "${bindir}/gpg-error-config"
 
