@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/meson/meson.inc
 # base branch: warrior
-# base commit: d956c45baf65f8b28d732ed4dd3ca4b40e36ee66
+# base commit: 5c9a02ed678f2a26a26c6398c2837fbd2ddcb561
 
 HOMEPAGE = "http://mesonbuild.com"
 SUMMARY = "A high performance build system"
@@ -25,6 +25,7 @@ SRC_URI += " \
            file://cross-prop-default.patch \
            file://many-cross.patch \
            file://cross-libdir.patch \
+           file://0001-Fix-missing-return-statements-that-are-seen-with-Wer.patch \
            "
 
 SRC_URI_append_class-native = " \
