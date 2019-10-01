@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/python/python3_3.7.2.bb
 # base branch: warrior
-# base commit: 9773b89a2f371acbe1e40d7cef6afb6c2a24f9c5
+# base commit: 787ec750a21df3d712de2a92d7bd9349244e51f5
 
 SUMMARY = "The Python Programming Language"
 HOMEPAGE = "http://www.python.org"
@@ -47,6 +47,7 @@ SRC_URI += " \
            file://0001-Lib-sysconfig.py-fix-another-place-where-lib-is-hard.patch \
            file://0001-always-enable-site-packages-directory.patch \
            file://0001-Do-not-use-MULTIARCH-value-in-pkgconfig-directory-pa.patch \
+           file://CVE-2019-9740.patch \
            "
 
 SRC_URI_append_class-native = " \
