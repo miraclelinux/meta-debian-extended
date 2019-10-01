@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-support/libxslt/libxslt_1.1.33.bb
 # base branch: warrior
-# base commit: 3dc1065b8dccaf3c7a9cde51d9909966dc0ba70d
+# base commit: 7401aef34908782197b9083fe583d27c0502fbb5
 
 SUMMARY = "GNOME XSLT library"
 HOMEPAGE = "http://xmlsoft.org/XSLT/"

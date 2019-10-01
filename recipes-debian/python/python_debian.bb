@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/python/python_2.7.16.bb
 # base branch: warrior
-# base commit: 511de9dc4788001f62e225c07f6bc859836ddf0f
+# base commit: d1c75cb7841974207bf6717dac426e77a12ee283
 
 require python.inc
 
@@ -49,6 +49,7 @@ SRC_URI += " \
            file://0001-python2-use-cc_basename-to-replace-CC-for-checking-c.patch \
     file://bpo-35907-cve-2019-9948-fix.patch \
     file://bpo-36216-cve-2019-9636-fix.patch \
+    file://CVE-2019-9740.patch \
            file://dont-use-multiarch.patch \
 "
 

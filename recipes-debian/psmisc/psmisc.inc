@@ -1,6 +1,6 @@
 # base recipe: poky/meta/recipes-extended/psmisc/psmisc.inc
 # base branch: warrior
-# base commit: 47022546cfa6c509c8f11e52c3e6310ac68660a3
+# base commit: 5a44c8106125c07e350eeafa91fc6e461fecf5eb
 
 SUMMARY = "Utilities for managing processes on your system"
 HOMEPAGE = "http://psmisc.sf.net/"
@@ -11,7 +11,7 @@ command sends a specified signal (SIGTERM if nothing is specified) to \
 processes identified by name.  The fuser command identifies the PIDs \
 of processes that are using specified files or filesystems."
 SECTION = "base"
-DEPENDS = "ncurses virtual/libintl"
+DEPENDS = "ncurses virtual/libintl gettext-native"
 LICENSE = "GPLv2"
 
 inherit debian-package

@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-graphics/mesa/mesa_19.0.1.bb
 # base branch: warrior
-# base commit: 259e9a11e1a62b0dc192d9c114f05cd45b02cae1
+# base commit: 271c0c2dc1e65f6b32bbc9d0521c627c82cd47b7
 
 require ${COREBASE}/meta/recipes-graphics/mesa/mesa.inc
 

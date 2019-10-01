@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/dpkg/dpkg_1.19.4.bb
 # base branch: warrior
-# base commit: 70e2baa4bd256b7ab0b177331c37883ab32bb8c1
+# base commit: add1a327cf56c6706d6c109740071b74bb75e037
 
 require ${COREBASE}/meta/recipes-devtools/dpkg/dpkg.inc
 
@@ -22,6 +22,7 @@ SRC_URI += " \
            file://0006-add-musleabi-to-known-target-tripets.patch \
            file://0007-dpkg-deb-build.c-Remove-usage-of-clamp-mtime-in-tar.patch \
            file://0001-dpkg-Support-muslx32-build.patch \
+           file://pager.patch \
            "
 
 SRC_URI_append_class-native = " file://glibc2.5-sync_file_range.patch "
