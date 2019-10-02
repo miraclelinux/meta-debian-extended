@@ -7,13 +7,10 @@ PV = "1.56+nmu1"
 DEBIAN_SRC_URI = " \
     ${DEBIAN_MIRROR}/main/i/init-system-helpers/init-system-helpers_1.56+nmu1.dsc;name=init-system-helpers_1.56+nmu1.dsc \
     ${DEBIAN_MIRROR}/main/i/init-system-helpers/init-system-helpers_1.56+nmu1.tar.xz;name=init-system-helpers_1.56+nmu1.tar.xz \
-    ${DEBIAN_MIRROR}/main/i/init-system-helpers/init-system-helpers_1.56+nmu1_all.deb;name=init-system-helpers_1.56+nmu1_all.deb \
 "
 
 SRC_URI[init-system-helpers_1.56+nmu1.dsc.md5sum] = "36212b8e7a43696c4df43d70b2be83c7"
 SRC_URI[init-system-helpers_1.56+nmu1.tar.xz.md5sum] = "4d26f5c51d209816b0d6e1e07953a114"
-SRC_URI[init-system-helpers_1.56+nmu1_all.deb.md5sum] = "56f7cf7aea963969b827d8782599320d"
 
 SRC_URI[init-system-helpers_1.56+nmu1.dsc.sha256sum] = "96f7d1c696faf801eb5990223b2782dedaf4092efb9b0dcc13d038b91dbb1a51"
 SRC_URI[init-system-helpers_1.56+nmu1.tar.xz.sha256sum] = "ecb5b9a0dbf0b7e83ef41bfc15bf9d41868642d4d5f817a0962aa1b980a56368"
-SRC_URI[init-system-helpers_1.56+num1_all.deb.sha256sum] = "c457150e2faa01e6677a1d91aa76a868d2b7114deb17ade2ccc2b99235310805"
