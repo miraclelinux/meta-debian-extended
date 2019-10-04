@@ -35,6 +35,12 @@ do_configure() {
 	cp ${WORKDIR}/net-tools-config.h    ${S}/config.h
 	cp ${WORKDIR}/net-tools-config.make ${S}/config.make
 
+        echo 'HAVE_ARP_TOOLS=1' >> ${S}/config.make
+        echo 'HAVE_HOSTNAME_TOOLS=1' >> ${S}/config.make
+        echo 'HAVE_HOSTNAME_SYMLINKS=1' >> ${S}/config.make
+        echo 'HAVE_PLIP_TOOLS=1' >> ${S}/config.make
+        echo 'HAVE_SERIAL_TOOLS=1' >> ${S}/config.make
+
 	if [ "${USE_NLS}" = "no" ]; then
 		sed -i -e 's/^I18N=1/# I18N=1/' ${S}/config.make
 	fi
@@ -63,19 +69,14 @@ do_install() {
 
 inherit update-alternatives
 
-base_sbindir_progs = "ipmaddr iptunnel mii-tool nameif"
-base_bindir_progs  = "ifconfig route netstat"
-# Packages disabled in config file. Add to enable.
-# base_sbindir_progs += " arp plipconfig rarp slattach"
-# base_bindir_progs  += " dnsdomainname domainname hostname nisdomainname ypdomainname"
+base_sbindir_progs = "arp ipmaddr iptunnel mii-tool nameif plipconfig rarp slattach"
+base_bindir_progs  = "dnsdomainname domainname hostname ifconfig nisdomainname route netstat ypdomainname"
 
 ALTERNATIVE_${PN} = "${base_sbindir_progs} ${base_bindir_progs}"
-
-# Enable when adding hostname.
-# ALTERNATIVE_${PN}-doc += "hostname.1 dnsdomainname.1"
-# ALTERNATIVE_LINK_NAME[hostname.1] = "${mandir}/man1/hostname.1"
-# ALTERNATIVE_LINK_NAME[dnsdomainname.1] = "${mandir}/man1/dnsdomainname.1"
-# ALTERNATIVE_PRIORITY[hostname.1] = "10"
+ALTERNATIVE_${PN}-doc += "hostname.1 dnsdomainname.1"
+ALTERNATIVE_LINK_NAME[hostname.1] = "${mandir}/man1/hostname.1"
+ALTERNATIVE_LINK_NAME[dnsdomainname.1] = "${mandir}/man1/dnsdomainname.1"
+ALTERNATIVE_PRIORITY[hostname.1] = "10"
 
 python __anonymous() {
     for prog in d.getVar('base_sbindir_progs').split():
