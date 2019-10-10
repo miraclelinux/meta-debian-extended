@@ -12,3 +12,5 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/cogl/cogl-1.0"
 SRC_URI += "file://test-backface-culling.c-fix-may-be-used-uninitialize.patch"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=1b1a508d91d25ca607c83f92f3e31c84"
+
+RDEPENDS_${PN}-dev = "libcogl"
