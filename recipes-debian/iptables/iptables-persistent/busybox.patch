@@ -1,0 +1,13 @@
+diff --git a/netfilter-persistent.orig b/netfilter-persistent
+index 6da593f..ae82dc4 100755
+--- a/netfilter-persistent.orig
++++ b/netfilter-persistent
+@@ -24,7 +24,7 @@ fi
+ 
+ run_plugins () {
+     if [ -d ${PLUGINS} ]; then
+-        run-parts -v -a ${1} ${PLUGINS}
++        run-parts -a ${1} ${PLUGINS}
+     fi
+ }
+ 
