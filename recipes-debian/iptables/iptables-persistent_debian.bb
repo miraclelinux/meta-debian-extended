@@ -11,6 +11,8 @@ SRC_URI += "file://busybox.patch"
 
 RDEPENDS_${PN} = "iptables"
 
+inherit allarch
+
 do_install() {
     oe_runmake 'DESTDIR=${D}' install
 
