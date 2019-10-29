@@ -6,6 +6,7 @@ require lvm2.inc
 
 SRC_URI += "file://0001-explicitly-do-not-install-libdm.patch \
             file://0001-dev-hdc-open-failed-No-medium-found-will-print-out-i.patch \
+            file://fix-debian-udev-patch.patch \
            "
 
 DEPENDS += "autoconf-archive-native"
