@@ -1,0 +1,23 @@
+diff --git a/udev/10-dm.rules.in.orig b/udev/10-dm.rules.in
+index 69d2c47..ccfa780 100644
+--- a/udev/10-dm.rules.in.orig
++++ b/udev/10-dm.rules.in
+@@ -49,7 +49,7 @@ ACTION!="add|change", GOTO="dm_end"
+ # These flags are encoded in DM_COOKIE variable that was introduced in
+ # kernel version 2.6.31. Therefore, we can use this feature with
+ # kernels >= 2.6.31 only. Cookie is not decoded for remove event.
+-ENV{DM_COOKIE}=="?*", IMPORT{program}="/sbin/dmsetup udevflags $env{DM_COOKIE}"
++ENV{DM_COOKIE}=="?*", IMPORT{program}="(DM_EXEC)/dmsetup udevflags $env{DM_COOKIE}"
+ 
+ # Rule out easy-to-detect inappropriate events first.
+ ENV{DISK_RO}=="1", GOTO="dm_disable"
+diff --git a/udev/95-dm-notify.rules.in.orig b/udev/95-dm-notify.rules.in
+index d22abba..80d59d3 100644
+--- a/udev/95-dm-notify.rules.in.orig
++++ b/udev/95-dm-notify.rules.in
+@@ -9,4 +9,4 @@
+ # a cookie value sent within "change" and "remove" events (the cookie
+ # value is set before by that process for every action requested).
+ 
+-ENV{DM_COOKIE}=="?*", RUN+="/sbin/dmsetup udevcomplete $env{DM_COOKIE}"
++ENV{DM_COOKIE}=="?*", RUN+="(DM_EXEC)/dmsetup udevcomplete $env{DM_COOKIE}"
