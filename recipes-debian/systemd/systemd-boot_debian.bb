@@ -4,7 +4,7 @@
 
 require systemd.inc
 
-FILESEXTRAPATHS =. "${FILE_DIRNAME}/systemd:"
+FILESPATH_append = ":${COREBASE}/meta/recipes-core/systemd/systemd"
 
 DEPENDS = "intltool-native libcap util-linux gnu-efi gperf-native"
 
