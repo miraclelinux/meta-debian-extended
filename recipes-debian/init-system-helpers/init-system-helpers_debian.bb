@@ -26,13 +26,9 @@ do_install() {
 	install -d ${D}${datadir}/dh-systemd
 	install -d ${D}${datadir}/perl5/Debian/Debhelper/Sequence
 	install -d ${D}${datadir}/debhelper
-	install -d ${D}${datadir}/man/man8
-	install -d ${D}${datadir}/man/man1
 
 	#follow debian/dh-systemd.install and debian/init-system-helpers.install
 	install -m 0755 script/* ${D}${bindir}
-	install -m 0644 ${S}/../usr/share/man/man8/* ${D}${datadir}/man/man8
-	install -m 0644 ${S}/../usr/share/man/man1/* ${D}${datadir}/man/man1
 }
 
 ALTERNATIVE_${PN} = "service invoke-rc.d update-rc.d deb-systemd-helper deb-systemd-invoke"
