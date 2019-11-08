@@ -11,6 +11,9 @@ do_configure[noexec] = "1"
 
 do_install() {
     oe_runmake "prefix=${D}/usr" install
+
+    install -d ${D}/etc/sgml
+    install -d ${D}/var/lib/sgml-base
 }
 
 FILES_${PN} += "/usr/local/share/sgml/* /usr/share/sgml/*"
