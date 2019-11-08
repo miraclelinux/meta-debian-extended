@@ -7,7 +7,14 @@ LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://debian/copyright;md5=53c851e31d27c3ea8a6217073a5ff01c"
 
 DEPENDS = "file"
-RDEPENDS_${PN} = "perl"
+RDEPENDS_${PN} = " \
+    perl \
+    perl-module-encode \
+    perl-module-encode-encoding \
+    perl-module-file-glob \
+    perl-module-file-spec \
+    perl-module-i18n-langinfo \
+"
 RRECOMMENDS_${PN} = "file"
 
 DEBIAN_PATCH_TYPE = "nopatch"
