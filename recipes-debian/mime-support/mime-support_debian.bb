@@ -22,6 +22,8 @@ FILES_${PN} += " ${libdir}/mime"
 
 docdir_append = "/${BPN}"
 
+inherit allarch
+
 do_install () {
     install -d ${D}${sysconfdir}
     install -d ${D}${libdir}/mime/packages
