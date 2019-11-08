@@ -21,6 +21,8 @@ require recipes-debian/sources/init-system-helpers.inc
 LICENSE = "GPLv3+ & BSD"
 LIC_FILES_CHKSUM = "file://script/deb-systemd-invoke;beginline=3;endline=30;md5=42d36293e53d929566aef24e3e3b9ef8"
 
+inherit allarch
+
 do_install() {
 	install -d ${D}${bindir}
 	install -d ${D}${datadir}/dh-systemd
