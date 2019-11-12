@@ -1,6 +1,6 @@
 # base recipe: meta-security/recipes-security/libmhash/libmhash_0.9.9.9.bb
 # base branch: warrior
-# base commit: 9b34cb18ca44fd17f0e54c404e96935adb91cdc7
+# base commit: aae40f506ab557b10b5642937881a12aa9d0414b
 
 SUMMARY = "Library of hashing algorithms."
 DESCRIPTION = "\
