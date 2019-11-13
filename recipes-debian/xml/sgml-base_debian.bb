@@ -7,6 +7,8 @@ require recipes-debian/sources/sgml-base.inc
 DEBIAN_PATCH_TYPE = "quilt"
 DEBIAN_QUILT_PATCHES = ""
 
+inherit allarch
+
 do_configure[noexec] = "1"
 
 do_install() {
