@@ -9,6 +9,8 @@ DEBIAN_QUILT_PATCHES = ""
 
 do_configure[noexec] = "1"
 
+inherit allarch
+
 do_install() {
     oe_runmake "DESTDIR=${D}" install
 
