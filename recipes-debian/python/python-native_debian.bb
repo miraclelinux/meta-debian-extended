@@ -32,7 +32,6 @@ SRC_URI += "\
             file://builddir.patch \
             file://0001-python-native-fix-one-do_populate_sysroot-warning.patch \
             file://bpo-35907-cve-2019-9948-fix.patch \
-            file://bpo-36216-cve-2019-9636-fix.patch \
             file://dont-use-multiarch.patch \
            "
 

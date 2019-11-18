@@ -48,8 +48,6 @@ SRC_URI += " \
            file://float-endian.patch \
            file://0001-python2-use-cc_basename-to-replace-CC-for-checking-c.patch \
     file://bpo-35907-cve-2019-9948-fix.patch \
-    file://bpo-36216-cve-2019-9636-fix.patch \
-    file://CVE-2019-9740.patch \
            file://dont-use-multiarch.patch \
 "
 
