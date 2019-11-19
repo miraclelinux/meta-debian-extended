@@ -20,6 +20,5 @@ do_install_append() {
         install -d ${D}/etc
         install -m 0600 ${WORKDIR}/aide.conf ${D}/etc/.
 
-        install -d ${D}/var/log/aide
         install -d ${D}/var/lib/aide
 }
