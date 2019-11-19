@@ -12,23 +12,9 @@ BUGTRACKER = "https://savannah.nongnu.org/bugs/?group=freetype"
 SECTION = "libs"
 
 inherit debian-package
-# Note: need to add subdir= option to orig-ft2demos.tar.gz and orig-ft2docs.tar.gz.
-# name=freetype_2.9.1.orig-ft2demos.tar.gz;subdir=ft2demos
-# name=freetype_2.9.1.orig-ft2docs.tar.gz;subdir=ft2docs
 require recipes-debian/sources/freetype.inc
-FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/freetype/freetype"
 
-# debug
-DEBIAN_SRC_URI = " \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1-3.dsc;name=freetype_2.9.1-3.dsc \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz;name=freetype_2.9.1.orig-ft2demos.tar.gz;subdir=ft2demos \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2demos.tar.gz.asc;name=freetype_2.9.1.orig-ft2demos.tar.gz.asc \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz;name=freetype_2.9.1.orig-ft2docs.tar.gz;subdir=ft2docs \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig-ft2docs.tar.gz.asc;name=freetype_2.9.1.orig-ft2docs.tar.gz.asc \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig.tar.gz;name=freetype_2.9.1.orig.tar.gz \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1.orig.tar.gz.asc;name=freetype_2.9.1.orig.tar.gz.asc \
-    ${DEBIAN_MIRROR}/main/f/freetype/freetype_2.9.1-3.debian.tar.xz;name=freetype_2.9.1-3.debian.tar.xz \
-"
+FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/freetype/freetype"
 
 LICENSE = "FreeType | GPLv2+"
 LIC_FILES_CHKSUM = "file://docs/LICENSE.TXT;md5=4af6221506f202774ef74f64932878a1 \
@@ -38,9 +24,6 @@ LIC_FILES_CHKSUM = "file://docs/LICENSE.TXT;md5=4af6221506f202774ef74f64932878a1
 SRC_URI += "\
            file://use-right-libtool.patch \
           "
-
-UPSTREAM_CHECK_URI = "http://sourceforge.net/projects/freetype/files/freetype2/"
-UPSTREAM_CHECK_REGEX = "freetype-(?P<pver>\d+(\.\d+)+)"
 
 inherit autotools pkgconfig multilib_header
 
@@ -68,19 +51,15 @@ do_install_append() {
 
 BBCLASSEXTEND = "native nativesdk"
 
-# adhoc....
+# Debian provides 2 sources (freetype and ft2demo), but they will be unpacked separated. Because of it, do_debian_patch fail.
 do_debian_unpack_extra_append () {
-    if [ -d ${S}/ft2demos ] ; then
-        rm -rf ${S}/ft2demos
+    if [ -d ${WORKDIR}/ft2demos-${PV} ]; then
+        if [ -d ${S}/ft2demos ] ; then
+            rm -rf ${S}/ft2demos
+        fi
+        mv ${WORKDIR}/ft2demos-${PV} ${S}/ft2demos
     fi
 
-    mkdir ${S}/ft2demos
-    mv ${WORKDIR}/ft2demos/ft2demos-${PV}/* ${S}/ft2demos/.
-
-    if [ -d ${S}/ft2docs ] ; then
-        rm -rf ${S}/ft2docs
-    fi
-
-    mkdir ${S}/ft2docs
-    mv ${WORKDIR}/ft2docs/freetype-${PV}/* ${S}/ft2docs/.
+    # Fix wrong path in debian patches
+    sed -e "s#/ft2docs/#/#g" -i ${S}/debian/patches/{no-web-fonts,hide-donations-information}.patch
 }
