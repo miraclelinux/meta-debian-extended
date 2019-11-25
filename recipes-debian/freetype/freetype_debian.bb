@@ -61,5 +61,6 @@ do_debian_unpack_extra_append () {
     fi
 
     # Fix wrong path in debian patches
-    sed -e "s#/ft2docs/#/#g" -i ${S}/debian/patches/{no-web-fonts,hide-donations-information}.patch
+    sed -e "s#/ft2docs/#/#g" -i ${S}/debian/patches/no-web-fonts.patch
+    sed -e "s#/ft2docs/#/#g" -i ${S}/debian/patches/hide-donations-information.patch
 }
