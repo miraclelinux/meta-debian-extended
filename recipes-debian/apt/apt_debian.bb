@@ -2,7 +2,7 @@
 # base branch: warrior
 # base commit: aab11d8d283fe2d1619eca20eee83bc5a3e230bd
 
-DEPENDS = "virtual/libiconv curl db zlib lz4 perl dpkg"
+DEPENDS = "virtual/libiconv curl db zlib lz4 perl dpkg gnutls"
 RDEPENDS_${PN} = "dpkg bash debianutils lz4 perl"
 require apt.inc
 
@@ -15,4 +15,3 @@ do_install_append() {
     APT_CONF=${D}/etc/apt/apt.conf
     echo 'APT::Architecture "${DPKG_ARCH}";' > ${APT_CONF}
 }
-
