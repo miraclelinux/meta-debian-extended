@@ -15,8 +15,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=5308494bc0590c0cb036afd781d78f06"
 
 inherit debian-package
 require recipes-debian/sources/unbound.inc
-DEBIAN_PATCH_TYPE = "nopatch"
-DEBIAN_QUILT_PATCHES = ""
 
 SRC_URI += "file://0001-contrib-add-yocto-compatible-startup-scripts.patch"
 
