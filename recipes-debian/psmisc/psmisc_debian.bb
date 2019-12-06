@@ -10,4 +10,5 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-extended/psmisc/psmisc/"
 
 SRC_URI += " file://0001-Use-UINTPTR_MAX-instead-of-__WORDSIZE.patch \
              file://0001-Makefile.am-create-src-directory-before-attempting-t.patch \
+             file://add-arm64-support-to-peekfd.patch
            "
