@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-devtools/python/python_2.7.16.bb
 # base branch: warrior
-# base commit: d1c75cb7841974207bf6717dac426e77a12ee283
+# base commit: cd8a048b620b04dcaa7969d70684bcad243ccc58
 
 require python.inc
 
@@ -47,7 +47,7 @@ SRC_URI += " \
            file://support_SOURCE_DATE_EPOCH_in_py_compile_2.7.patch \
            file://float-endian.patch \
            file://0001-python2-use-cc_basename-to-replace-CC-for-checking-c.patch \
-    file://bpo-35907-cve-2019-9948-fix.patch \
+           file://bpo-35907-cve-2019-9948-fix.patch \
            file://dont-use-multiarch.patch \
 "
 
@@ -202,7 +202,7 @@ RDEPENDS_${PN}-modules += "${PN}-misc"
 
 # ptest
 RDEPENDS_${PN}-ptest = "${PN}-modules ${PN}-tests unzip tzdata-europe coreutils sed"
-RDEPENDS_${PN}-tkinter += "${@bb.utils.contains('PACKAGECONFIG', 'tk', 'tk', '', d)}"
+RDEPENDS_${PN}-tkinter += "${@bb.utils.contains('PACKAGECONFIG', 'tk', 'tk tk-lib', '', d)}"
 # catch manpage
 PACKAGES += "${PN}-man"
 FILES_${PN}-man = "${datadir}/man"

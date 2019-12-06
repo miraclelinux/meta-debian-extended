@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-support/libgcrypt/libgcrypt_1.8.4.bb
 # base branch: warrior
-# base commit: 96163d2ab3e5571c8a49c4b2a1521c44c2ef532a
+# base commit: c8125e68c6160c5fad45fb64ac43f66924970ce9
 
 SUMMARY = "General purpose cryptographic library based on the code from GnuPG"
 HOMEPAGE = "http://directory.fsf.org/project/libgcrypt/"
@@ -28,6 +28,9 @@ SRC_URI += " \
            file://0003-tests-bench-slope.c-workaround-ICE-failure-on-mips-w.patch \
            file://0002-libgcrypt-fix-building-error-with-O2-in-sysroot-path.patch \
            file://0004-tests-Makefile.am-fix-undefined-reference-to-pthread.patch \
+           file://0001-Prefetch-GCM-look-up-tables.patch \
+           file://0002-AES-move-look-up-tables-to-.data-section-and-unshare.patch \
+           file://0003-GCM-move-look-up-table-to-.data-section-and-unshare-.patch \
 "
 
 BINCONFIG = "${bindir}/libgcrypt-config"

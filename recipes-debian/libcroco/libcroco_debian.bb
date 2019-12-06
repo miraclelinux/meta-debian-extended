@@ -1,6 +1,6 @@
 # base recipe: meta/recipes-support/libcroco/libcroco_0.6.12.bb
 # base branch: warrior
-# base commit: 0775bf214756d4757196bbb4c80feb3d4347fd64
+# base commit: 2559517fafd6058ccf655eebc14e3c23003246a5
 
 SUMMARY = "Cascading Style Sheet (CSS) parsing and manipulation toolkit"
 HOMEPAGE = "http://www.gnome.org/"
@@ -20,7 +20,8 @@ BINCONFIG = "${bindir}/croco-0.6-config"
 
 inherit gnomebase gtk-doc binconfig-disabled
 
-# clear SRC_URI
-SRC_URI = ""
 inherit debian-package
 require recipes-debian/sources/libcroco.inc
+
+FILESPATH_append = ":${COREBASE}/meta/recipes-support/libcroco/libcroco"
+SRC_URI += "file://CVE-2017-8834_71.patch"
