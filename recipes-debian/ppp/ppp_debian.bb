@@ -53,6 +53,10 @@ EXTRA_OEMAKE += ' COPTS="${CFLAGS} -I${STAGING_INCDIR}/openssl -I${S}/include"'
 
 do_configure () {
 	oe_runconf
+
+        sed -e '/-I\/usr\/kerberos\/include/ s|-I/usr/kerberos/include||' \
+            -e '/-I\/usr\/include\/openssl/ s|-I/usr/include/openssl|-I${STAGING_INCDIR}/openssl|' \
+            -i ${S}/pppd/Makefile
 }
 
 do_install_append () {
