@@ -26,4 +26,4 @@ FILES_${PN} += " \
     /usr/share/xml/* \
 "
 
-RDEPENDS_${PN} = "sgml-base"
+RDEPENDS_${PN} = "perl sgml-base"
