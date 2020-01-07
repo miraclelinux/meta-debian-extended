@@ -24,6 +24,7 @@ EXTRA_OECONF = "\
 
 PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'systemd', d)}"
 PACKAGECONFIG[systemd] = "--enable-init=service.redhat --enable-initdir=${systemd_system_unitdir}, --enable-init=sysv.redhat, systemd"
+PACKAGECONFIG[sysvinit] = "--enable-init=sysv.redhat --enable-initdir=${sysconfdir}/init.d, --enable-init=sysv.redhat, sysvinit"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "haveged"
@@ -40,7 +41,7 @@ do_install_append() {
     fi
 
     install -d ${D}${sysconfdir}/init.d/
-    install -p -m644 ${S}/debian/haveged.init.d ${D}${sysconfdir}/init.d/haveged
+    install -p -m755 ${B}/init.d/haveged ${D}${sysconfdir}/init.d/haveged
 }
 
 MIPS_INSTRUCTION_SET = "mips"
