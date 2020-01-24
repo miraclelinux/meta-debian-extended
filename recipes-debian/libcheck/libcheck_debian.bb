@@ -27,6 +27,8 @@ RREPLACES_${PN} = "check (<= 0.9.5)"
 RDEPENDS_${PN} += "gawk"
 RDEPENDS_${PN}_class-native = ""
 
-do_install_append() {
-	cp -f ${D}/usr/lib/libcheck.a ${D}/usr/lib/libcheck_pic.a
+do_debian_patch_prepend() {
+    cd ${DEBIAN_UNPACK_DIR}
+    # remove patch for Debian
+    sed -i -e '/01pkgconfig\.patch/d' ./debian/patches/series
 }
