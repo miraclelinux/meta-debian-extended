@@ -1,27 +1,23 @@
+# base recipe: meta-oe/recipes-devtools/lua/lua_5.3.5.bb
+# base branch: warrior
+# base commit: a24acf94d48d635eca668ea34598c6e5c857e3f8
+
 DESCRIPTION = "Lua is a powerful light-weight programming language designed \
 for extending applications."
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://doc/readme.html;beginline=318;endline=352;md5=60aa5cfdbd40086501778d9b6ebf29ee"
+LIC_FILES_CHKSUM = "file://doc/readme.html;beginline=318;endline=352;md5=10ffd57d574c60d5b4d6189544e205a9"
 HOMEPAGE = "http://www.lua.org/"
 
 DEPENDS = "readline"
-SRC_URI = "http://www.lua.org/ftp/lua-${PV}.tar.gz;name=tarballsrc \
+inherit debian-package
+require recipes-debian/sources/lua5.3.inc
+
+SRC_URI += " \
            file://lua.pc.in \
            "
 
 # if no test suite matches PV release of Lua exactly, download the suite for the closest Lua release.
 PV_testsuites = "5.3.4"
-
-SRC_URI += "${@bb.utils.contains('DISTRO_FEATURES', 'ptest', \
-           'http://www.lua.org/tests/lua-${PV_testsuites}-tests.tar.gz;name=tarballtest \
-            file://run-ptest \
-           ', '', d)}"
-
-SRC_URI[tarballsrc.md5sum] = "4f4b4f323fd3514a68e0ab3da8ce3455"
-SRC_URI[tarballsrc.sha256sum] = "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
-SRC_URI[tarballtest.md5sum] = "b14fe3748c1cb2d74e3acd1943629ba3"
-SRC_URI[tarballtest.sha256sum] = "b80771238271c72565e5a1183292ef31bd7166414cd0d43a8eb79845fa7f599f"
-
 inherit pkgconfig binconfig ptest
 
 UCLIBC_PATCHES += "file://uclibc-pthread.patch"
