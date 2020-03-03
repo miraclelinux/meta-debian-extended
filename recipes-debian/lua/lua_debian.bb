@@ -34,6 +34,7 @@ do_debian_patch_append() {
 }
 
 do_compile () {
+    export PERL5LIB=`dirname \`find ${STAGING_DIR_NATIVE} -name Dpkg.pm\``
     oe_runmake linux
 }
 
