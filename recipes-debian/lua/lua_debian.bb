@@ -34,6 +34,7 @@ do_debian_patch_append() {
 }
 
 do_compile () {
+    export PERL5LIB=${STAGING_DIR_NATIVE}/usr/lib/perl-native/perl/5.28.1
     oe_runmake linux
 }
 
