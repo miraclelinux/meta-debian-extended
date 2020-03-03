@@ -18,7 +18,7 @@ SRC_URI += " \
 
 # if no test suite matches PV release of Lua exactly, download the suite for the closest Lua release.
 PV_testsuites = "5.3.4"
-inherit pkgconfig binconfig ptest
+inherit pkgconfig binconfig ptest autotools-brokensep
 
 UCLIBC_PATCHES += "file://uclibc-pthread.patch"
 SRC_URI_append_libc-uclibc = "${UCLIBC_PATCHES}"
