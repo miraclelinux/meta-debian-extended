@@ -28,6 +28,7 @@ do_debian_patch_append() {
     sed -i -e s:/usr/local:${prefix}:g ${S}/src/luaconf.h
     sed -i -e 's/#include "lua5.3-deb-multiarch.h"/#define DEB_HOST_MULTIARCH "${TARGET_SYS}"/g' ${S}/src/luaconf.h
     sed -i -e "s/export LIBTOOL=libtool --quiet/export LIBTOOL=${TARGET_PREFIX}libtool --quiet/g" ${S}/Makefile
+    sed -i -e "s/TO_MAN= lua\$(V).1 luac\$(V).1/TO_MAN= lua.1 luac.1/g" ${S}/Makefile
 }
 
 do_compile () {
