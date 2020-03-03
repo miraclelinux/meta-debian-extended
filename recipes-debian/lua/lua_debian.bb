@@ -8,10 +8,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://doc/readme.html;beginline=318;endline=352;md5=10ffd57d574c60d5b4d6189544e205a9"
 HOMEPAGE = "http://www.lua.org/"
 
-DEPENDS = "readline"
 inherit debian-package
 require recipes-debian/sources/lua5.3.inc
 
+DEPENDS = "readline dpkg-native"
 SRC_URI += " \
            file://lua.pc.in \
            "
