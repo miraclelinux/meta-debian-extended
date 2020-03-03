@@ -29,6 +29,9 @@ EXTRA_OEMAKE = "'CC=${CC} -fPIC' 'MYCFLAGS=${CFLAGS} -DLUA_USE_LINUX -fPIC' MYLD
 do_configure_prepend() {
     sed -i -e s:/usr/local:${prefix}:g src/luaconf.h
 }
+do_debian_patch_append() {
+    sed -i -e "s/export LIBTOOL=libtool --quiet/export LIBTOOL=${TARGET_PREFIX}libtool --quiet/g" ${S}/Makefile
+}
 
 do_compile () {
     oe_runmake linux
