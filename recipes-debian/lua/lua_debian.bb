@@ -16,8 +16,6 @@ SRC_URI += " \
            file://lua.pc.in \
            "
 
-# if no test suite matches PV release of Lua exactly, download the suite for the closest Lua release.
-PV_testsuites = "5.3.4"
 inherit pkgconfig binconfig ptest autotools-brokensep
 
 UCLIBC_PATCHES += "file://uclibc-pthread.patch"
@@ -50,13 +48,10 @@ do_install () {
     install -d ${D}${libdir}/pkgconfig
 
     sed -e s/@VERSION@/${PV}/ ${WORKDIR}/lua.pc.in > ${WORKDIR}/lua.pc
+    sed -i "s/-llua/-llua5.3/g"  ${WORKDIR}/lua.pc
     install -m 0644 ${WORKDIR}/lua.pc ${D}${libdir}/pkgconfig/
     rmdir ${D}${datadir}/lua/5.3
     rmdir ${D}${datadir}/lua
-}
-
-do_install_ptest () {
-        cp -R --no-dereference --preserve=mode,links -v ${WORKDIR}/lua-${PV_testsuites}-tests ${D}${PTEST_PATH}/test
 }
 
 BBCLASSEXTEND = "native nativesdk"
