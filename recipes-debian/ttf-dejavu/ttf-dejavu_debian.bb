@@ -25,10 +25,14 @@ RDEPENDS_${PN}-mathtexgyre = "${PN}-common"
 RDEPENDS_${PN}-common = ""
 PR = "r7"
 
+DEPENDS += " fontforge-native libfont-ttf-perl-native libio-string-perl-native"
 
 SRC_URI += " \
            file://30-dejavu-aliases.conf \
 "
+do_compile_prepend () {
+    export PERL5LIB=${STAGING_DIR_NATIVE}/usr/share/perl5
+}
 
 do_install_append () {
     install -d ${D}${sysconfdir}/fonts/conf.d/
