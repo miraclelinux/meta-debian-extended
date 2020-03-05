@@ -67,3 +67,4 @@ FILES_${PN}-serif-condensed = "${datadir}/fonts/truetype/DejaVuSerifCondensed*.t
 FILES_${PN}-mathtexgyre     = "${datadir}/fonts/truetype/DejaVuMathTeXGyre.ttf"
 FILES_${PN}-common          = "${sysconfdir}"
 
+INSANE_SKIP_${PN} = "installed-vs-shipped"
