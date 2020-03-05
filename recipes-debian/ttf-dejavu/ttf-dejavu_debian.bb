@@ -29,8 +29,18 @@ DEPENDS += " fontforge-native libfont-ttf-perl-native libio-string-perl-native"
 
 SRC_URI += " \
            file://30-dejavu-aliases.conf \
+           http://www.unicode.org/Public/UNIDATA/UnicodeData.txt \
+           http://www.unicode.org/Public/UNIDATA/Blocks.txt \
+           git://anongit.freedesktop.org/git/fontconfig;branch=master \
 "
+SRCREV = "${AUTOREV}"
+BB_STRICT_CHECKSUM = "0"
+
 do_compile_prepend () {
+    cp -r ${WORKDIR}/git ${S}/fontconfig_git
+    [ -d resources ] || mkdir resources
+    cp ${WORKDIR}/UnicodeData.txt ${WORKDIR}/Blocks.txt resources/
+    ln -s ../fontconfig_git resources/fc-lang
     export PERL5LIB=${STAGING_DIR_NATIVE}/usr/share/perl5
 }
 
