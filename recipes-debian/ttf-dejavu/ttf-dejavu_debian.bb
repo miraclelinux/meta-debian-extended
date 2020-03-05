@@ -1,9 +1,19 @@
+# base recipe: meta-oe/recipes-graphics/ttf-fonts/ttf-dejavu_2.37.bb
+# base branch: warrior
+# base commit: a24acf94d48d635eca668ea34598c6e5c857e3f8
+
 require ttf.inc
 
 SUMMARY = "DejaVu font - TTF Edition"
 HOMEPAGE = "http://dejavu.sourceforge.net/wiki/"
 LICENSE = "BitstreamVera"
-LIC_FILES_CHKSUM = "file://../LICENSE;md5=449b2c30bfe5fa897fe87b8b70b16cfa"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=449b2c30bfe5fa897fe87b8b70b16cfa"
+
+inherit debian-package
+require recipes-debian/sources/fonts-dejavu.inc
+DEBIAN_QUILT_PATCHES = ""
+
+BPN = "dejavu-fonts"
 
 # all subpackages except ${PN}-common itself rdepends on ${PN}-common
 RDEPENDS_${PN}-sans = "${PN}-common"
@@ -15,10 +25,10 @@ RDEPENDS_${PN}-mathtexgyre = "${PN}-common"
 RDEPENDS_${PN}-common = ""
 PR = "r7"
 
-SRC_URI = "${SOURCEFORGE_MIRROR}/dejavu/dejavu-fonts-ttf-${PV}.tar.bz2 \
-           file://30-dejavu-aliases.conf"
 
-S = "${WORKDIR}/dejavu-fonts-ttf-${PV}/ttf"
+SRC_URI += " \
+           file://30-dejavu-aliases.conf \
+"
 
 do_install_append () {
     install -d ${D}${sysconfdir}/fonts/conf.d/
@@ -43,5 +53,3 @@ FILES_${PN}-serif-condensed = "${datadir}/fonts/truetype/DejaVuSerifCondensed*.t
 FILES_${PN}-mathtexgyre     = "${datadir}/fonts/truetype/DejaVuMathTeXGyre.ttf"
 FILES_${PN}-common          = "${sysconfdir}"
 
-SRC_URI[md5sum] = "d0efec10b9f110a32e9b8f796e21782c"
-SRC_URI[sha256sum] = "fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7"
