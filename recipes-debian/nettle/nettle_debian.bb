@@ -46,7 +46,10 @@ do_install_append() {
     oe_multilib_header nettle/nettle-stdint.h nettle/version.h
 }
 
-RDEPENDS_${PN}-ptest += "binutils"
+RDEPENDS_${PN}-ptest += " \
+    ${@bb.utils.contains('DISABLE_STATIC', '--disable-static', '', 'binutils', d)} \
+"
+
 do_install_ptest() {
         install -d ${D}${PTEST_PATH}/testsuite/
         install ${S}/testsuite/gold-bug.txt ${D}${PTEST_PATH}/testsuite/
@@ -54,9 +57,13 @@ do_install_ptest() {
         # tools can be found in PATH, not in ../tools/
         sed -i -e 's|../tools/||' ${D}${PTEST_PATH}/testsuite/*-test
         install ${B}/testsuite/*-test ${D}${PTEST_PATH}/testsuite/
-	install ${B}/version.h ${D}${PTEST_PATH}/
-	install ${B}/libhogweed.a ${D}${PTEST_PATH}/
-	install ${B}/libnettle.a ${D}${PTEST_PATH}/
+        if ${@bb.utils.contains('DISABLE_STATIC', '--disable-static', 'true', 'false', d)}; then
+                rm ${D}${PTEST_PATH}/testsuite/symbols-test
+        else
+                install ${B}/version.h ${D}${PTEST_PATH}/
+                install ${B}/libhogweed.a ${D}${PTEST_PATH}/
+                install ${B}/libnettle.a ${D}${PTEST_PATH}/
+        fi
 }
 
 BBCLASSEXTEND = "native nativesdk"
