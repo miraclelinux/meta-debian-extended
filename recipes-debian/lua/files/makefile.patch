@@ -1,0 +1,13 @@
+--- a/src/Makefile.org	2020-03-25 10:23:24.271653796 +0000
++++ b/src/Makefile	2020-03-25 10:23:49.747867473 +0000
+@@ -63,8 +63,8 @@
+ a:	$(ALL_A)
+ 
+ $(LUA_A): $(BASE_O)
+-	$(LIBTOOL) --mode=link --tag=CC  $(CC)  $(LDFLAGS) -lm -ldl $(BASE_O:.o=.lo)     -rpath /usr/lib/$(DEB_HOST_MULTIARCH) -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua$(V).la
+-	$(LIBTOOL) --mode=link --tag=CXX $(CXX) $(LDFLAGS) -lm -ldl $(BASE_O:.o=-c++.lo) -rpath /usr/lib/$(DEB_HOST_MULTIARCH) -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua$(V)-c++.la
++	$(LIBTOOL) --mode=link --tag=CC  $(CC)  $(LDFLAGS) -lm -ldl $(BASE_O:.o=.lo)     -rpath /usr/lib/$(DEB_HOST_MULTIARCH) -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua$(V).la -static
++	$(LIBTOOL) --mode=link --tag=CXX $(CXX) $(LDFLAGS) -lm -ldl $(BASE_O:.o=-c++.lo) -rpath /usr/lib/$(DEB_HOST_MULTIARCH) -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua$(V)-c++.la -static
+ 
+ $(LUA_T): $(LUA_O) $(LUA_A)
+ 	$(LIBTOOL) --mode=link --tag=CC $(CC) $(LDFLAGS) $(LIBS) -Wl,--version-script,../debian/version-script -static liblua$(V).la -Wl,-E lua.lo -o $@

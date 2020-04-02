@@ -14,6 +14,7 @@ require recipes-debian/sources/lua5.3.inc
 DEPENDS = "readline dpkg-native"
 SRC_URI += " \
            file://lua.pc.in \
+           file://makefile.patch \
            "
 
 inherit pkgconfig binconfig ptest autotools-brokensep
