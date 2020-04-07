@@ -14,6 +14,7 @@ LICENSE = "GPL-2.0-with-OpenSSL-exception"
 LIC_FILES_CHKSUM = "file://COPYING;md5=32107dd283b1dfeb66c9b3e6be312326"
 
 DEPENDS = "util-linux libdevmapper popt libgcrypt json-c"
+DEPENDS_append_class-native = " gettext-native"
 
 inherit debian-package
 require recipes-debian/sources/cryptsetup.inc
