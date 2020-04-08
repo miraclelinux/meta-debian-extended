@@ -46,7 +46,6 @@ do_install_append() {
 
 	mkdir -p ${D}${infodir}
 	mkdir -p ${D}${libdir}/${BPN}/pkgconfig
-	mv ${D}${libdir}/*.a ${D}${libdir}/${BPN}
 
 	mv ${D}${libdir}/*.so ${D}${libdir}/${BPN}
 	for file in ${D}${libdir}/${BPN}/*.so; do
