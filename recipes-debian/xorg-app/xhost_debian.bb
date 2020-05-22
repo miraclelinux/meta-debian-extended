@@ -34,6 +34,8 @@ EXTRA_OECONF = " \
 "
 
 TARGET_APP = "xhost"
+# Set command's version instead of using debian package version.
+PV = "1.0.7"
 
 do_configure () {
     cd ${S}/${TARGET_APP}; ./configure ${EXTRA_OECONF}
