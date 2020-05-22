@@ -24,6 +24,8 @@ is used by the mkfontdir program."
 
 DEPENDS = "util-macros-native zlib libfontenc freetype xorgproto"
 
+# Set command's version instead of using debian package version.
+PV = "1.1.3"
 BBCLASSEXTEND = "native"
 
 LIC_FILES_CHKSUM = "file://mkfontscale/COPYING;md5=2e0d129d05305176d1a790e0ac1acb7f"
