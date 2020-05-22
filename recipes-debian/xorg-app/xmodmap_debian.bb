@@ -27,6 +27,8 @@ LIC_FILES_CHKSUM = "file://xmodmap/COPYING;md5=272c17e96370e1e74773fa22d9989621"
 EXTRA_OECONF += "--host=${BUILD_SYS}"
 
 TARGET_APP = "xmodmap"
+# Set command's version instead of using debian package version.
+PV = "1.0.9"
 
 do_configure () {
     cd ${S}/${TARGET_APP}; ./configure ${EXTRA_OECONF}
