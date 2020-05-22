@@ -31,6 +31,8 @@ EXTRA_OECONF = " \
 "
 
 TARGET_APP = "xrandr"
+# Set command's version instead of using debian package version.
+PV = "1.5.0"
 
 do_configure () {
     cd ${S}/${TARGET_APP}; autoreconf -f -i -s; ./configure ${EXTRA_OECONF}
