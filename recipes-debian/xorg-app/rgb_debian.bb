@@ -28,6 +28,9 @@ EXTRA_OECONF += "--host=${BUILD_SYS}"
 
 TARGET_APP = "xset"
 
+# Set command's version instead of using debian package version.
+PV = "1.0.6"
+
 do_configure () {
     # cd ${S}/${TARGET_APP}; autoreconf -f -i -s; ./configure ${EXTRA_OECONF}
     cd ${S}/${TARGET_APP}; ./configure ${EXTRA_OECONF}
