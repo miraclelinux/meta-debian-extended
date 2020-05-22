@@ -26,6 +26,8 @@ DEPENDS_class-native = "util-macros-native"
 RDEPENDS_${PN} = "mkfontdir mkfontscale encodings"
 RDEPENDS_${PN}_class-native = ""
 
+# Set command's version instead of using debian package version.
+PV = "1.3.1"
 BBCLASSEXTEND = "native"
 
 SYSROOT_DIRS_BLACKLIST_remove = "${datadir}/fonts"
