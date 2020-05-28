@@ -3,8 +3,9 @@
 # base commit: 94f6b31befda5c496f65e863a6f8152b42d7ebf0
 
 inherit debian-package
-require recipes-debian/sources/ruby.inc
+require recipes-debian/sources/ruby2.5.inc
 
+DEBIAN_UNPACK_DIR = "${WORKDIR}/ruby-${PV}"
 require ruby.inc
 SRC_URI += " \
            file://0001-configure.ac-check-finite-isinf-isnan-as-macros-firs.patch \
@@ -71,6 +72,10 @@ RDEPENDS_${PN}-rdoc = "${PN}"
 FILES_${PN}-rdoc += "${libdir}/ruby/*/rdoc ${bindir}/rdoc"
 
 FILES_${PN} += "${datadir}/rubygems"
+FILES_${PN} += "${libdir}/ruby/2.5.0/"
+FILES_${PN} += "${libdir}/ruby/gems"
+FILES_${PN} += "${libdir}/ruby/site_ruby"
+FILES_${PN} += "${libdir}/ruby/vendor_ruby"
 
 FILES_${PN}-ptest_append_class-target += "${libdir}/ruby/include"
 
