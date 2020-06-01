@@ -25,6 +25,8 @@ files."
 RDEPENDS_${PN} += "mkfontscale"
 RDEPENDS_${PN}_class-native += "mkfontscale-native"
 
+# Set command's version instead of using debian package version.
+PV = "1.0.7"
 BBCLASSEXTEND = "native"
 
 LIC_FILES_CHKSUM = "file://mkfontdir/COPYING;md5=b4fcf2b90cadbfc15009b9e124dc3a3f"

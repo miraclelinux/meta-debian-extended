@@ -24,9 +24,12 @@ LIC_FILES_CHKSUM = "file://rgb/COPYING;md5=ef598adbe241bd0b0b9113831f6e249a"
 
 FILES_${PN} += "${datadir}/X11"
 
-EXTRA_OECONF += "--host=${BUILD_SYS}"
+EXTRA_OECONF += "--host=${BUILD_SYS} --with-rgb-db-dir=${datadir}/X11/rgb"
 
-TARGET_APP = "xset"
+TARGET_APP = "rgb"
+
+# Set command's version instead of using debian package version.
+PV = "1.0.6"
 
 do_configure () {
     # cd ${S}/${TARGET_APP}; autoreconf -f -i -s; ./configure ${EXTRA_OECONF}
