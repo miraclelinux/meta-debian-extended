@@ -20,6 +20,7 @@ PROVIDES = "${PACKAGES}"
 
 inherit debian-package
 require recipes-debian/sources/trousers.inc
+DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}-${REPACK_PV}"
 DEBIAN_QUILT_DIR = "${DEBIAN_UNPACK_DIR}/.quilt_pc"
 
 SRC_URI += "\
