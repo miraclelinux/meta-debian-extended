@@ -185,3 +185,5 @@ ALTERNATIVE_PRIORITY = "100"
 
 ALTERNATIVE_${PN} = "ntpd"
 ALTERNATIVE_LINK_NAME[ntpd] = "${sbindir}/ntpd"
+
+CVE_VERSION = "${@d.getVar('PV').split('p')[0]}"
