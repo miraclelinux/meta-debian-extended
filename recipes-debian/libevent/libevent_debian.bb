@@ -36,6 +36,8 @@ DEPENDS = "zlib"
 
 BBCLASSEXTEND = "native nativesdk"
 
+CVE_VERSION = "${@d.getVar('PV').split('-')[0]}"
+
 do_install_append() {
         oe_multilib_header event2/event-config.h
 }
