@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=1f2ea9ebff3a2c6d458faf58492efb63"
 
 inherit debian-package
 require recipes-debian/sources/libinput.inc
-DEBIAN_QUILT_PATCHES = ""
+DEBIAN_QUILT_PATCHES = "${DEBIAN_UNPACK_DIR}/debian/patches"
 
 DEPENDS = "libevdev udev mtdev"
 
