@@ -2,7 +2,7 @@
 DPV = "0.3.14+fixed1-1"
 DPV_EPOCH = ""
 REPACK_PV = "0.3.14+fixed1"
-PV = "0.3.14"
+PV = "0.3.14+fixed1"
 
 DEBIAN_SRC_URI = " \
     ${DEBIAN_MIRROR}/main/t/trousers/trousers_0.3.14+fixed1-1.dsc;name=trousers_0.3.14+fixed1-1.dsc \
