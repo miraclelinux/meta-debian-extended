@@ -117,3 +117,5 @@ FILES_${PN} += "${systemd_unitdir}/system/tcsd.service"
 CONFFILES_${PN} += "${sysconfig}/tcsd.conf"
 
 BBCLASSEXTEND = "native"
+
+CVE_VERSION = "${@d.getVar('PV').split('+')[0]}"
