@@ -9,7 +9,7 @@ BUGTRACKER = "https://bugzilla.gnome.org/"
 inherit debian-package
 require recipes-debian/sources/${BPN}.inc
 
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPLv2.1+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c \
                     file://gdk-pixbuf/gdk-pixbuf.h;endline=26;md5=72b39da7cbdde2e665329fef618e1d6b \
                     "
