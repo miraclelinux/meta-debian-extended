@@ -1,3 +1,5 @@
+Author: Yu Watanabe
+
 diff --git a/udev/10-dm.rules.in.orig b/udev/10-dm.rules.in
 index 69d2c47..ccfa780 100644
 --- a/udev/10-dm.rules.in.orig

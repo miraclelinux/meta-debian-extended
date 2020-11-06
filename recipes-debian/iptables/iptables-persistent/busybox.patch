@@ -1,3 +1,5 @@
+Author: Yu Watanabe
+
 diff --git a/netfilter-persistent.orig b/netfilter-persistent
 index 6da593f..ae82dc4 100755
 --- a/netfilter-persistent.orig
