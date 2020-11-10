@@ -1,3 +1,5 @@
+Author: Masami Ichikawa
+
 diff -pNaur shadow-4.5.orig/lib/getdef.c shadow-4.5.new/lib/getdef.c
 --- shadow-4.5.orig/lib/getdef.c	2019-04-17 09:29:00.000000000 +0900
 +++ shadow-4.5.new/lib/getdef.c	2019-04-17 09:30:05.924994920 +0900
