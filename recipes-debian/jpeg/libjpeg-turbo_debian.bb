@@ -8,7 +8,6 @@ HOMEPAGE = "http://libjpeg-turbo.org/"
 
 inherit debian-package
 require recipes-debian/sources/libjpeg-turbo.inc
-DEBIAN_QUILT_PATCHES = ""
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/jpeg/files"
 
 LICENSE = "BSD-3-Clause"
