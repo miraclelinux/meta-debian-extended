@@ -1,4 +1,4 @@
-# base recipe: meta/recipes-devtools/python/python-cython.inc
+# base recipe: meta/recipes-devtools/python/python3-cython_0.29.21.bb
 # base branch: master
 # base commit: 7899bbe61963b4f998fcd63c83620751713b8efb
 
