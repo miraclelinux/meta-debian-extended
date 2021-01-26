@@ -12,6 +12,10 @@ inherit debian-package
 require recipes-debian/sources/iperf.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/iperf-${PV}"
 
+SRC_URI += "\
+    file://0001-fix-compile-when-disable-ipv6-is-configured.-Thanks-.patch \
+"
+
 inherit autotools pkgconfig
 
 EXTRA_OECONF = "--exec-prefix=${STAGING_DIR_HOST}${layout_exec_prefix}"
