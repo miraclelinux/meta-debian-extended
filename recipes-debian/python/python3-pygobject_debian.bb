@@ -36,7 +36,7 @@ PACKAGECONFIG[cairo] = "-Dpycairo=true,-Dpycairo=false, cairo python3-pycairo, p
 BBCLASSEXTEND = "native"
 PACKAGECONFIG_class-native = ""
 
-do_install_append() {
+do_install_append_class-target() {
   # Temporary workaround to fix following duplicate usr directory error.
   # ERROR: python3-pygobject-3.30.4-r0 do_package: QA Issue: python3-pygobject: Files/directories were installed but not shipped in any package:
   #  /usr/usr/lib/python3.7/site-packages/PyGObject-3.30.4.egg-info
