@@ -8,7 +8,7 @@ Dependencies
 ============
 
   URI: https://github.com/meta-debian/meta-debian.git
-  branch: master
+  branch: warrior
 
 Patches
 =======
