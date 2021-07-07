@@ -18,6 +18,7 @@ SRC_URI += "\
     file://0001-test-gatt-Fix-hung-issue.patch \
     file://0001-Makefile.am-Fix-a-race-issue-for-tools.patch \
     file://CVE-2018-10910.patch \
+    file://tools_Fix_build_after_y2038_changes_in_glibc.patch \
 "
 
 REQUIRED_DISTRO_FEATURES = "bluez5"
