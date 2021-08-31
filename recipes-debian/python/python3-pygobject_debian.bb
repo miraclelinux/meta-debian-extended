@@ -44,8 +44,10 @@ do_install_append_class-target() {
   #  /usr/usr/lib/python3.7/site-packages/pygtkcompat
   #  /usr/usr/lib/python3.7/site-packages/pygtkcompat/pygtkcompat.py
   #  /usr/usr/lib/python3.7/site-packages/pygtkcompat/generictreemodel.py
-  mv ${D}/usr/usr/lib/* ${D}/usr/lib/.
-  rm -fr ${D}/usr/usr
+  if [ -d ${D}/usr/usr/lib ]; then
+    mv ${D}/usr/usr/lib/* ${D}/usr/lib/.
+    rm -fr ${D}/usr/usr
+  fi
 
   # Workaround for the conflict with pycairo
   rm -fr \
