@@ -1,0 +1,33 @@
+From ee84578b9413545ca80337fcb00683cd2f84b10c Mon Sep 17 00:00:00 2001
+From: miyasaja <miyasaka@lineo.co.jp>
+Date: Fri, 15 Oct 2021 13:53:38 +0900
+Subject: [PATCH] build: don't look for Iconv
+
+This change is based on the following patch.
+
+  base recipe: meta-oe/recipes-devtools/doxygen/doxygen_1.8.15.bb
+  base branch: warrior
+  base commit: a24acf94d48d635eca668ea34598c6e5c857e3f8
+
+I modified it for doxygen source in Debian buster.
+---
+ CMakeLists.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4c55859..0012d6c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -73,10 +73,6 @@ if (sqlite3)
+     find_package(SQLite3 REQUIRED)
+ endif()
+ 
+-find_package(Iconv REQUIRED)
+-include_directories(${ICONV_INCLUDE_DIR})
+-
+-
+ #set(DOXYDOCS ${CMAKE_SOURCE_DIR}/doc CACHE INTERNAL "Path to doxygen docs")
+ set(DOXYDOCS ${PROJECT_BINARY_DIR}/doc)
+ set(ENV{DOXYGEN_DOCDIR} ${DOXYDOCS})
+-- 
+2.25.1
