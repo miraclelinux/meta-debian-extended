@@ -1,0 +1,28 @@
+From a10f403d0e50421d3ad901599afeaff7f0c27987 Mon Sep 17 00:00:00 2001
+From: YAMAMOTO Koichi <yamamoto@lineo.co.jp>
+Date: Wed, 24 Nov 2021 09:38:25 +0900
+Subject: [PATCH] kexec: Fix error when coping coldreboot.8
+
+---
+ kexec/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kexec/Makefile b/kexec/Makefile
+index f430c6a..77bc621 100644
+--- a/kexec/Makefile
++++ b/kexec/Makefile
+@@ -122,12 +122,12 @@ $(KEXEC_MANPAGE): kexec/kexec.8
+ 
+ $(KEXEC_COLDREBOOT): kexec/coldreboot
+ 	@$(MKDIR) -p     $(@D)
+-	cp kexec/coldreboot $(KEXEC_COLDREBOOT)
++	cp $^ $(KEXEC_COLDREBOOT)
+ 	/bin/chmod 755 $(KEXEC_COLDREBOOT)
+ 
+ $(KEXEC_COLDREBOOT_MANPAGE): kexec/coldreboot.8
+ 	@$(MKDIR) -p     $(MANDIR)/man8
+-	cp kexec/coldreboot.8 $(KEXEC_COLDREBOOT_MANPAGE)
++	cp $^ $(KEXEC_COLDREBOOT_MANPAGE)
+ 
+ echo::
+ 	@echo "KEXEC_SRCS $(KEXEC_SRCS)"
