@@ -1,0 +1,57 @@
+From 40184eb284eda68ab41d0ee0d7e1507dfee8f89a Mon Sep 17 00:00:00 2001
+From: Yasuhiro Kimura <yasu@utahime.org>
+Date: Sun, 30 May 2021 03:14:20 +0900
+Subject: [PATCH] Fix configuration error when ENABLE_EXTERNAL_MSPACK is ON
+
+This fixes https://bugzilla.clamav.net/show_bug.cgi?id=12759
+---
+ CMakeLists.txt           | 2 ++
+ libclamav/CMakeLists.txt | 6 +++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f9ee5aa..9e982e3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -658,8 +658,10 @@ add_subdirectory( libclamunrar_iface )
+ 
+ if(NOT ENABLE_EXTERNAL_MSPACK)
+     add_subdirectory(libclammspack)
++    set(LIBMSPACK "ClamAV::libmspack")
+ else()
+     find_package(MSPack)
++    set(LIBMSPACK "MSPack::mspack")
+ endif()
+ 
+ if(WIN32)
+diff --git a/libclamav/CMakeLists.txt b/libclamav/CMakeLists.txt
+index 07c9996..0621f05 100644
+--- a/libclamav/CMakeLists.txt
++++ b/libclamav/CMakeLists.txt
+@@ -504,7 +504,7 @@ target_link_libraries( clamav_obj
+         yara
+         tomsfastmath
+         bytecode_runtime
+-        ClamAV::libmspack
++	${LIBMSPACK}
+         ClamAV::libclamunrar_iface_iface
+         OpenSSL::SSL
+         OpenSSL::Crypto
+@@ -547,7 +547,7 @@ if(ENABLE_SHARED_LIB)
+             yara
+             tomsfastmath
+             bytecode_runtime
+-            ClamAV::libmspack
++	    ${LIBMSPACK}
+             ClamAV::libclamunrar_iface_iface
+             OpenSSL::SSL
+             OpenSSL::Crypto
+@@ -592,7 +592,7 @@ if(ENABLE_STATIC_LIB)
+             yara
+             tomsfastmath
+             bytecode_runtime
+-            ClamAV::libmspack
++	    ${LIBMSPACK}
+             ClamAV::libclamunrar_iface_iface
+             OpenSSL::SSL
+             OpenSSL::Crypto
