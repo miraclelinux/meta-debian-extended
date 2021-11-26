@@ -1,0 +1,25 @@
+From 7e1250dd5a5bd25bafa9a486670f5f018b3db30f Mon Sep 17 00:00:00 2001
+From: "A.Shibakawa" <akira.shibakawa@miraclelinux.com>
+Date: Wed, 24 Nov 2021 12:38:09 +0000
+Subject: [PATCH 2/2] make: lib: Lib-java.smartcardio.gmk: Prevent host
+ contamination.
+
+---
+ make/lib/Lib-java.smartcardio.gmk | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/make/lib/Lib-java.smartcardio.gmk b/make/lib/Lib-java.smartcardio.gmk
+index e96cfb3..22574a9 100644
+--- a/make/lib/Lib-java.smartcardio.gmk
++++ b/make/lib/Lib-java.smartcardio.gmk
+@@ -31,7 +31,6 @@ $(eval $(call SetupJdkLibrary, BUILD_LIBJ2PCSC, \
+     NAME := j2pcsc, \
+     CFLAGS := $(CFLAGS_JDKLIB), \
+     CFLAGS_unix := -D__sun_jdk -DUSE_SYSTEM_LIBPCSCLITE, \
+-    EXTRA_HEADER_DIRS := /usr/include/PCSC, \
+     OPTIMIZATION := LOW, \
+     LDFLAGS := $(LDFLAGS_JDKLIB) \
+         $(call SET_SHARED_LIBRARY_ORIGIN), \
+-- 
+2.17.1
+

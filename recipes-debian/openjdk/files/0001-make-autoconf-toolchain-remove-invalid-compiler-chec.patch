@@ -1,0 +1,53 @@
+From 9d8b26e86b1a1eb741bea33d9530460ba852ec37 Mon Sep 17 00:00:00 2001
+From: Richard Leitner <richard.leitner@skidata.com>
+Date: Wed, 13 May 2020 13:41:49 +0200
+Subject: [PATCH 1/2] make: autoconf: toolchain: remove invalid compiler
+ checking
+
+upstream 93a94cd79b5657bc7954a23d6d3f9eda0addf773 commit
+
+backport patch from
+https://git.yoctoproject.org/cgit/cgit.cgi/meta-java/tree/recipes-core/openjdk/patches-openjdk-14/0002-make-autoconf-toolchain-remove-invalid-compiler-chec.patch?h=g0hl1n/jdk14&id=f66b83882e076f339dd89e88165bd7bac121f9ff
+
+====
+
+The checking of CC and CXX was faulty as it doesn't supported
+program arguments.
+To make things work remove the check and trust it is valid.
+
+Upstream-Status: Inappropriate [configuration]
+Signed-off-by: Richard Leitner <richard.leitner@skidata.com>
+Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+---
+ make/autoconf/toolchain.m4 | 15 ---------------
+ 1 file changed, 15 deletions(-)
+
+diff --git a/make/autoconf/toolchain.m4 b/make/autoconf/toolchain.m4
+index 0f03f93..dd8f323 100644
+--- a/make/autoconf/toolchain.m4
++++ b/make/autoconf/toolchain.m4
+@@ -506,21 +506,6 @@ AC_DEFUN([TOOLCHAIN_FIND_COMPILER],
+   if test "x[$]$1" != x; then
+     # User has supplied compiler name already, always let that override.
+     AC_MSG_NOTICE([Will use user supplied compiler $1=[$]$1])
+-    if test "x`basename [$]$1`" = "x[$]$1"; then
+-      # A command without a complete path is provided, search $PATH.
+-
+-      AC_PATH_PROGS(POTENTIAL_$1, [$]$1)
+-      if test "x$POTENTIAL_$1" != x; then
+-        $1=$POTENTIAL_$1
+-      else
+-        AC_MSG_ERROR([User supplied compiler $1=[$]$1 could not be found])
+-      fi
+-    else
+-      # Otherwise it might already be a complete path
+-      if test ! -x "[$]$1"; then
+-        AC_MSG_ERROR([User supplied compiler $1=[$]$1 does not exist])
+-      fi
+-    fi
+   else
+     # No user supplied value. Locate compiler ourselves.
+ 
+-- 
+2.17.1
+
