@@ -1,0 +1,34 @@
+From d5434d0bda191695364b038e0926565986149323 Mon Sep 17 00:00:00 2001
+From: Brian Bergstrand <bbergstrand@prosofteng.com>
+Date: Wed, 16 Dec 2020 16:35:24 -0600
+Subject: [PATCH] cmake: Fix stuct packing, alignment attribute test
+
+Invalid check compile source in cmake/CheckStructPacking
+
+check_c_source_compiles() requires a main() definition
+---
+ cmake/CheckStructPacking.cmake | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/CheckStructPacking.cmake b/cmake/CheckStructPacking.cmake
+index 4e6a1c4..a4d3b1f 100644
+--- a/cmake/CheckStructPacking.cmake
++++ b/cmake/CheckStructPacking.cmake
+@@ -10,7 +10,7 @@ GET_FILENAME_COMPONENT(_selfdir_CheckStructPacking
+ check_c_source_compiles(
+     "
+     #ifdef __GNUC__
+-    struct { int i __attribute__((packed)); } s;
++    struct { int i __attribute__((packed)); } s; int main(){return 0;}
+     #else
+     #error Only checking for packed attribute on gcc-like compilers
+     #endif
+@@ -63,7 +63,7 @@ endif()
+ # Check if struct __attribute__((aligned)) is available
+ check_c_source_compiles(
+     "
+-    typedef int cl_aligned_int __attribute__((aligned));
++    typedef int cl_aligned_int __attribute__((aligned)); int main(){return 0;}
+     "
+     HAVE_ATTRIB_ALIGNED )
+ 

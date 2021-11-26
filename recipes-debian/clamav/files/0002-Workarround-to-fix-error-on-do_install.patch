@@ -1,0 +1,22 @@
+From 9d5681e27f1918c196d4015f7a17d60485ff55fc Mon Sep 17 00:00:00 2001
+From: YAMAMOTO Koichi <yamamoto@lineo.co.jp>
+Date: Fri, 12 Nov 2021 16:58:31 +0900
+Subject: [PATCH] Workarround to fix error on do_install
+
+---
+ freshclam/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/freshclam/CMakeLists.txt b/freshclam/CMakeLists.txt
+index d6ee637..98eb25e 100644
+--- a/freshclam/CMakeLists.txt
++++ b/freshclam/CMakeLists.txt
+@@ -38,7 +38,7 @@ endif()
+ if(WIN32)
+     INSTALL(CODE "FILE(MAKE_DIRECTORY \${ENV}\${CMAKE_INSTALL_PREFIX}/database)")
+ else()
+-    INSTALL(CODE "FILE(MAKE_DIRECTORY \${ENV}\${CMAKE_INSTALL_PREFIX}/share/clamav)")
++#    INSTALL(CODE "FILE(MAKE_DIRECTORY \${ENV}\${CMAKE_INSTALL_PREFIX}/share/clamav)")
+ endif()
+ 
+ # now we rename resman-bin executable to resman using target properties
