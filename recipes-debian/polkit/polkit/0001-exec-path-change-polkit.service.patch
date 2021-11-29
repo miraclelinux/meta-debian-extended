@@ -1,0 +1,19 @@
+From 88dc9ab21ced459c7afe83ee537e90cd5a75df67 Mon Sep 17 00:00:00 2001
+From: Takayasu Ito <ito@lineo.co.jp>
+Date: Tue, 30 Nov 2021 14:46:21 +0900
+Subject: [PATCH] exec path change polkit.service
+
+---
+ debian/polkit.service | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/polkit.service b/debian/polkit.service
+index e132621..f269801 100644
+--- a/debian/polkit.service
++++ b/debian/polkit.service
+@@ -5,4 +5,4 @@ Documentation=man:polkit(8)
+ [Service]
+ Type=dbus
+ BusName=org.freedesktop.PolicyKit1
+-ExecStart=/usr/lib/policykit-1/polkitd --no-debug
++ExecStart=/usr/libexec/polkitd --no-debug
