@@ -1,0 +1,13 @@
+--- a/akefile	2021-11-10 17:20:25.222292209 +0900
++++ b/Makefile	2021-11-11 10:12:43.987698489 +0900
+@@ -40,6 +40,10 @@ clean:
+ 	rm -f $(PROG) $(OBJS) *~ core
+ 
+ install:
++	mkdir -p $(DESTDIR)/usr/bin
++	mkdir -p $(DESTDIR)/usr/share/man/man1
++	mkdir -p $(DESTDIR)/etc
++	mkdir -p $(DESTDIR)/usr/share/bsd-mailx
+ 	install -p -c -m 755 $(PROG) $(DESTDIR)/usr/bin/bsd-mailx
+ 	install -p -c -m 644 $(MFILES) $(DESTDIR)/usr/share/man/man1/bsd-mailx.1
+ 	cd misc && install -p -c -m 644 $(EFILES) $(DESTDIR)/etc/
