@@ -1,0 +1,120 @@
+#!/bin/sh
+###############################################################################
+# $Id$
+###############################################################################
+# Copyright (C) 2006-2007 The Regents of the University of California.
+# Produced at Lawrence Livermore National Laboratory.
+# Written by Mark Grondona <mgrondona@llnl.gov>
+# UCRL-CODE-230739.
+###############################################################################
+# chkconfig:      345 40 60
+###############################################################################
+### BEGIN INIT INFO
+# Provides:       edac
+# Required-Start: $named $time
+# Default-Start:  3 5
+# Default-Stop:   0 1 2 6
+# Description:    Initialize EDAC drivers for machine hardware
+### END INIT INFO
+###############################################################################
+
+unset SERVICE
+
+SERVICE="edac"
+
+prefix="/usr"
+exec_prefix="/usr"
+sbindir="/usr/sbin"
+sysconfdir="/usr/sbin"
+edac_ctl="$sbindir/edac-ctl"
+
+PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+STATUS=0
+
+###############################################################################
+
+# Don't need to source /etc/init.d/functions at this time
+
+# Read configuration to see if we need to load 
+#  EDAC_DRIVER 
+# 
+for dir in "$sysconfdir/default" "$sysconfdir/sysconfig"; do
+  [ -f "$dir/$SERVICE" ] && . "$dir/$SERVICE"
+done
+
+
+###############################################################################
+
+service_start ()
+{
+# Start the service.  Required by LSB.
+#
+# Assume that if EDAC_DRIVER is not set, then EDAC is configured
+#  automatically, thus return successfully, but don't do anything.
+#
+  if [ -n "$EDAC_DRIVER" ]; then
+     echo -n "Starting ${SERVICE}: "
+     modprobe $EDAC_DRIVER
+     STATUS=$?
+     case $STATUS in 
+       0) echo success ;;
+       5) echo No EDAC support for this hardware. ;;
+       *) echo failure ;;
+     esac
+  fi
+  echo -n "Loading ${SERVICE} DIMM labels: "
+  $edac_ctl --register-labels --quiet
+  STATUS=$?
+  case $STATUS in
+   0) echo success ;;
+   *) echo failure ;;
+  esac
+}
+
+###############################################################################
+
+service_stop ()
+{
+  echo -n "Disabling ${SERVICE}: "
+  if [ -n "$EDAC_DRIVER" ]; then
+    modprobe -r $EDAC_DRIVER
+    STATUS=$?
+    [ $STATUS -eq 0 ] && echo success || echo failure
+  else
+    echo "Not supported for this configuration."
+    STATUS=6
+  fi
+}
+
+###############################################################################
+
+service_status ()
+{
+# Print the current status of the service.  Required by LSB.
+#
+  edac-ctl --status
+  STATUS=0
+}
+
+###############################################################################
+
+STATUS=4
+
+case "$1" in
+  start)
+    service_start
+    ;;
+  stop)
+    service_stop
+    ;;
+  status)
+    service_status
+    ;;
+  *)
+    COMMANDS="start|stop|status"
+    echo "Usage: $0 {${COMMANDS}}"
+    exit 2
+    ;;
+esac
+
+exit $STATUS

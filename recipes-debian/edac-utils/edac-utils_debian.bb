@@ -24,6 +24,7 @@ FILES_${PN} += "\
 
 SRC_URI += " \
     file://edac.service \
+	file://edac.init \
 "
 
 inherit autotools-brokensep
@@ -50,6 +51,9 @@ do_install_append() {
 	install -d ${D}${systemd_unitdir}/system
 	install -m 644 ${WORKDIR}/edac.service ${D}/${systemd_unitdir}/system
 	sed -i -e 's,@SBINDIR@,${sbindir},g' ${D}/${systemd_unitdir}/system/edac.service
+
+    # override debian version of init sctipt
+	install -m 755 ${WORKDIR}/edac.init ${D}/${sysconfdir}/init.d/edac
 }
 
 SYSTEMD_SERVICE_${PN} = "edac.service"
