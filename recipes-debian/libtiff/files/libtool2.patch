@@ -1,0 +1,26 @@
+From d95dccb0fd90ec0de66f69cd48f6474a3d5992a3 Mon Sep 17 00:00:00 2001
+From: Marcin Juszkiewicz <hrw@openedhand.com>
+Date: Sat, 14 Jun 2008 13:42:22 +0000
+Subject: [PATCH] tiff: make it work after libtool upgrade
+
+Upstream-Status: Inappropriate [configuration]
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index eecb8e9..7fd7222 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -27,7 +27,7 @@ dnl Process this file with autoconf to produce a configure script.
+ AC_PREREQ(2.64)
+ AC_INIT([LibTIFF Software],[4.1.0],[tiff@lists.maptools.org],[tiff])
+ AC_CONFIG_AUX_DIR(config)
+-AC_CONFIG_MACRO_DIR(m4)
++dnl AC_CONFIG_MACRO_DIR(m4)
+ AC_LANG(C)
+ 
+ dnl Compute the canonical host (run-time) system type variable
+-- 
+2.17.1
+
