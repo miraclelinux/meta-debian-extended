@@ -10,7 +10,7 @@ HOMEPAGE = "http://www.OpenLDAP.org/license.html"
 # (see http://www.openldap.org), the license appears to be
 # basically BSD.  opensource.org does not record this license
 # at present (so it is apparently not OSI certified).
-LICENSE = "OpenLDAP"
+LICENSE = "OLDAP-2.8"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=25b4ead0e45182e7c2914e59ff57009f \
                     file://LICENSE;md5=153d07ef052c4a37a8fac23bc6031972 \
                     "
