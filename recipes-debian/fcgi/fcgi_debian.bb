@@ -6,6 +6,8 @@ DESCRIPTION = "FastCGI is a protocol for interfacing interactive programs with a
 HOMEPAGE = "http://www.fastcgi.com"
 LICENSE = "OML"
 LIC_FILES_CHKSUM = "file://LICENSE.TERMS;md5=e3aacac3a647af6e7e31f181cda0a06a"
+NO_GENERIC_LICENSE[OML] = "LICENSE.TERMS"
+
 BNP = "libfcgi"
 
 inherit autotools
