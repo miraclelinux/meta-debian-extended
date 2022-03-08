@@ -1,0 +1,8 @@
+--- pygobject-3.30.4/subprojects/pycairo.wrap	2018-11-26 07:06:50.000000000 +0900
++++ pygobject-3.30.4.new/subprojects/pycairo.wrap	2022-03-08 14:55:04.364885567 +0900
+@@ -1,4 +1,4 @@
+ [wrap-git]
+ directory=pycairo
+ url=https://github.com/pygobject/pycairo.git
+-revision=master
++revision=v1.20.1
