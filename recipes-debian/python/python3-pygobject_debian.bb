@@ -18,6 +18,7 @@ DEPENDS += "python3 glib-2.0"
 SRCNAME="pygobject"
 SRC_URI += " \
     file://0001-Rebase-Do-not-build-tests.patch \
+    file://pygobject-use-specific-py3cairo-version.patch \
 "
 
 UNKNOWN_CONFIGURE_WHITELIST = "introspection"
