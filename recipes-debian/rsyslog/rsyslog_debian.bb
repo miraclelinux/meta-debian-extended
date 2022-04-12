@@ -103,7 +103,7 @@ do_install_ptest() {
     fi
 
     # install test-driver
-    install -m 644 ${S}/test-driver ${D}${PTEST_PATH}
+    install -m 644 ${S}/test-driver ${D}${PTEST_PATH}/${TESTDIR}
 
     # install necessary links
     install -d ${D}${PTEST_PATH}/tools
