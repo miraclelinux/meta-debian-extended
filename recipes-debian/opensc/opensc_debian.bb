@@ -18,8 +18,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 inherit debian-package
 require recipes-debian/sources/opensc.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/OpenSC-${PV}"
-DEBIAN_PATCH_TYPE = "nopatch"
-DEBIAN_QUILT_PATCHES = ""
 
 SRC_URI += " \
            file://0001-Remove-redundant-logging.patch \
