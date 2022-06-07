@@ -1,4 +1,4 @@
-From fd189e80562106c9438c66bb55324a7fcf146a2d Mon Sep 17 00:00:00 2001
+From 358b72964006d1584dba560a65161185f083b958 Mon Sep 17 00:00:00 2001
 From: Fabio Berton <fabio.berton@ossystems.com.br>
 Date: Thu, 3 Nov 2016 17:56:29 -0200
 Subject: [PATCH] libpcap: pkgconfig support
@@ -10,6 +10,8 @@ Upstream-Status: Inappropriate [embedded specific]
 Signed-off-by: Joe MacDonald <joe_macdonald@mentor.com>
 Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
 
+[Fix "libpcap-1.8.1-r0 do_patch: Fuzz detected" error]
+Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
 ---
  Makefile.in   |  5 +++++
  configure.ac  |  1 +
@@ -18,10 +20,10 @@ Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
  create mode 100644 libpcap.pc.in
 
 diff --git a/Makefile.in b/Makefile.in
-index d8562f1..909f6bc 100644
+index a244601..903cbc8 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -68,6 +68,10 @@ V_RPATH_OPT = @V_RPATH_OPT@
+@@ -69,6 +69,10 @@ V_RPATH_OPT = @V_RPATH_OPT@
  DEPENDENCY_CFLAG = @DEPENDENCY_CFLAG@
  PROG=libpcap
  
@@ -31,7 +33,7 @@ index d8562f1..909f6bc 100644
 +
  # Standard CFLAGS
  FULL_CFLAGS = $(CCOPT) $(INCLS) $(DEFS) $(CFLAGS) $(CPPFLAGS)
- CFLAGS_SHARED = -shared -Wl,-soname,$(SOLIBRARY).$(MAJ) -Wl,--version-script=libpcap-symbols.lds
+ CFLAGS_SHARED = -shared -Wl,-soname,$(SOLIBRARY).$(MAJ) -Wl,--version-script=$(srcdir)/libpcap-symbols.lds
 @@ -300,6 +304,7 @@ EXTRA_DIST = \
  	lbl/os-solaris2.h \
  	lbl/os-sunos4.h \
@@ -68,3 +70,6 @@ index 0000000..4f78ad8
 +Version: @VERSION@
 +Libs: -L${libdir} -lpcap
 +Cflags: -I${includedir}
+-- 
+2.17.1
+
