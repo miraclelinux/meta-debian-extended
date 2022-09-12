@@ -5,9 +5,9 @@ REPACK_PV = "4.1.0+git191117"
 PV = "4.1.0+git191117"
 
 DEBIAN_SRC_URI = " \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/t/tiff/tiff_4.1.0+git191117-2~deb10u4.dsc;name=tiff_4.1.0+git191117-2_deb10u4.dsc \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/t/tiff/tiff_4.1.0+git191117.orig.tar.xz;name=tiff_4.1.0+git191117.orig.tar.xz \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/t/tiff/tiff_4.1.0+git191117-2~deb10u4.debian.tar.xz;name=tiff_4.1.0+git191117-2_deb10u4.debian.tar.xz \
+    ${DEBIAN_MIRROR}/main/t/tiff/tiff_4.1.0+git191117-2~deb10u4.dsc;name=tiff_4.1.0+git191117-2_deb10u4.dsc \
+    ${DEBIAN_MIRROR}/main/t/tiff/tiff_4.1.0+git191117.orig.tar.xz;name=tiff_4.1.0+git191117.orig.tar.xz \
+    ${DEBIAN_MIRROR}/main/t/tiff/tiff_4.1.0+git191117-2~deb10u4.debian.tar.xz;name=tiff_4.1.0+git191117-2_deb10u4.debian.tar.xz \
 "
 
 SRC_URI[tiff_4.1.0+git191117-2_deb10u4.dsc.md5sum] = "e00632dbd8d03e4ef2e2fcc83bebd548"
