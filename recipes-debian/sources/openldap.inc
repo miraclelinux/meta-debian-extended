@@ -5,9 +5,9 @@ REPACK_PV = "2.4.47+dfsg"
 PV = "2.4.47"
 
 DEBIAN_SRC_URI = " \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/o/openldap/openldap_2.4.47+dfsg-3+deb10u7.dsc;name=openldap_2.4.47+dfsg-3+deb10u7.dsc \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/o/openldap/openldap_2.4.47+dfsg.orig.tar.gz;name=openldap_2.4.47+dfsg.orig.tar.gz \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/o/openldap/openldap_2.4.47+dfsg-3+deb10u7.debian.tar.xz;name=openldap_2.4.47+dfsg-3+deb10u7.debian.tar.xz \
+    ${DEBIAN_MIRROR}/main/o/openldap/openldap_2.4.47+dfsg-3+deb10u7.dsc;name=openldap_2.4.47+dfsg-3+deb10u7.dsc \
+    ${DEBIAN_MIRROR}/main/o/openldap/openldap_2.4.47+dfsg.orig.tar.gz;name=openldap_2.4.47+dfsg.orig.tar.gz \
+    ${DEBIAN_MIRROR}/main/o/openldap/openldap_2.4.47+dfsg-3+deb10u7.debian.tar.xz;name=openldap_2.4.47+dfsg-3+deb10u7.debian.tar.xz \
 "
 
 SRC_URI[openldap_2.4.47+dfsg-3+deb10u7.dsc.md5sum] = "9469c87953f1aceea92405283dcf7374"
