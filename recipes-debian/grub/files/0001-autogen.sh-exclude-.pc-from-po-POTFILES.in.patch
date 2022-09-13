@@ -1,0 +1,36 @@
+From e7ec564fe279e0a69be6aa581970dd93ef23536b Mon Sep 17 00:00:00 2001
+From: Robert Yang <liezhi.yang@windriver.com>
+Date: Sat, 25 Jan 2014 23:49:44 -0500
+Subject: [PATCH] autogen.sh: exclude .pc from po/POTFILES.in
+
+Exclude the .pc from po/POTFILES.in since quilt uses "patch --backup",
+which will create the backup file under .pc, this may cause unexpected
+errors, for example, on CentOS 5.x, if the backup file is null
+(newfile), it's mode will be 000, then we will get errors when xgettext
+try to read it.
+
+Upstream-Status: Inappropriate [OE specific]
+
+Signed-off-by: Robert Yang <liezhi.yang@windriver.com>
+[Modified poky patch to apply to grub 2.06]
+Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+---
+ autogen.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/autogen.sh b/autogen.sh
+index 31b0ced..c63ae76 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -13,7 +13,7 @@ fi
+ export LC_COLLATE=C
+ unset LC_ALL
+ 
+-find . -iname '*.[ch]' ! -ipath './grub-core/lib/libgcrypt-grub/*' ! -ipath './build-aux/*' ! -ipath './grub-core/lib/libgcrypt/src/misc.c' ! -ipath './grub-core/lib/libgcrypt/src/global.c' ! -ipath './grub-core/lib/libgcrypt/src/secmem.c'  ! -ipath './util/grub-gen-widthspec.c' ! -ipath './util/grub-gen-asciih.c' ! -ipath './gnulib/*' ! -ipath './grub-core/lib/gnulib/*' |sort > po/POTFILES.in
++find . -iname '*.[ch]' ! -ipath './grub-core/lib/libgcrypt-grub/*' ! -ipath './build-aux/*' ! -ipath './grub-core/lib/libgcrypt/src/misc.c' ! -ipath './grub-core/lib/libgcrypt/src/global.c' ! -ipath './grub-core/lib/libgcrypt/src/secmem.c'  ! -ipath './util/grub-gen-widthspec.c' ! -ipath './util/grub-gen-asciih.c' ! -ipath './gnulib/*' ! -ipath './grub-core/lib/gnulib/*' ! -path './.pc/*' |sort > po/POTFILES.in
+ find util -iname '*.in' ! -name Makefile.in  |sort > po/POTFILES-shell.in
+ 
+ echo "Importing unicode..."
+-- 
+2.25.1
+

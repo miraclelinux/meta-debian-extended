@@ -21,14 +21,11 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/grub-${REPACK_PV}"
 
 FILESPATH_append = ":${COREBASE}/meta/recipes-bsp/grub/files"
 SRC_URI += "file://0001-Disable-mfpmath-sse-as-well-when-SSE-is-disabled.patch \
-           file://0001-Unset-need_charset_alias-when-building-for-musl.patch \
-           file://autogen.sh-exclude-pc.patch \
-           file://grub-module-explicitly-keeps-symbole-.module_license.patch \
+           file://0001-autogen.sh-exclude-.pc-from-po-POTFILES.in.patch \
+	   file://0001-grub-module-explicitly-keeps-symbole-.module_license.patch \
            file://0001-grub.d-10_linux.in-add-oe-s-kernel-name.patch \
-           file://fix.build.with.gcc-7.patch \
-           file://0001-grub-setup-Debug-message-cleanup.patch \
-           file://disable-address-of-packed-member.patch \
-           file://fix.build.with.squashfs.patch \
+           file://0001-fix.build.with.gcc-7.patch-Apply-fix.build.with.gcc-.patch \
+           file://0001-Disable-address-of-packed-member-warnings-with-gcc9.patch \
 "
 
 DEPENDS = "flex-native bison-native bison pkgconfig"

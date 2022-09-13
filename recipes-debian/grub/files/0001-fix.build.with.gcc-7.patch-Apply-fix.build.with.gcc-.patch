@@ -1,0 +1,55 @@
+From 7e9e339f2c4c96729dcd0f878aba744f843caf27 Mon Sep 17 00:00:00 2001
+From: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+Date: Mon, 12 Sep 2022 07:05:58 +0000
+Subject: [PATCH] fix.build.with.gcc-7.patch: Apply fix.build.with.gcc-7.patch
+ to grub 2.06
+
+* e.g. with gentoo gcc-7.1 they define _FORTIFY_SOURCE by default with:
+  https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo/src/patchsets/gcc/7.1.0/gentoo/10_all_default-fortify-source.patch?view=markup
+  which results in following error while building grub-efi-native:
+  ./config-util.h:1504:48: error: this use of "defined" may not be portable [-Werror=expansion-to-defined]
+               || (defined _FORTIFY_SOURCE && 0 < _FORTIFY_SOURCE \
+                                                  ^~~~~~~~~~~~~~~
+  this part comes from gnulib and it's used only for Apple and BSD,
+  so we can ignore it, but we cannot add -Wno-error=expansion-to-defined
+  because this warning was introduced only in gcc-7 and older gcc
+  will fail with:
+  cc1: error: -Werror=expansion-to-defined: no option -Wexpansion-to-defined
+  use #pragma to work around this
+
+Upstream-Status: Pending (should be fixed in gnulib which is then rarely updated in grub)
+
+Signed-off-by: Martin Jansa <Martin.Jansa@gmail.com>
+
+[Modify patch to apply grub 2.06.]
+Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
+---
+ m4/extern-inline.m4 | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/m4/extern-inline.m4 b/m4/extern-inline.m4
+index ec9f221..b2dabc2 100644
+--- a/m4/extern-inline.m4
++++ b/m4/extern-inline.m4
+@@ -51,6 +51,10 @@ AC_DEFUN([gl_EXTERN_INLINE],
+      warning: to disable this warning use -fgnu89-inline or the gnu_inline function attribute
+    It defines a macro __GNUC_GNU_INLINE__ to indicate this situation.
+  */
++#pragma GCC diagnostic push
++#if __GNUC__ >= 7
++#pragma GCC diagnostic ignored "-Wexpansion-to-defined"
++#endif
+ #if (((defined __APPLE__ && defined __MACH__) \
+       || defined __DragonFly__ || defined __FreeBSD__) \
+      && (defined __header_inline \
+@@ -62,6 +66,7 @@ AC_DEFUN([gl_EXTERN_INLINE],
+                 && defined __GNUC__ && ! defined __cplusplus))))
+ # define _GL_EXTERN_INLINE_STDHEADER_BUG
+ #endif
++#pragma GCC diagnostic pop
+ #if ((__GNUC__ \
+       ? defined __GNUC_STDC_INLINE__ && __GNUC_STDC_INLINE__ \
+       : (199901L <= __STDC_VERSION__ \
+-- 
+2.25.1
+
