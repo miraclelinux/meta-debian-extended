@@ -5,9 +5,9 @@ REPACK_PV = "8.1901.0"
 PV = "8.1901.0"
 
 DEBIAN_SRC_URI = " \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/r/rsyslog/rsyslog_8.1901.0-1+deb10u2.dsc;name=rsyslog_8.1901.0-1+deb10u2.dsc \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/r/rsyslog/rsyslog_8.1901.0.orig.tar.gz;name=rsyslog_8.1901.0.orig.tar.gz \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/r/rsyslog/rsyslog_8.1901.0-1+deb10u2.debian.tar.xz;name=rsyslog_8.1901.0-1+deb10u2.debian.tar.xz \
+    ${DEBIAN_MIRROR}/main/r/rsyslog/rsyslog_8.1901.0-1+deb10u2.dsc;name=rsyslog_8.1901.0-1+deb10u2.dsc \
+    ${DEBIAN_MIRROR}/main/r/rsyslog/rsyslog_8.1901.0.orig.tar.gz;name=rsyslog_8.1901.0.orig.tar.gz \
+    ${DEBIAN_MIRROR}/main/r/rsyslog/rsyslog_8.1901.0-1+deb10u2.debian.tar.xz;name=rsyslog_8.1901.0-1+deb10u2.debian.tar.xz \
 "
 
 SRC_URI[rsyslog_8.1901.0-1+deb10u2.dsc.md5sum] = "d77fea21530435c1cbcd3054413789d8"

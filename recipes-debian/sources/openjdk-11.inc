@@ -5,9 +5,9 @@ REPACK_PV = "11.0.16+8"
 PV = "11.0.16+8"
 
 DEBIAN_SRC_URI = " \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/o/openjdk-11/openjdk-11_11.0.16+8-1~deb10u1.dsc;name=openjdk-11_11.0.16+8-1_deb10u1.dsc \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/o/openjdk-11/openjdk-11_11.0.16+8.orig.tar.xz;name=openjdk-11_11.0.16+8.orig.tar.xz \
-    ${DEBIAN_SECURITY_UPDATE_MIRROR}/main/o/openjdk-11/openjdk-11_11.0.16+8-1~deb10u1.debian.tar.xz;name=openjdk-11_11.0.16+8-1_deb10u1.debian.tar.xz \
+    ${DEBIAN_MIRROR}/main/o/openjdk-11/openjdk-11_11.0.16+8-1~deb10u1.dsc;name=openjdk-11_11.0.16+8-1_deb10u1.dsc \
+    ${DEBIAN_MIRROR}/main/o/openjdk-11/openjdk-11_11.0.16+8.orig.tar.xz;name=openjdk-11_11.0.16+8.orig.tar.xz \
+    ${DEBIAN_MIRROR}/main/o/openjdk-11/openjdk-11_11.0.16+8-1~deb10u1.debian.tar.xz;name=openjdk-11_11.0.16+8-1_deb10u1.debian.tar.xz \
 "
 
 SRC_URI[openjdk-11_11.0.16+8-1_deb10u1.dsc.md5sum] = "178d5a1bf0077e2fe0b88b7660cc7f27"
