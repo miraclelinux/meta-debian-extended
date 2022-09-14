@@ -6,6 +6,7 @@ require grub2.inc
 
 GRUBPLATFORM = "efi"
 
+DEPENDS = " gettext bison bison-native"
 DEPENDS_append_class-target = " grub-efi-native"
 RDEPENDS_${PN}_class-target = "diffutils freetype grub-common virtual/grub-bootconf"
 
