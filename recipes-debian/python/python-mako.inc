@@ -12,7 +12,6 @@ PYPI_PACKAGE = "Mako"
 
 inherit pypi
 
-DEBIAN_QUILT_PATCHES = ""
 DEBIAN_UNPACK_DIR="${WORKDIR}/${PYPI_PACKAGE}-${PV}"
 
 inherit debian-package
