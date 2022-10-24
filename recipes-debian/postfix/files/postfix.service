@@ -1,0 +1,13 @@
+[Unit]
+Description=Postfix Mail Transport Agent
+Conflicts=sendmail.service exim4.service
+ConditionPathExists=/etc/postfix/main.cf
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecReload=/bin/true
+
+[Install]
+WantedBy=multi-user.target

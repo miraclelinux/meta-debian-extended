@@ -1,0 +1,160 @@
+Index: postfix-3.4.23/makedefs
+===================================================================
+@@ -195,9 +195,6 @@ echo "# pie=$pie"
+ 
+ # Defaults for most sane systems
+ 
+-RANLIB=ranlib
+-SYSLIBS=
+-AR=ar
+ ARFL=rv
+ 
+ # Ugly function to make our error message more visible among the
+@@ -481,12 +478,12 @@ case "$SYSTEM.$RELEASE" in
+ 		case "$CCARGS" in
+ 		 *-DNO_DB*) ;;
+ 		 *-DHAS_DB*) ;;
+-		 *) if [ -f /usr/include/db.h ]
++		 *) if [ -f "$BUILD_SYSROOT"/usr/include/db.h ]
+ 		    then
+ 			: we are all set
+-		    elif [ -f /usr/include/db/db.h ]
++		    elif [ -f "$BUILD_SYSROOT"/usr/include/db/db.h ]
+ 		    then
+-			CCARGS="$CCARGS -I/usr/include/db"
++			CCARGS="$CCARGS -I"$BUILD_SYSROOT"/usr/include/db"
+ 		    else
+ 			# No, we're not going to try db1 db2 db3 etc.
+ 			# On a properly installed system, Postfix builds
+@@ -495,26 +492,17 @@ case "$SYSTEM.$RELEASE" in
+ 			echo "Install the appropriate db*-devel package first." 1>&2
+ 			exit 1
+ 		    fi
+-		    SYSLIBS="-ldb"
++		    SYSLIBS="$SYSLIBS -ldb"
+ 		    SEARCHDIRS=$(${CC-gcc} -print-search-dirs 2>/dev/null |
+ 			    sed -n '/^libraries: =/s/libraries: =//p' |
+ 			    sed -e 's/:/\n/g' | xargs -n1 readlink -f |
+ 			    grep -v 'gcc\|/[0-9.]\+$' | sort -u)
+ 		    if [ -z "$SEARCHDIRS" ]; then
+-			    SEARCHDIRS="/usr/lib64 /lib64 /usr/lib /lib"
++			    SEARCHDIRS="$BUILD_SYSROOT_NSL_PATH"
+ 		    fi
+ 		    ;;
+ 		esac
+-		for name in nsl resolv $GDBM_LIBS
+-		do
+-		    for lib in $SEARCHDIRS
+-		    do
+-			test -e $lib/lib$name.a -o -e $lib/lib$name.so && {
+-			    SYSLIBS="$SYSLIBS -l$name"
+-			    break
+-			}
+-		    done
+-		done
++		SYSLIBS="$SYSLIBS -lnsl -lresolv"
+ 		# Kernel 2.4 added IPv6
+ 		case "$RELEASE" in
+ 		2.[0-3].*) CCARGS="$CCARGS -DNO_IPV6";;
+@@ -527,7 +515,7 @@ case "$SYSTEM.$RELEASE" in
+ 		       if [ `expr "X$CCARGS" : "X.*-DNO_EPOLL"` -gt 0 ]
+ 		       then
+ 			   :
+-		       elif [ ! -e /usr/include/sys/epoll.h ]
++		       elif [ ! -e "$BUILD_SYSROOT"/usr/include/sys/epoll.h ]
+ 		       then
+ 			   echo CCARGS="$CCARGS -DNO_EPOLL"
+ 		       else
+@@ -550,9 +538,7 @@ int     main(int argc, char **argv)
+     exit(0);
+ }
+ EOF
+-			   ${CC-gcc} -o makedefs.test makedefs.test.c || exit 1
+-			   ./makedefs.test 2>/dev/null ||
+-				CCARGS="$CCARGS -DNO_EPOLL"
++			   ${BUILD_CC-gcc} -o makedefs.test makedefs.test.c || exit 1
+ 			   rm -f makedefs.test makedefs.test.[co]
+ 		       fi;;
+ 		esac
+@@ -568,12 +554,12 @@ EOF
+ 		case "$CCARGS" in
+ 		 *-DNO_DB*) ;;
+ 		 *-DHAS_DB*) ;;
+-		 *) if [ -f /usr/include/db.h ]
++		 *) if [ -f "$BUILD_SYSROOT"/usr/include/db.h ]
+ 		    then
+ 			: we are all set
+-		    elif [ -f /usr/include/db/db.h ]
++		    elif [ -f "$BUILD_SYSROOT"/usr/include/db/db.h ]
+ 		    then
+-			CCARGS="$CCARGS -I/usr/include/db"
++			CCARGS="$CCARGS -I"$BUILD_SYSROOT"/usr/include/db"
+ 		    else
+ 			# On a properly installed system, Postfix builds
+ 			# by including <db.h> and by linking with -ldb
+@@ -581,26 +567,17 @@ EOF
+ 			echo "Install the appropriate db*-devel package first." 1>&2
+ 			exit 1
+ 		    fi
+-		    SYSLIBS="-ldb"
++		    SYSLIBS="$SYSLIBS -ldb"
+ 		    SEARCHDIRS=$(${CC-gcc} -print-search-dirs 2>/dev/null |
+ 			    sed -n '/^libraries: =/s/libraries: =//p' |
+ 			    sed -e 's/:/\n/g' | xargs -n1 readlink -f |
+ 			    grep -v 'gcc\|/[0-9.]\+$' | sort -u)
+ 		    if [ -z "$SEARCHDIRS" ]; then
+-			    SEARCHDIRS="/usr/lib64 /lib64 /usr/lib /lib"
++			    SEARCHDIRS="$BUILD_SYSROOT_NSL_PATH"
+ 		    fi
+ 		    ;;
+ 		esac
+-		for name in nsl resolv
+-		do
+-		    for lib in $SEARCHDIRS
+-		    do
+-			test -e $lib/lib$name.a -o -e $lib/lib$name.so && {
+-			    SYSLIBS="$SYSLIBS -l$name"
+-			    break
+-			}
+-		    done
+-		done
++		SYSLIBS="$SYSLIBS -lnsl -lresolv"
+ 		SYSLIBS="$SYSLIBS -ldl"
+ 		: ${SHLIB_SUFFIX=.so}
+ 		: ${SHLIB_CFLAGS=-fPIC}
+@@ -802,7 +779,7 @@ int     main(int argc, char **argv)
+     exit(0);
+ }
+ EOF
+-		   ${CC-gcc} -o makedefs.test makedefs.test.c || exit 1
++		   ${BUILD_CC-gcc} -o makedefs.test makedefs.test.c || exit 1
+ 		   ./makedefs.test 2>/dev/null ||
+ 			CCARGS="$CCARGS -DNO_SIGSETJMP"
+ 		   rm -f makedefs.test makedefs.test.[co]
+@@ -838,7 +815,7 @@ int main(int argc, char **argv)
+ 				  &error) != 14);
+ }
+ EOF
+-		    ${CC-gcc} -o makedefs.test makedefs.test.c $icu_cppflags \
++		    ${BUILD_CC-gcc} -o makedefs.test makedefs.test.c $icu_cppflags \
+ 			$icu_ldflags >/dev/null 2>&1
+ 		    if ./makedefs.test 2>/dev/null ; then
+ 			CCARGS="$CCARGS $icu_cppflags"
+@@ -953,7 +930,7 @@ int     main(void)
+     exit(ferror(stdout) ? 1 : 0);
+ }
+ EOF
+-    eval ${CC-gcc} ${CCARGS} -o makedefs.test makedefs.test.c || exit 1
++    eval ${BUILD_CC-gcc} ${CCARGS} -o makedefs.test makedefs.test.c || exit 1
+     ./makedefs.test || exit 1
+     rm -f makedefs.test makedefs.test.[co]
+ }
+@@ -1109,7 +1086,7 @@ int     main(void)
+     exit(ferror(stdout) ? 1 : 0);
+ }
+ EOF
+-	eval ${CC-gcc} ${CCARGS} -o makedefs.test makedefs.test.c || exit 1
++	eval ${BUILD_CC-gcc} ${CCARGS} -o makedefs.test makedefs.test.c || exit 1
+ 	parm_val=`./makedefs.test` || exit 1
+ 	rm -f makedefs.test makedefs.test.[co]
+ 	eval ${parm_name}=\""\$parm_val"\"
