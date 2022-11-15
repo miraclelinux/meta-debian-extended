@@ -1,0 +1,11 @@
+Index: pam_ldap-186/vers_string
+===================================================================
+@@ -4,7 +4,7 @@
+ #
+ # Implementation of SGS vers_string which uses CVSVersionInfo.txt.
+ 
+-require "cvslib.pl";
++require "./cvslib.pl";
+ 
+ $OUTFILE = (-f "version.h") ? "version.h" : "vers.c";
+ $AUTHOR = `whoami`;
