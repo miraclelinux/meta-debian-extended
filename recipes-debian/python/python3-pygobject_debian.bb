@@ -49,11 +49,4 @@ do_install_append_class-target() {
     mv ${D}/usr/usr/lib/* ${D}/usr/lib/.
     rm -fr ${D}/usr/usr
   fi
-
-  # Workaround for the conflict with pycairo
-  rm -fr \
-    ${D}/usr/include/pycairo \
-    ${D}/usr/lib/pkgconfig/py3cairo.pc \
-    ${D}/usr/lib/python3.7/site-packages/cairo \
-    ${D}/usr/lib/python3.7/site-packages/pycairo-1.18.2.egg-info
 }
