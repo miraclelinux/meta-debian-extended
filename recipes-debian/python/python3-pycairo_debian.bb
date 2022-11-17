@@ -29,6 +29,12 @@ BBCLASSEXTEND = "native"
 do_install_append() {
     install -d ${D}${includedir}/pycairo/
     install -m 0644 ${D}${datadir}/include/pycairo/py3cairo.h ${D}${includedir}/pycairo/
+
+    # install .pc file to /usr/lib/pkgconfig instead of /usr/share/lib/pkgconfig
+    # When building pygobject, configure process will be able to find /usr/lib/pkgconfig/py3cairo.pc
+    install -d ${D}${libdir}/pkgconfig
+    cp --no-preserve=ownership ${D}${datadir}/lib/pkgconfig/py3cairo.pc ${D}${libdir}/pkgconfig/py3cairo.pc
+    rm -rf ${D}${datadir}/lib/
 }
 FILES_${PN} += "${datadir}/include/pycairo/py3cairo.h"
-FILES_${PN} += "${datadir}/lib/pkgconfig/py3cairo.pc"
+FILES_${PN} += "${libdir}/pkgconfig/py3cairo.pc"
