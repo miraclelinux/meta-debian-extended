@@ -1,0 +1,156 @@
+Index: libpam-ssh-2.3+ds/configure.ac
+===================================================================
+@@ -38,10 +38,6 @@ AC_SUBST(LIBTOOL_DEPS)
+ 
+ dnl Checks for programs.
+ 
+-AC_PATH_PROG(PATH_SSH_AGENT, ssh-agent, no)
+-if test x"$PATH_SSH_AGENT" = xno; then
+-  AC_MSG_ERROR([Could not find ssh-agent, please install or check config.log])
+-fi
+ AC_DEFINE_UNQUOTED([PATH_SSH_AGENT], ["$PATH_SSH_AGENT"], [Path to ssh-agent])
+ 
+ dnl Checks for libraries.
+@@ -72,64 +68,6 @@ if test "x$prefix" != "xNONE" ; then
+ 	tryssldir="$tryssldir $prefix"
+ fi
+ AC_CACHE_CHECK([for OpenSSL directory], ac_cv_openssldir, [
+-	for ssldir in $tryssldir "" /usr/local/openssl /usr/lib/openssl /usr/local/ssl /usr/lib/ssl /usr/local /usr/pkg /opt /opt/openssl ; do
+-		CPPFLAGS="$saved_CPPFLAGS"
+-		LDFLAGS="$saved_LDFLAGS"
+-		LIBS="$saved_LIBS -lcrypto"
+-
+-		# Skip directories if they don't exist
+-		if test ! -z "$ssldir" -a ! -d "$ssldir" ; then
+-			continue;
+-		fi
+-		if test ! -z "$ssldir" -a "x$ssldir" != "x/usr"; then
+-			# Try to use $ssldir/lib if it exists, otherwise
+-			# $ssldir
+-			if test -d "$ssldir/lib" ; then
+-				LDFLAGS="-L$ssldir/lib $saved_LDFLAGS"
+-				if test ! -z "$need_dash_r" ; then
+-					LDFLAGS="-R$ssldir/lib $LDFLAGS"
+-				fi
+-			else
+-				LDFLAGS="-L$ssldir $saved_LDFLAGS"
+-				if test ! -z "$need_dash_r" ; then
+-					LDFLAGS="-R$ssldir $LDFLAGS"
+-				fi
+-			fi
+-			# Try to use $ssldir/include if it exists, otherwise
+-			# $ssldir
+-			if test -d "$ssldir/include" ; then
+-				CPPFLAGS="-I$ssldir/include $saved_CPPFLAGS"
+-			else
+-				CPPFLAGS="-I$ssldir $saved_CPPFLAGS"
+-			fi
+-		fi
+-
+-		# Basic test to check for compatible version and correct linking
+-		# *does not* test for RSA - that comes later.
+-		AC_RUN_IFELSE([AC_LANG_SOURCE([[
+-#include <string.h>
+-#include <openssl/rand.h>
+-int main(void)
+-{
+-	char a[2048];
+-	memset(a, 0, sizeof(a));
+-	RAND_add(a, sizeof(a), sizeof(a));
+-	return(RAND_status() <= 0);
+-}
+-			]])],[
+-				found_crypto=1
+-				break;
+-			],[
+-		],[])
+-
+-		if test ! -z "$found_crypto" ; then
+-			break;
+-		fi
+-	done
+-
+-	if test -z "$found_crypto" ; then
+-		AC_MSG_ERROR([Could not find working OpenSSL library, please install or check config.log])
+-	fi
+ 	if test -z "$ssldir" ; then
+ 		ssldir="(system)"
+ 	fi
+@@ -166,77 +104,10 @@ if (test ! -z "$ac_cv_openssldir" && tes
+ fi
+ LIBS="$saved_LIBS -lcrypto"
+ 
+-# Now test RSA support
+-saved_LIBS="$LIBS"
+-AC_MSG_CHECKING([for RSA support])
+-for WANTS_RSAREF in "" 1 ; do
+-	if test -z "$WANTS_RSAREF" ; then
+-		LIBS="$saved_LIBS"
+-	else
+-		LIBS="$saved_LIBS -lRSAglue -lrsaref"
+-	fi
+-	AC_RUN_IFELSE([AC_LANG_SOURCE([[
+-#include <string.h>
+-#include <openssl/rand.h>
+-#include <openssl/rsa.h>
+-#include <openssl/bn.h>
+-#include <openssl/sha.h>
+-int main(void) 
+-{
+-	int num; RSA *key; static unsigned char p_in[] = "blahblah";
+-	unsigned char c[256], p[256];
+-	memset(c, 0, sizeof(c)); RAND_add(c, sizeof(c), sizeof(c));
+-	if ((key=RSA_generate_key(512, 3, NULL, NULL))==NULL) return(1);
+-	num = RSA_public_encrypt(sizeof(p_in) - 1, p_in, c, key, RSA_PKCS1_PADDING);
+-	return(-1 == RSA_private_decrypt(num, c, p, key, RSA_PKCS1_PADDING));
+-}
+-	]])],[
+-		rsa_works=1
+-		break;
+-	],[],[])
+-done
+-LIBS="$saved_LIBS"
+-
+-if test ! -z "$no_rsa" ; then
+-	AC_MSG_RESULT(disabled)
+-	RSA_MSG="disabled"
+-else
+-	if test -z "$rsa_works" ; then
+-		AC_MSG_WARN([*** No RSA support found *** ])
+-		RSA_MSG="no"
+-	else
+-		if test -z "$WANTS_RSAREF" ; then
+-			AC_MSG_RESULT(yes)
+-			RSA_MSG="yes"
+-		else
+-			RSA_MSG="yes (using RSAref)"
+-			AC_MSG_RESULT(using RSAref)
+-			LIBS="$LIBS -lcrypto -lRSAglue -lrsaref"
+-		fi
+-	fi
+-fi
+-
+-
+ # Imported from OpenSSH 6.7p1's configure.ac
+ ## XXX make --without-openssl work
+ AC_DEFINE_UNQUOTED([WITH_OPENSSL], [1], [use libcrypto for cryptography])
+ 
+-# Extra OpenSSL stuff (stolen from OpenSSH 6.0p1's configure.ac)
+-## Sanity check OpenSSL headers
+-AC_MSG_CHECKING([whether OpenSSL's headers match the library])
+-AC_RUN_IFELSE([AC_LANG_SOURCE([[
+-#include <string.h>
+-#include <openssl/opensslv.h>
+-#include <openssl/crypto.h>
+-int main(void) { return(SSLeay() == OPENSSL_VERSION_NUMBER ? 0 : 1); }
+-	]])],[
+-		AC_MSG_RESULT(yes)
+-	],[
+-		AC_MSG_RESULT(no)
+-		AC_MSG_ERROR(Your OpenSSL headers do not match your library)
+-	
+-],[])
+-
+ # Check for OpenSSL with EVP_aes_*ctr
+ AC_MSG_CHECKING([whether OpenSSL has AES CTR via EVP])
+ AC_LINK_IFELSE(
