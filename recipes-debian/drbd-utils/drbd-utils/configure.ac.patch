@@ -1,0 +1,21 @@
+Index: drbd-utils-9.5.0/configure.ac
+
+https://github.com/LINBIT/drbd-utils/commit/57b4c503b596eb3123a5e629138b878e8206cc03
+> the build was broken because of C++ detection. 
+> If CXX was set the detection did not work.
+
+===================================================================
+--- drbd-utils-9.5.0.orig/configure.ac
++++ drbd-utils-9.5.0/configure.ac
+@@ -218,10 +218,7 @@ fi
+ if [[ $WITH_DRBDMON == "yes" ]] ; then
+    AC_PROG_CXX
+    AX_CXX_COMPILE_STDCXX_11(, optional)
+-   dnl RCK: c++ testing is "special", CXX might be guessed to g++ even if not installed
+-   dnl we have to check the undocumented "$ac_ct_CXX"
+-   dnl https://lists.gnu.org/archive/html/bug-autoconf/2010-05/msg00001.html
+-   if test -z "$ac_ct_CXX" -o "$HAVE_CXX11" = "0"; then
++   if test "$HAVE_CXX11" = "0"; then
+       AC_MSG_WARN([No C++11 compiler found, disabling drbdmon build.])
+       WITH_DRBDMON=no
+    fi
