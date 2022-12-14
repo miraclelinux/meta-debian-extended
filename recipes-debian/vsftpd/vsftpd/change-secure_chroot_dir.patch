@@ -1,0 +1,25 @@
+For the following patch, only the INSTALL file is changed in this patch 
+because some of the files are changed by debian patches.
+
+https://www.openembedded.org/pipermail/openembedded-devel/2013-September/092218.html
+Subject: [PATCH] vsftpd: change default value of secure_chroot_dir
+
+Change secure_chroot_dir pointing to a volatile directory.
+
+Index: vsftpd-3.0.3/INSTALL
+===================================================================
+@@ -27,11 +27,11 @@ user in case it does not already exist.
+ [root@localhost root]# useradd nobody
+ useradd: user nobody exists
+ 
+-2b) vsftpd needs the (empty) directory /usr/share/empty in the default
++2b) vsftpd needs the (empty) directory /var/run/vsftpd/empty in the default
+ configuration. Add this directory in case it does not already exist. e.g.:
+ 
+-[root@localhost root]# mkdir /usr/share/empty/
+-mkdir: cannot create directory `/usr/share/empty': File exists
++[root@localhost root]# mkdir /var/run/vsftpd/empty/
++mkdir: cannot create directory `/var/run/vsftpd/empty': File exists
+ 
+ 2c) For anonymous FTP, you will need the user "ftp" to exist, and have a
+ valid home directory (which is NOT owned or writable by the user "ftp").
