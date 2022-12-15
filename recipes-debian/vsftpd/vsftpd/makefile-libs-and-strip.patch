@@ -1,0 +1,32 @@
+Apply the following two meta-openembedded's patches after applying the debian patches.
+
+1. makefile-libs.patch
+From 328799d0cd5c523ad7a814fefec16d8a84aa8010 Mon Sep 17 00:00:00 2001
+From: Paul Eggleton <paul.eggleton@linux.intel.com>
+Date: Tue, 16 Apr 2013 10:53:55 +0000
+Subject: [PATCH] Hardcode LIBS instead of using a script to determine
+ available libs
+
+We want to avoid this dynamic detection so we have a deterministic
+build.
+
+2. makefile-strip.patch
+From 261874ea47973ea156141185082252fc92081906 Mon Sep 17 00:00:00 2001
+From: Paul Eggleton <paul.eggleton@linux.intel.com>
+Date: Tue, 16 Apr 2013 10:53:55 +0000
+Subject: [PATCH] Disable stripping at link time
+
+Upstream-Status: Inappropriate [config]
+
+Index: vsftpd-3.0.3/Makefile
+===================================================================
+@@ -8,8 +8,7 @@ IFLAGS  = -idirafter dummyinc
+ 	-D_FORTIFY_SOURCE=2 \
+ 	#-pedantic -Wconversion
+ 
+-LIBS	=	`./vsf_findlibs.sh`
+-LINK	=	-Wl,-s
++LIBS	=	-lssl -lcrypto -lnsl -lresolv
+ #LDFLAGS	=	-fPIE -pie -Wl,-z,relro -Wl,-z,now
+ 
+ OBJS	=	main.o utility.o prelogin.o ftpcmdio.o postlogin.o privsock.o \

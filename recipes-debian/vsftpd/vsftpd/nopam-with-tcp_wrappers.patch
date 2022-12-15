@@ -1,0 +1,20 @@
+Edited the following patch because the debian patch defines VSF_BUILD_TCPWRAPPERS and VSF_BUILD_SSL.
+
+From 71628ddc91b6efb9b922a3fcf8cc18522f5387be Mon Sep 17 00:00:00 2001
+From: "Roy.Li" <rongqing.li@windriver.com>
+Date: Mon, 20 Feb 2012 13:51:49 +0000
+Subject: [PATCH] Disable PAM
+
+Upstream-Status: Inappropriate [config]
+
+Index: vsftpd-3.0.3/builddefs.h
+===================================================================
+@@ -2,7 +2,7 @@
+ #define VSF_BUILDDEFS_H
+ 
+ #define VSF_BUILD_TCPWRAPPERS 1
+-#define VSF_BUILD_PAM
++#undef VSF_BUILD_PAM
+ #define VSF_BUILD_SSL
+ 
+ #endif /* VSF_BUILDDEFS_H */
