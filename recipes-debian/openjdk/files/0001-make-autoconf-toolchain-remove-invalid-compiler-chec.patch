@@ -23,17 +23,17 @@ Signed-off-by: Masami Ichikawa <masami.ichikawa@miraclelinux.com>
  1 file changed, 15 deletions(-)
 
 diff --git a/make/autoconf/toolchain.m4 b/make/autoconf/toolchain.m4
-index 0f03f93..dd8f323 100644
+index 85ff35e9a..c792e033a 100644
 --- a/make/autoconf/toolchain.m4
 +++ b/make/autoconf/toolchain.m4
-@@ -506,21 +506,6 @@ AC_DEFUN([TOOLCHAIN_FIND_COMPILER],
+@@ -508,21 +508,6 @@ AC_DEFUN([TOOLCHAIN_FIND_COMPILER],
    if test "x[$]$1" != x; then
      # User has supplied compiler name already, always let that override.
      AC_MSG_NOTICE([Will use user supplied compiler $1=[$]$1])
 -    if test "x`basename [$]$1`" = "x[$]$1"; then
 -      # A command without a complete path is provided, search $PATH.
 -
--      AC_PATH_PROGS(POTENTIAL_$1, [$]$1)
+-      UTIL_LOOKUP_PROGS(POTENTIAL_$1, [$]$1)
 -      if test "x$POTENTIAL_$1" != x; then
 -        $1=$POTENTIAL_$1
 -      else
