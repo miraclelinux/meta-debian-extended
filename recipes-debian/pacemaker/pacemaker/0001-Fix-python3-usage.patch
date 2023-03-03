@@ -1,0 +1,157 @@
+From fdefa9efc726fe704238d462a3dc207e0282fb9e Mon Sep 17 00:00:00 2001
+From: Jeremy Puhlman <jpuhlman@mvista.com>
+Date: Sun, 15 Mar 2020 21:09:33 +0000
+Subject: [PATCH] Fix python3 usage
+
+Signed-off-by: Jeremy Puhlman <jpuhlman@mvista.com>
+Upstream-Status: Pending
+---
+ cts/CTSlab.py.in                              | 2 +-
+ cts/OCFIPraTest.py.in                         | 2 +-
+ cts/cluster_test.in                           | 2 +-
+ cts/cts-exec.in                               | 2 +-
+ cts/cts-fencing.in                            | 2 +-
+ cts/cts-log-watcher.in                        | 2 +-
+ cts/environment.py                            | 2 +-
+ cts/fence_dummy.in                            | 2 +-
+ cts/pacemaker-cts-dummyd.in                   | 2 +-
+ daemons/fenced/fence_legacy.in                | 2 +-
+ doc/Pacemaker_Development/en-US/Ch-Python.txt | 2 +-
+ doc/Pacemaker_Development/pot/Ch-Python.pot   | 2 +-
+ tools/pcmk_simtimes.in                        | 2 +-
+ 14 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/cts/CTSlab.py.in b/cts/CTSlab.py.in
+index f4ae60dc1..55a0d4ecf 100644
+--- a/cts/CTSlab.py.in
++++ b/cts/CTSlab.py.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ """ Command-line interface to Pacemaker's Cluster Test Suite (CTS)
+ """
+ 
+diff --git a/cts/OCFIPraTest.py.in b/cts/OCFIPraTest.py.in
+index 81a5da8c0..bbadf938a 100644
+--- a/cts/OCFIPraTest.py.in
++++ b/cts/OCFIPraTest.py.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ 
+ '''OCF IPaddr/IPaddr2 Resource Agent Test'''
+ 
+diff --git a/cts/cluster_test.in b/cts/cluster_test.in
+index e0d28509d..f982be05a 100755
+--- a/cts/cluster_test.in
++++ b/cts/cluster_test.in
+@@ -171,4 +171,4 @@ printf "\nAll set to go for %d iterations!\n" "$CTS_numtests"
+     || echo "+ To use a different configuration, remove ~/.cts and re-run cts (or edit it manually)."
+ 
+ echo Now paste the following command into this shell:
+-echo "@PYTHON@ `dirname "$0"`/CTSlab.py -L \"$CTS_logfile\" --syslog-facility \"$CTS_logfacility\" --no-unsafe-tests --stack \"$CTS_stack\" $CTS_adv --at-boot \"$CTS_boot\" $cts_extra \"$CTS_numtests\" --nodes \"$CTS_node_list\""
++echo "/usr/bin/env python3 `dirname "$0"`/CTSlab.py -L \"$CTS_logfile\" --syslog-facility \"$CTS_logfacility\" --no-unsafe-tests --stack \"$CTS_stack\" $CTS_adv --at-boot \"$CTS_boot\" $cts_extra \"$CTS_numtests\" --nodes \"$CTS_node_list\""
+diff --git a/cts/cts-exec.in b/cts/cts-exec.in
+index 592d850b4..9a653a442 100644
+--- a/cts/cts-exec.in
++++ b/cts/cts-exec.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ """ Regression tests for Pacemaker's pacemaker-execd
+ """
+ 
+diff --git a/cts/cts-fencing.in b/cts/cts-fencing.in
+index 2d9999ca0..8e3fb7203 100644
+--- a/cts/cts-fencing.in
++++ b/cts/cts-fencing.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ """ Regression tests for Pacemaker's fencer
+ """
+ 
+diff --git a/cts/cts-log-watcher.in b/cts/cts-log-watcher.in
+index 28f4efe7f..b4ed5024f 100644
+--- a/cts/cts-log-watcher.in
++++ b/cts/cts-log-watcher.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ """ Remote log reader for Pacemaker's Cluster Test Suite (CTS)
+ 
+ Reads a specified number of lines from the supplied offset
+ 
+diff --git a/cts/environment.py b/cts/environment.py
+index db9d3db16..9d103fda9 100644
+--- a/cts/environment.py
++++ b/cts/environment.py
+@@ -639,7 +639,7 @@ class Environment(object):
+         print("\t [--yes | -y]                 continue to run cts when there is an interaction whether to continue running pacemaker-cts")
+         print("\t ")
+         print("\t Example: ")
+-        # @PYTHON@ would be better here but not worth making file this a .in
++        # /usr/bin/env python3 would be better here but not worth making file this a .in
+         print("\t    python sys.argv[0] -g virt1 -r --stonith ssh --schema pacemaker-2.0 500")
+ 
+         sys.exit(status)
+diff --git a/cts/fence_dummy.in b/cts/fence_dummy.in
+index a2692b1e0..f1d111205 100644
+--- a/cts/fence_dummy.in
++++ b/cts/fence_dummy.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ """Dummy fence agent for testing
+ """
+ 
+diff --git a/cts/pacemaker-cts-dummyd.in b/cts/pacemaker-cts-dummyd.in
+index bde98c5c9..c2e6d89f4 100644
+--- a/cts/pacemaker-cts-dummyd.in
++++ b/cts/pacemaker-cts-dummyd.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ """ Slow-starting idle daemon that notifies systemd when it starts
+ """
+ 
+diff --git a/daemons/fenced/fence_legacy.in b/daemons/fenced/fence_legacy.in
+index 7324757e3..136125322 100755
+--- a/daemons/fenced/fence_legacy.in
++++ b/daemons/fenced/fence_legacy.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python3
+ 
+ # Pacemaker targets compatibility with Python 2.7 and 3.2+
+ from __future__ import print_function, unicode_literals, absolute_import, division
+diff --git a/doc/Pacemaker_Development/en-US/Ch-Python.txt b/doc/Pacemaker_Development/en-US/Ch-Python.txt
+index 42d35b649..467e1c524 100644
+--- a/doc/Pacemaker_Development/en-US/Ch-Python.txt
++++ b/doc/Pacemaker_Development/en-US/Ch-Python.txt
+@@ -17,7 +17,7 @@ If a Python file is meant to be executed (as opposed to imported), it should
+ have a +.in+ extension, and its first line should be:
+ ====
+ ----
+-#!@PYTHON@
++#!/usr/bin/env python3
+ ----
+ ====
+ which will be replaced with the appropriate python executable when Pacemaker is
+diff --git a/doc/Pacemaker_Development/pot/Ch-Python.pot b/doc/Pacemaker_Development/pot/Ch-Python.pot
+index ed71331ce..27c7e22e5 100644
+--- a/doc/Pacemaker_Development/pot/Ch-Python.pot
++++ b/doc/Pacemaker_Development/pot/Ch-Python.pot
+@@ -39,7 +39,7 @@ msgstr ""
+ 
+ #. Tag: screen
+ #, no-c-format
+-msgid "#!@PYTHON@"
++msgid "#!/usr/bin/env python3"
+ msgstr ""
+ 
+ #. Tag: para
+ 
+-- 
+2.23.0
+
