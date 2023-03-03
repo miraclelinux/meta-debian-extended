@@ -1,0 +1,26 @@
+From 20aca585d2f3273adc36ed0d795716fa6b29524f Mon Sep 17 00:00:00 2001
+From: Bian Naimeng <biannm@cn.fujitsu.com>
+Date: Tue, 30 Jun 2015 16:42:48 +0800
+Subject: [PATCH] disable doc build
+
+Signed-off-by: Bian Naimeng <biannm@cn.fujitsu.com>
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 0f2e5dcf..65619424 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -39,7 +39,7 @@ RGMANAGER = with
+ endif
+ 
+ if BUILD_LINUX_HA
+-SUBDIRS	+= include heartbeat tools ldirectord doc systemd
++SUBDIRS	+= include heartbeat tools ldirectord systemd
+ LINUX_HA = without
+ else
+ LINUX_HA = with
+-- 
+2.23.0
+

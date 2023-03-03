@@ -1,0 +1,10 @@
+Index: kronosnet-1.8/configure.ac
+===================================================================
+@@ -224,6 +224,7 @@ if test "x$ac_cv_header_sys_epoll_h" = x
+ 	AC_MSG_ERROR([Both epoll and kevent available on this OS, please contact the maintainers to fix the code])
+ fi
+ 
++AS_UNSET([ac_cv_header_netinet_sctp_h])
+ if test "x$enable_libknet_sctp" = xyes; then
+ 	AC_CHECK_HEADERS([netinet/sctp.h],, [AC_MSG_ERROR(["missing required SCTP headers"])])
+ fi

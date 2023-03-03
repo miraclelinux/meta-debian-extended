@@ -1,0 +1,27 @@
+From 6a8ec0557194fb5071503de95f2160361ae3427e Mon Sep 17 00:00:00 2001
+From: Bian Naimeng <biannm@cn.fujitsu.com>
+Date: Tue, 1 Apr 2014 16:20:39 +0200
+Subject: [PATCH] fix header defs lookup
+
+Signed-off-by: Bian Naimeng <biannm@cn.fujitsu.com>
+
+---
+ configure.ac | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 066d126f..32a76169 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -160,9 +160,8 @@ extract_header_define() {
+ 	  Cfile=$srcdir/extract_define.$2.${$}
+ 	  printf "#include <stdio.h>\n" > ${Cfile}.c
+ 	  printf "#include <%s>\n" $1 >> ${Cfile}.c
+-	  printf "int main(int argc, char **argv) { printf(\"%%s\", %s); return 0; }\n" $2 >> ${Cfile}.c
+-	  $CC $CFLAGS ${Cfile}.c -o ${Cfile}
+-	  value=`${Cfile}`
++	  printf "\"%s\":%s\n" $2 $2 >> ${Cfile}.c
++	  value=`$CC $CFLAGS -E ${Cfile}.c | grep \"$2\" | cut -f 2 -d ':'`
+ 	  AC_MSG_RESULT($value)
+ 	  printf $value
+ 	  rm -f ${Cfile}.c ${Cfile}

@@ -1,0 +1,56 @@
+From 51b0df9242bb1e3eb41362381472a00727910f64 Mon Sep 17 00:00:00 2001
+From: Changqing Li <changqing.li@windriver.com>
+Date: Fri, 10 Aug 2018 15:08:31 +0800
+Subject: [PATCH] pacemaker: fix compile error of musl libc
+
+Upstream-Status: Pending
+
+Signed-off-by: Changqing Li <changqing.li@windriver.com>
+---
+ include/crm/stonith-ng.h | 1 +
+ lib/cib/cib_remote.c     | 3 ---
+ tools/crm_mon.c          | 2 +-
+ 3 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/include/crm/stonith-ng.h b/include/crm/stonith-ng.h
+index 56c1ec7..a637b47 100644
+--- a/include/crm/stonith-ng.h
++++ b/include/crm/stonith-ng.h
+@@ -28,6 +28,7 @@
+ #  include <dlfcn.h>
+ #  include <errno.h>
+ #  include <stdbool.h>
++#  include <time.h>
+ 
+ /* TO-DO: Work out how to drop this requirement */
+ #  include <libxml/tree.h>
+diff --git a/lib/cib/cib_remote.c b/lib/cib/cib_remote.c
+index 4d7b93b..8be8ecc 100644
+--- a/lib/cib/cib_remote.c
++++ b/lib/cib/cib_remote.c
+@@ -53,9 +53,6 @@ typedef void gnutls_session_t;
+ #endif
+ 
+ #include <arpa/inet.h>
+-#ifndef ON_BSD
+-#  include <sgtty.h>
+-#endif
+ 
+ #define DH_BITS 1024
+ 
+diff --git a/tools/crm_mon.c b/tools/crm_mon.c
+index 7c63803..1ae6c21 100644
+--- a/tools/crm_mon.c
++++ b/tools/crm_mon.c
+@@ -553,7 +553,7 @@ main(int argc, char **argv)
+ 
+ #if !defined (ON_DARWIN) && !defined (ON_BSD)
+     /* prevent zombies */
+-    signal(SIGCLD, SIG_IGN);
++    signal(SIGCHLD, SIG_IGN);
+ #endif
+ 
+     if (crm_ends_with_ext(argv[0], ".cgi") == TRUE) {
+-- 
+2.7.4
+
