@@ -1,0 +1,35 @@
+Fix glib cross compile
+
+Uses proper PKG_CONFIG_PATH when cross-compiling
+
+Upstream-Status: Pending
+
+Signed-of-by: Aws Ismail <aws.ismail@windriver.com>
+
+diff --git a/configure.ac b/configure.ac
+index b5f5aad..f5a5b74 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -113,15 +113,13 @@ else
+ *** GLIB is always available from ftp://ftp.gtk.org/.])
+ fi
+ 
+-exact_version=`$PKG_CONFIG --modversion $GLIB`;
+-GLIB_CFLAGS=`$PKG_CONFIG --cflags $GLIB`
+-GLIB_LIBS=`$PKG_CONFIG --libs $GLIB`
+-GLIB_ONLY_CFLAGS=`$PKG_CONFIG --cflags $GLIB`
+-GLIB_ONLY_LIBS=`$PKG_CONFIG --libs $GLIB`
+-GMODULE_ONLY_CFLAGS=`$PKG_CONFIG --cflags $GMODULE`
+-GMODULE_ONLY_LIBS=`$PKG_CONFIG --libs $GMODULE`
+-GTHREAD_CFLAGS=`$PKG_CONFIG --cflags $GTHREAD`
+-GTHREAD_LIBS=`$PKG_CONFIG --libs $GTHREAD`
++exact_version=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --modversion $GLIB`;
++GLIB_CFLAGS=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --cflags $GLIB $GTHREAD`
++GLIB_LIBS=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --libs $GLIB $GTHREAD`
++GLIB_ONLY_CFLAGS=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --cflags $GLIB`
++GLIB_ONLY_LIBS=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --libs $GLIB`
++GMODULE_ONLY_CFLAGS=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --cflags $GMODULE`
++GMODULE_ONLY_LIBS=`PKG_CONFIG_PATH=$PKG_CONFIG_PATH pkg-config --libs $GMODULE`
+ 
+ 
+ # On some versions of Solaris the pkg-config file for gthread-2.0 contains a
