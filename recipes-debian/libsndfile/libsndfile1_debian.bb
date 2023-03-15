@@ -41,3 +41,5 @@ do_configure_prepend_arm() {
 	export ac_cv_sys_file_offset_bits=64
 }
 
+# CVE-2018-13419: Upstream closed this bug because it is not reproducible and not test script was provided. https://github.com/libsndfile/libsndfile/issues/398
+CVE_CHECK_WHITELIST = "CVE-2018-13419"
