@@ -8,8 +8,9 @@ require ${COREBASE}/meta/recipes-graphics/xorg-lib/xorg-lib-common.inc
 SRC_URI = ""
 inherit debian-package
 require recipes-debian/sources/libxpm.inc
-DEBIAN_PATCH_TYPE = "nopatch"
+DEBIAN_PATCH_TYPE = "quilt"
 DEBIAN_UNPACK_DIR = "${WORKDIR}/${XORG_PN}-${PV}"
+EXTRA_OECONF += "--disable-open-zfile"
 
 # libxpm requires xgettext to build
 inherit gettext
