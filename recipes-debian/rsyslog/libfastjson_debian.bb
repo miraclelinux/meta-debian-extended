@@ -11,7 +11,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a958bb07122368f3e1d9b2efe07d231f"
 inherit debian-package
 require recipes-debian/sources/libfastjson.inc
 
-DEBIAN_QUILT_PATCHES = ""
 DEPENDS = ""
 
 SRC_URI += " file://0001-fix-jump-misses-init-gcc-8-warning.patch"
