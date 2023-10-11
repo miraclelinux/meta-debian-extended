@@ -68,6 +68,13 @@ do_install_append() {
 
     rm ${D}${libdir}/ocf/resource.d/redhat
     ln -sf ../../../share/cluster ${D}${libdir}/ocf/resource.d/redhat
+    # remove ldirectord-related files
+    rm ${D}${sbindir}/ldirectord
+    rm ${D}${libdir}/ocf/resource.d/heartbeat/ldirectord
+    rm ${D}${sysconfdir}/init.d/ldirectord
+    rm ${D}${sysconfdir}/ha.d/resource.d/ldirectord
+    rm ${D}${sysconfdir}/logrotate.d/ldirectord
+    rm ${D}${mandir}/man8/ldirectord.8
 }
 
 # tickle_tcp is published under GPLv3, we just split it into ${PN}-extra,
