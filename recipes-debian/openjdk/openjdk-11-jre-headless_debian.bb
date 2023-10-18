@@ -6,6 +6,7 @@ require recipes-debian/sources/openjdk-11.inc
 inherit autotools-brokensep pkgconfig
 
 DEBIAN_UNPACK_DIR = "${WORKDIR}/jdk11u-jdk-${@d.getVar('PV').replace('+', '-')}"
+DEBIAN_UNPACK_DIR = "${WORKDIR}/openjdk-11-${PV}"
 
 SRC_URI_append = " \
     file://0001-make-autoconf-toolchain-remove-invalid-compiler-chec.patch \
