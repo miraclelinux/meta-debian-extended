@@ -188,6 +188,10 @@ do_install_ptest () {
     cp -rf ${B}/binutils ${t}
 }
 
+python rm_sysvinit_initddir () {
+    pass
+}
+
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME = "apparmor"
 INITSCRIPT_PARAMS = "start 16 2 3 4 5 . stop 35 0 1 6 ."
