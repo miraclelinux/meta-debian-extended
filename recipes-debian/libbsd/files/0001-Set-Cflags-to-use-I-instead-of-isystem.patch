@@ -1,0 +1,26 @@
+From d67481d1f4ea9967e567a4a473435552e9cc449b Mon Sep 17 00:00:00 2001
+From: Yoshihiro Okada <yoshihiro.okada@miraclelinux.com>
+Date: Thu, 21 Dec 2023 15:12:41 +0900
+Subject: [PATCH] Set Cflags to use -I instead of -isystem
+
+https://www.openembedded.org/pipermail/openembedded-core/2017-January/131998.html
+
+pkg-config currently only handles -I and -L correctly, but misses
+-isystem, so we need to do this workaround to fix this issue.
+---
+ src/libbsd-overlay.pc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/libbsd-overlay.pc.in b/src/libbsd-overlay.pc.in
+index ac8bf89..5ec1107 100644
+--- a/src/libbsd-overlay.pc.in
++++ b/src/libbsd-overlay.pc.in
+@@ -8,4 +8,4 @@ Description: Utility functions from BSD systems (overlay)
+ Version: @VERSION@
+ URL: https://libbsd.freedesktop.org/
+ Libs: -L${libdir} -lbsd
+-Cflags: -isystem ${includedir}/bsd -DLIBBSD_OVERLAY
++Cflags: -I${includedir}/bsd -DLIBBSD_OVERLAY
+-- 
+2.25.1
+
