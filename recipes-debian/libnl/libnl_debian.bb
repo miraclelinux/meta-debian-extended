@@ -22,6 +22,8 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-support/libnl/libnl"
 SRC_URI += " \
            file://fix-pc-file.patch \
            file://0001-PATCH-fix-libnl-3.4.0-musl-compile-problem.patch \
+           file://enable-serial-tests.patch \
+           file://run-ptest \
 "
 
 UPSTREAM_CHECK_URI = "https://github.com/thom311/${BPN}/releases"
@@ -29,7 +31,7 @@ UPSTREAM_CHECK_URI = "https://github.com/thom311/${BPN}/releases"
 SRC_URI[md5sum] = "8f71910c03db363b41e2ea62057a4311"
 SRC_URI[sha256sum] = "b7287637ae71c6db6f89e1422c995f0407ff2fe50cecd61a312b6a9b0921f5bf"
 
-inherit autotools pkgconfig
+inherit autotools pkgconfig ptest
 
 FILES_${PN} = "${libdir}/libnl-3.so.* \
                ${libdir}/libnl.so.* \
@@ -54,3 +56,24 @@ FILES_${PN}-route = "${libdir}/libnl-route-3.so.*"
 FILES_${PN}-xfrm  = "${libdir}/libnl-xfrm-3.so.*"
 RREPLACES_${PN}-genl = "libnl-genl2"
 RCONFLICTS_${PN}-genl = "libnl-genl2"
+
+RDEPENDS_${PN}-ptest += "libcheck"
+DEPENDS += "${@bb.utils.contains('PTEST_ENABLED', '1', 'libcheck', '', d)}"
+
+# make sure the tests don't link against wrong so file
+EXTRA_OECONF += "${@bb.utils.contains('PTEST_ENABLED', '1', '--disable-rpath', '', d)}"
+
+do_compile_ptest() {
+    # hack to remove the call to `make runtest-TESTS`
+    sed -i 's/$(MAKE) $(AM_MAKEFLAGS) runtest-TESTS//g' Makefile
+    oe_runmake check
+}
+
+do_install_ptest(){
+    # legacy? tests are also installed, but ptest-runner will not run them
+    # upstream are not running these tests in their CI pipeline
+    # issue opened https://github.com/thom311/libnl/issues/270
+    install -m 0755 tests/.libs/* ${D}${PTEST_PATH}/
+}
+
+BBCLASSEXTEND = "native nativesdk"
