@@ -86,3 +86,5 @@ NOINST_TOOLS_BT ?= " \
     profiles/iap/iapd \
     ${@bb.utils.contains('PACKAGECONFIG', 'btpclient', 'tools/btpclient', '', d)} \
 "
+
+RDEPENDS_${PN}-ptest_append_libc-glibc = " glibc-gconv-utf-16"
