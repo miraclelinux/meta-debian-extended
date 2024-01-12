@@ -23,7 +23,6 @@ DUMMYPROVIDES_remove = "${@bb.utils.contains('IMAGE_INSTALL', 'coreutils', '\
 		coreutils \
 		coreutils-dev \
 		coreutils-src \
-		perl \
 		', '', d)}"
 
 DUMMYPROVIDES_remove = "${@bb.utils.contains('IMAGE_INSTALL', 'bash', '\
