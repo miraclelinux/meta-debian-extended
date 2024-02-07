@@ -23,6 +23,9 @@ SRC_URI += "\
 
 REQUIRED_DISTRO_FEATURES = "bluez5"
 
+# CVE-2020-24490: Fixed with kernel changes and don't affect the bluez recipe.
+CVE_CHECK_WHITELIST = "CVE-2020-24490"
+
 # noinst programs in Makefile.tools that are conditional on READLINE
 # support
 NOINST_TOOLS_READLINE ?= " \
