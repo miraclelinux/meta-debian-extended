@@ -9,6 +9,8 @@ LICENSE = "GPL-2.0-with-OpenSSL-exception & BSD-2-Clause & BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7aee596ed2deefe3e8a861e24292abba"
 DEPENDS = "lzo openssl iproute2 ${@bb.utils.contains('DISTRO_FEATURES', 'pam', 'libpam', '', d)}"
 
+CVE_PRODUCT = "openvpn:openvpn"
+
 inherit debian-package
 require recipes-debian/sources/openvpn.inc
 
