@@ -9,7 +9,7 @@ DEPENDS += "gettext-native libidn"
 
 # give higher priority to whois package than inetutils one.
 ALTERNATIVE_PRIORITY = "80"
-ALTERNATIVE_${PN} = "whois"
+ALTERNATIVE_${PN} = "whois mkpasswd"
 
 do_install() {
     oe_runmake "BASEDIR=${D}" install
