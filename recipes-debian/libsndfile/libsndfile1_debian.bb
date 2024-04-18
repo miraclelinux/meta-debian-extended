@@ -14,8 +14,6 @@ require recipes-debian/sources/libsndfile.inc
 DEBIAN_UNPACK_DIR = "${WORKDIR}/libsndfile-${PV}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/libsndfile:"
 
-SRC_URI += "file://CVE-2018-19432.patch"
-
 # alrady applied by Debian
 # file://CVE-2017-6892.patch
 # file://CVE-2017-8361-8365.patch
