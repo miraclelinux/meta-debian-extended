@@ -10,6 +10,8 @@ inherit debian-package
 require recipes-debian/sources/libjpeg-turbo.inc
 FILESPATH_append = ":${COREBASE}/meta/recipes-graphics/jpeg/files"
 
+SRC_URI += " file://CVE-2020-17541.patch"
+
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://cdjpeg.h;endline=13;md5=05bab7c7ad899d85bfba60da1a1271f2 \
                     file://jpeglib.h;endline=16;md5=f67d70e547a2662c079781c72f877f72 \
