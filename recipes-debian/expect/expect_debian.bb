@@ -29,6 +29,7 @@ FILESPATH_append = ":${COREBASE}/meta/recipes-devtools/expect/expect"
 SRC_URI += "file://0001-configure.in.patch \
             file://0002-tcl.m4.patch \
             file://0001-expect-install-scripts-without-using-the-fixline1-tc.patch \
+            file://0001-exp_main_sub.c-Use-PATH_MAX-for-path.patch \
            "
 
 UPSTREAM_CHECK_URI = "http://sourceforge.net/projects/expect/files/Expect/"
