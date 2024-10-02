@@ -25,7 +25,12 @@ SRC_URI += "\
 	file://0001-Work-around-thumbnailer-cross-compile-failure.patch \
 	file://0004-Do-not-run-tests-when-building.patch \
 "
-SRC_URI_append_class-target = "file://0003-target-only-Work-around-thumbnailer-cross-compile-fa.patch"
+SRC_URI_append_class-target = " \
+	file://0003-target-only-Work-around-thumbnailer-cross-compile-fa.patch \
+	file://0006-Build-thumbnailer-and-tests-also-in-cross-builds.patch \
+	file://missing-test-data.patch \
+	file://1000-tests-meson-build-Work-around-test-build-errors-in-c.patch \
+"
 SRC_URI_append_class-nativesdk = "file://0003-target-only-Work-around-thumbnailer-cross-compile-fa.patch"
 
 inherit meson pkgconfig gettext pixbufcache ptest-gnome upstream-version-is-even gobject-introspection gtk-doc lib_package

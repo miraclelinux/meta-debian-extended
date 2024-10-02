@@ -1,0 +1,3 @@
+#! /bin/sh
+
+gnome-desktop-testing-runner --timeout=1800 gdk-pixbuf
