@@ -1,0 +1,44 @@
+From b10383ac96a999877cba50084c66e7d112426b84 Mon Sep 17 00:00:00 2001
+From: Hirotaka Motai <hirotaka.motai@miraclelinux.com>
+Date: Wed, 2 Oct 2024 13:57:55 +0900
+Subject: [PATCH] tests/meson.build: Work around test build errors in cross-
+ compile builds.
+
+This is a workaround for the following build error.
+
+  tests/meson.build:11:0: ERROR:  Arrays do not have a method called 'full_path'.
+
+- Modified lines are used in native builds and are not used in cross
+  builds, so fixed that a build error does not cause.
+- This patch have to be only adapted for cross builds.
+
+Signed-off-by: Hirotaka Motai <hirotaka.motai@miraclelinux.com>
+---
+ tests/meson.build | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/meson.build b/tests/meson.build
+index 222f9b06953d..931434357c27 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -14,7 +14,7 @@ resources_c = custom_target('resources.c',
+   command: [
+     gen_resources,
+     '--pixdata=@0@'.format(pixdata_binary),
+-    '--loaders=@0@'.format(loaders_cache.full_path()),
++    '--loaders=@0@'.format(loaders_cache),
+     '--sourcedir=@0@'.format(meson.current_source_dir()),
+     '--source',
+     '@INPUT@',
+@@ -32,7 +32,7 @@ resources_h = custom_target('resources.h',
+   command: [
+     gen_resources,
+     '--pixdata=@0@'.format(pixdata_binary),
+-    '--loaders=@0@'.format(loaders_cache.full_path()),
++    '--loaders=@0@'.format(loaders_cache),
+     '--sourcedir=@0@'.format(meson.current_source_dir()),
+     '--header',
+     '@INPUT@',
+-- 
+2.43.0
+
