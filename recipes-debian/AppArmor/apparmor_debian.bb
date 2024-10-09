@@ -17,7 +17,17 @@ LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=fd57a4b0bc782d7b80fd431f10bbf9d0"
 
 DEPENDS = "bison-native apr gettext-native coreutils-native"
 
-inherit pkgconfig autotools-brokensep update-rc.d python3native perlnative ptest cpan manpages systemd debian-package
+inherit pkgconfig autotools-brokensep update-rc.d python3native perlnative cpan manpages systemd debian-package
+# FIXME:
+#   Building apparmor-ptest will fail regardless of TARGET_ARCH because Makefile
+#   for apparmor's tests does not support cross-compilation.
+#   Some targets are failed to build even though HOST_ARCH and TARGET_ARCH are
+#   the same.
+#   This recipe will not build and install for ptest if ARCH is aarch64 or arm,
+#   but 'inherit ptest' remains to apparmor-ptest package will be created that
+#   only contains the 'run-ptest' file.
+#   So, remove ptest from inherit because it is not a available quality.
+#inherit ptest
 
 SRC_URI += " \
         file://disable_perl_h_check.patch \
