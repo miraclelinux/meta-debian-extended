@@ -15,7 +15,6 @@ FILESEXTRAPATH_append = ":${COREBASE}/meta/recipes-multimedia/libtiff/files"
 
 SRC_URI += " \
            file://libtool2.patch \
-           file://CVE-2024-7006.patch \
 "
 # exclude betas
 UPSTREAM_CHECK_REGEX = "tiff-(?P<pver>\d+(\.\d+)+).tar"
