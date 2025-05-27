@@ -13,7 +13,7 @@ DEPENDS = "libnl openssl"
 BPN = "wpa"
 inherit debian-package
 require recipes-debian/sources/wpa.inc
-
+DEBIAN_UNPACK_DIR="${WORKDIR}/${BPN}-2.9"
 
 FILESPATH_append = ":${THISDIR}/${PN}:"
 SRC_URI += " \
