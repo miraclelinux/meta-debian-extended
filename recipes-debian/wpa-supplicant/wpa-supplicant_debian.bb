@@ -18,6 +18,7 @@ RRECOMMENDS_${PN} = "wpa-supplicant-passphrase wpa-supplicant-cli"
 BPN = "wpa"
 inherit debian-package
 require recipes-debian/sources/${BPN}.inc
+DEBIAN_UNPACK_DIR="${WORKDIR}/${BPN}-2.9"
 
 PACKAGECONFIG ??= "gnutls"
 PACKAGECONFIG[gnutls] = ",,gnutls libgcrypt"
