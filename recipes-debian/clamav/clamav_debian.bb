@@ -22,7 +22,7 @@ BINCONFIG = "${bindir}/clamav-config"
 inherit cmake chrpath pkgconfig useradd systemd multilib_header multilib_script
 inherit debian-package
 require recipes-debian/sources/clamav.inc
-DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}-${REPACK_PV}"
+DEBIAN_UNPACK_DIR = "${WORKDIR}/${BPN}-${PV}"
 
 SRC_URI += "file://clamd.conf \
            file://freshclam.conf \
