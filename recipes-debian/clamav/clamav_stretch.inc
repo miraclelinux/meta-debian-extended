@@ -1,0 +1,29 @@
+#
+# Copyright Cybertrust Japan Co., Ltd. 2025
+#
+# The ClamAV package for Debian 10 has been upgraded and the major
+# version has changed. To build the new ClamAV package needs to prepare
+# rust-toolchains and a newer cmake.
+#
+# This file enables to install the ClamAV package for Debian 9 which
+# has been already fixed the some CVEs, as a workaround.
+#
+
+DPV = "0.103.12+dfsg-0+deb9u1"
+DPV_EPOCH = ""
+REPACK_PV = "0.103.12+dfsg"
+PV = "0.103.12"
+
+DEBIAN_SRC_URI = " \
+    ${DEBIAN_ELTS_SECURITY_UPDATE_MIRROR}/main/c/clamav/clamav_0.103.12+dfsg-0+deb9u1.dsc;name=clamav_0.103.12+dfsg-0+deb9u1.dsc \
+    ${DEBIAN_ELTS_SECURITY_UPDATE_MIRROR}/main/c/clamav/clamav_0.103.12+dfsg.orig.tar.xz;name=clamav_0.103.12+dfsg.orig.tar.xz \
+    ${DEBIAN_ELTS_SECURITY_UPDATE_MIRROR}/main/c/clamav/clamav_0.103.12+dfsg-0+deb9u1.debian.tar.xz;name=clamav_0.103.12+dfsg-0+deb9u1.debian.tar.xz \
+"
+
+SRC_URI[clamav_0.103.12+dfsg-0+deb9u1.dsc.md5sum] = "94b12140e9d25dc007ca90a988c4fea9"
+SRC_URI[clamav_0.103.12+dfsg.orig.tar.xz.md5sum] = "75461fd265ef1646c62341bca283b6ec"
+SRC_URI[clamav_0.103.12+dfsg-0+deb9u1.debian.tar.xz.md5sum] = "2b46a06c03b7f8bd12f2342e95c67eef"
+
+SRC_URI[clamav_0.103.12+dfsg-0+deb9u1.dsc.sha256sum] = "e84e540a4bee83467b6b37a1a57f21a2baf4fa0f9a77f20d8365d1c650de8976"
+SRC_URI[clamav_0.103.12+dfsg.orig.tar.xz.sha256sum] = "71635e5c908b621362f4b7520f4a44c58839d1e0eaa50d3a0bfb761b543b6e34"
+SRC_URI[clamav_0.103.12+dfsg-0+deb9u1.debian.tar.xz.sha256sum] = "177fbff28fb334772b34fc75df59d6aa4712b5607b07c06830eea83507c442c6"
