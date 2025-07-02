@@ -1,0 +1,68 @@
+From 31ef8026795ebced095f2f3529951f46dc14f873 Mon Sep 17 00:00:00 2001
+From: Daisuke Yamane <daisuke.yamane@miraclelinux.com>
+Date: Tue, 1 Jul 2025 18:35:25 +0900
+Subject: [PATCH] test: Add support ptest
+
+Signed-off-by: Daisuke Yamane <daisuke.yamane@miraclelinux.com>
+---
+ source/test/cintltst/Makefile.in | 2 +-
+ source/test/intltest/Makefile.in | 2 +-
+ source/test/iotest/Makefile.in   | 2 +-
+ source/test/letest/Makefile.in   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/source/test/cintltst/Makefile.in b/source/test/cintltst/Makefile.in
+index 208fb78..79de054 100644
+--- a/source/test/cintltst/Makefile.in
++++ b/source/test/cintltst/Makefile.in
+@@ -36,7 +36,7 @@ BUILDDIR := $(BUILDDIR:TEST\\CINTLTST/../../=)
+ 
+ # we define ICU_UNICODE_VERSION so we can test it
+ CPPFLAGS += -I$(top_srcdir)/common -I$(top_srcdir)/i18n -I$(top_srcdir)/tools/ctestfw -I$(top_srcdir)/tools/toolutil
+-DEFS += -D'ICU_UNICODE_VERSION="$(UNICODE_VERSION)"' -D'ICU_VERSION="@VERSION@"' -D'ICUDATA_NAME="$(ICUDATA_PLATFORM_NAME)"' -D'U_TOPSRCDIR="$(top_srcdir)/"' -D'U_TOPBUILDDIR="$(BUILDDIR)"'
++DEFS += -D'ICU_UNICODE_VERSION="$(UNICODE_VERSION)"' -D'ICU_VERSION="@VERSION@"' -D'ICUDATA_NAME="$(ICUDATA_PLATFORM_NAME)"' -D'U_TOPSRCDIR="$(PTEST_PATH)/"' -D'U_TOPBUILDDIR="$(PTEST_PATH)/"'
+ LIBS = $(LIBCTESTFW) $(LIBICUI18N) $(LIBICUTOOLUTIL) $(LIBICUUC) $(DEFAULT_LIBS) $(LIB_M)
+ 
+ OBJECTS = callcoll.o calltest.o capitst.o cbiapts.o cbkittst.o \
+diff --git a/source/test/intltest/Makefile.in b/source/test/intltest/Makefile.in
+index ad47ad0..bc8000e 100644
+--- a/source/test/intltest/Makefile.in
++++ b/source/test/intltest/Makefile.in
+@@ -36,7 +36,7 @@ BUILDDIR := $(BUILDDIR:TEST\\INTLTEST/../../=)
+ 
+ CPPFLAGS += -I$(srcdir) -I$(top_srcdir)/common -I$(top_srcdir)/i18n -I$(top_srcdir)/tools/toolutil -I$(top_srcdir)/tools/ctestfw
+ CPPFLAGS += -DUNISTR_FROM_CHAR_EXPLICIT= -DUNISTR_FROM_STRING_EXPLICIT= -DUCHAR_TYPE=char16_t
+-DEFS += -D'U_TOPSRCDIR="$(top_srcdir)/"' -D'U_TOPBUILDDIR="$(BUILDDIR)"'
++DEFS += -D'U_TOPSRCDIR="$(PTEST_PATH)/"' -D'U_TOPBUILDDIR="$(PTEST_PATH)/"'
+ LIBS = $(LIBCTESTFW) $(LIBICUI18N) $(LIBICUUC) $(LIBICUTOOLUTIL) $(DEFAULT_LIBS) $(LIB_M) $(LIB_THREAD)
+ 
+ OBJECTS = aliastst.o allcoll.o apicoll.o astrotst.o callimts.o calregts.o caltest.o \
+diff --git a/source/test/iotest/Makefile.in b/source/test/iotest/Makefile.in
+index 9d2b94c..88bb1b1 100644
+--- a/source/test/iotest/Makefile.in
++++ b/source/test/iotest/Makefile.in
+@@ -36,7 +36,7 @@ BUILDDIR := $(BUILDDIR:TEST\\IOTEST/../../=)
+ 
+ CPPFLAGS += -I$(srcdir) -I$(top_srcdir)/common -I$(top_srcdir)/i18n -I$(top_srcdir)/tools/ctestfw -I$(top_srcdir)/io
+ CPPFLAGS += -DUNISTR_FROM_CHAR_EXPLICIT= -DUNISTR_FROM_STRING_EXPLICIT=
+-DEFS += -D'U_TOPSRCDIR="$(top_srcdir)/"' -D'U_TOPBUILDDIR="$(BUILDDIR)"'
++DEFS += -D'U_TOPSRCDIR="$(PTEST_PATH)/"' -D'U_TOPBUILDDIR="$(PTEST_PATH)/"'
+ LIBS = $(LIBCTESTFW) $(LIBICUTOOLUTIL) $(LIBICUIO) $(LIBICUI18N) $(LIBICUUC) $(DEFAULT_LIBS) $(LIB_M)
+ 
+ OBJECTS = iotest.o stream.o strtst.o filetst.o trnstst.o
+diff --git a/source/test/letest/Makefile.in b/source/test/letest/Makefile.in
+index 46802b9..d095705 100644
+--- a/source/test/letest/Makefile.in
++++ b/source/test/letest/Makefile.in
+@@ -31,7 +31,7 @@ BUILDDIR := $(BUILDDIR:test\\cintltst/../../=)
+ BUILDDIR := $(BUILDDIR:TEST\\CINTLTST/../../=)
+ 
+ CPPFLAGS += -I$(top_srcdir)/common -I$(top_srcdir)/i18n -I$(top_srcdir)/tools/ctestfw -I$(top_srcdir)/tools/toolutil -I$(top_srcdir)/layoutex $(ICULE_CFLAGS) $(ICULEHB_CFLAGS)
+-DEFS += -D'U_TOPSRCDIR="$(top_srcdir)/"' -D'U_TOPBUILDDIR="$(BUILDDIR)"'
++DEFS += -D'U_TOPSRCDIR="$(PTEST_PATH)/"' -D'U_TOPBUILDDIR="$(PTEST_PATH)/"'
+ LIBS = $(LIBICULX) $(LIBICUUC) $(LIBICUI18N) $(LIBCTESTFW) $(LIBICUTOOLUTIL) $(DEFAULT_LIBS) $(LIB_M) $(ICULEHB_LIBS)
+ 
+ COMMONOBJECTS = letsutil.o cmaps.o FontTableCache.o SimpleFontInstance.o PortableFontInstance.o
+-- 
+2.25.1
+

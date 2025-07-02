@@ -24,9 +24,30 @@ SRC_URI += " \
            file://icu-pkgdata-large-cmd.patch;patchdir=source \
            file://fix-install-manx.patch;patchdir=source \
            file://0002-Add-ARC-support.patch;patchdir=source \
+           file://0001-test-Add-support-ptest.patch \
+           file://run-ptest \
            "
 
 UPSTREAM_CHECK_REGEX = "(?P<pver>\d+(\.\d+)+)/"
 UPSTREAM_CHECK_URI = "http://download.icu-project.org/files/icu4c/"
 
 AUTOTOOLS_SCRIPT_PATH = "${S}/source"
+
+inherit ptest
+RDEPENDS_${PN}-ptest += "bash"
+
+do_compile_ptest() {
+    oe_runmake -C test everything PTEST_PATH=${PTEST_PATH}
+}
+
+do_install_ptest() {
+    install -d ${D}${PTEST_PATH}/test
+    install -d ${D}${PTEST_PATH}/data
+    cp -r ${S}/source/test/testdata ${D}/${PTEST_PATH}/test
+    cp -r ${S}/source/data/unidata ${D}/${PTEST_PATH}/data/
+    cp -r ${S}/source/data/sprep ${D}/${PTEST_PATH}/data/
+    cp -r ${B}/test/testdata/out ${D}/${PTEST_PATH}/test/testdata
+
+    install -d ${D}${PTEST_PATH}/test/tests
+    find ${B}/test/ -type f -executable -exec cp {} ${D}${PTEST_PATH}/test/tests \;
+}
