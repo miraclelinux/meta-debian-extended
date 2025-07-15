@@ -15,6 +15,7 @@ def icu_download_version(d):
     return pvsplit[0] + "_" + pvsplit[1]
 
 ICU_PV = "${@icu_download_version(d)}"
+PR = "r1"
 
 # http://errors.yoctoproject.org/Errors/Details/20486/
 ARM_INSTRUCTION_SET_armv4 = "arm"
