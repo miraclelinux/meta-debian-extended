@@ -11,5 +11,6 @@ inherit debian-package
 require recipes-debian/sources/python-certifi.inc
 
 DEBIAN_UNPACK_DIR = "${WORKDIR}/python-certifi-${PV}"
+CVE_PRODUCT="certifi:certifi"
 
 BBCLASSEXTEND = "native nativesdk"
