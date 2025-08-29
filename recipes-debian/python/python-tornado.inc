@@ -13,7 +13,7 @@ DEBIAN_UNPACK_DIR = "${WORKDIR}/tornado-${PV}"
 
 RDEPENDS_${PN} += "${PYTHON_PN}-compression ${PYTHON_PN}-numbers ${PYTHON_PN}-email \
                    ${PYTHON_PN}-pkgutil ${PYTHON_PN}-html ${PYTHON_PN}-json ${PYTHON_PN}-certifi ${PYTHON_PN}-threading \
-                   ${PYTHON_PN}-ctypes ${PYTHON_PN}-logging ${PYTHON_PN}-pickle ${PYTHON_PN}-fcntl"
+                   ${PYTHON_PN}-ctypes ${PYTHON_PN}-logging ${PYTHON_PN}-pickle ${PYTHON_PN}-fcntl ${PYTHON_PN}-future"
 
 RDEPENDS_${PN}-test += "${PN} ${PYTHON_PN}-unittest ${PYTHON_PN}-runpy ${PYTHON_PN}-doctest ${PYTHON_PN}-asyncio libgcc"
 
