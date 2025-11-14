@@ -23,9 +23,11 @@ RDEPENDS_${PN} = "\
   python3-html \
   python3-json \
   python3-netserver \
+  python3-pickle \
   python3-setuptools \
   python3-unixadmin \
   python3-xmlrpc \
 "
+RDEPENDS_${PN}_append_class-target = " python3-misc"
 
 BBCLASSEXTEND = "native nativesdk"
