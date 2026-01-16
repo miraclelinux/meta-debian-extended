@@ -65,3 +65,6 @@ DESCRIPTION_libturbojpeg = "A SIMD-accelerated JPEG codec which provides only Tu
 FILES_libturbojpeg = "${libdir}/libturbojpeg.so.*"
 
 BBCLASSEXTEND = "native"
+
+# CVE-2018-11813: This is not a security issue.
+CVE_CHECK_WHITELIST = "CVE-2018-11813"
