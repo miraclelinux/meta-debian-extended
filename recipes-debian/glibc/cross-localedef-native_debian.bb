@@ -54,3 +54,6 @@ do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 ${B}/localedef ${D}${bindir}/cross-localedef
 }
+
+# CVE-2019-9192: There is no security impact.
+CVE_CHECK_WHITELIST = "CVE-2019-9192"
