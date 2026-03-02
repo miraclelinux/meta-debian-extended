@@ -46,3 +46,7 @@ RCONFLICTS_${PN} = "${PN}-extension-dri \
                     ${PN}-extension-extmod \
                     ${PN}-extension-dbe \
                    "
+
+# CVE-2024-31082: This affects the XQuartz (libraries for macOS) ,
+#                 so this is false-positive for Linux.
+CVE_CHECK_WHITELIST = "CVE-2024-31082"
